@@ -1,0 +1,313 @@
+{
+	"CT1": {
+		"title": "CT1 - Schema & Notes",
+		"anchor": "PIT",
+		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of CT1",
+		"cards": [{
+				"link": "ct1/pit1/v19/formct1-v19-schema.xsd",
+				"description": "CT1 Schema v19",
+				"anchor": "CT1_Schema_v19",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2019",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v19/ct1v19notes.pdf",
+				"description": "CT1 Notes v19",
+				"anchor": "CT1_Notes_v19",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2019",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v18/formct1-v18-schema.xsd",
+				"description": "CT1 Schema v18",
+				"anchor": "CT1_Schema_v18",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2018",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v18/ct1v19notes.pdf",
+				"description": "CT1 Notes v18",
+				"anchor": "CT1_Notes_v18",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2018",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v17/formct1-v17-schema.xsd",
+				"description": "CT1 Schema v17",
+				"anchor": "CT1_Schema_v17",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2017",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v17/ct1v17notes.pdf",
+				"description": "CT1 Notes v17",
+				"anchor": "CT1_Notes_v17",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2017",
+				"dateLastUpdated": "04/04/2017",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v16/formct1-v16-schema.xsd",
+				"description": "CT1 Schema v16",
+				"anchor": "CT1_Schema_v16",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2016",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v16/ct1v16notes.pdf",
+				"description": "CT1 Notes v16",
+				"anchor": "CT1_Notes_v16",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2016",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v15/formct1-v15-schema.xsd",
+				"description": "CT1 Schema v15",
+				"anchor": "CT1_Schema_v15",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2015",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v15/ct1v15notes.pdf",
+				"description": "CT1 Notes v15",
+				"anchor": "CT1_Notes_v15",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2015",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v14/formct1-v14-schema.xsd",
+				"description": "CT1 Schema v14",
+				"anchor": "CT1_Schema_v14",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2014",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v14/ct1v14notes.pdf",
+				"description": "CT1 Notes v14",
+				"anchor": "CT1_Notes_v14",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2014",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v13/formct1-v13-schema.xsd",
+				"description": "CT1 Schema v13",
+				"anchor": "CT1_Schema_v13",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2013",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v13/ct1v13notes.pdf",
+				"description": "CT1 Notes v13",
+				"anchor": "CT1_Notes_v13",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2013",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v12/formct1-v12-schema.xsd",
+				"description": "CT1 Schema v12",
+				"anchor": "CT1_Schema_v12",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2012",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v12/ct1v12notes.pdf",
+				"description": "CT1 Notes v12",
+				"anchor": "CT1_Notes_v12",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2012",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v11/formct1-v11-schema.xsd",
+				"description": "CT1 Schema v11",
+				"anchor": "CT1_Schema_v11",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2011",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v11/ct1v11notes.pdf",
+				"description": "CT1 Notes v11",
+				"anchor": "CT1_Notes_v11",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2011",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v10/formct1-v10-schema.xsd",
+				"description": "CT1 Schema v10",
+				"anchor": "CT1_Schema_v10",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2010",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v10/ct1v10notes.pdf",
+				"description": "CT1 Notes v10",
+				"anchor": "CT1_Notes_v10",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2010",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v9/formct1-v9-schema.xsd",
+				"description": "CT1 Schema v9",
+				"anchor": "CT1_Schema_v9",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2009",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v9/ct1v9notes.pdf",
+				"description": "CT1 Notes v9",
+				"anchor": "CT1_Notes_v9",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2009",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v8/formct1-v8-schema.xsd",
+				"description": "CT1 Schema v8",
+				"anchor": "CT1_Schema_v8",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2008",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v8/ct1v8notes.pdf",
+				"description": "CT1 Notes v8",
+				"anchor": "CT1_Notes_v8",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2008",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v7/formct1-v7-schema.xsd",
+				"description": "CT1 Schema v7",
+				"anchor": "CT1_Schema_v7",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2007",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v7/ct1v7notes.pdf",
+				"description": "CT1 Notes v7",
+				"anchor": "CT1_Notes_v7",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2007",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v6/formct1-v6-schema.xsd",
+				"description": "CT1 Schema v6",
+				"anchor": "CT1_Schema_v6",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2006",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v6/ct1v6notes.pdf",
+				"description": "CT1 Notes v6",
+				"anchor": "CT1_Notes_v6",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2006",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v5/formct1-v5-schema.xsd",
+				"description": "CT1 Schema v5",
+				"anchor": "CT1_Schema_v5",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2005",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v5/ct1v5notes.pdf",
+				"description": "CT1 Notes v5",
+				"anchor": "CT1_Notes_v5",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2005",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v4/formct1-v4-schema.xsd",
+				"description": "CT1 Schema v4",
+				"anchor": "CT1_Schema_v4",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2004",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v4/ct1v4notes.pdf",
+				"description": "CT1 Notes v4",
+				"anchor": "CT1_Notes_v4",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2004",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v3/formct1-v3-schema.xsd",
+				"description": "CT1 Schema v3",
+				"anchor": "CT1_Schema_v3",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2003",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v3/ct1v3notes.pdf",
+				"description": "CT1 Notes v3",
+				"anchor": "CT1_Notes_v3",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2003",
+				"dateLastUpdated": "04/04/2020",
+				"category": "download"
+			}]
+	}
+}

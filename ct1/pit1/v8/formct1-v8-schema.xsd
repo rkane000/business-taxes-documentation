@@ -1,0 +1,2113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+===========================================================================================================
+
+24/10/2008 - Version of Schema 1.1 - Updates as follows - 
+1.
+/CapitalGains/ element
+
+	/Acquisitions element
+	[Addition]
+		+ @chargeableatlowernew
+
+2.
+/CapitalGainsOnLand/ element
+
+	/Acquisitions element
+	[Addition]
+		+ @netchargeablegainlatersecondperiodnew
+
+
+===========================================================================================================
+
+04/04/2008 - Version of Schema 1.0 - The following are the changes to the schema from the previous year:
+1.
+/Ct1
+	[Updated]
+		Changed formversion in the <Ct1> tag from 7 to 8.
+		
+===========================================================================================================
+2.
+/Company/ element
+
+	/BeneficialOwnership element
+	[Updated]
+		@holdingshares to "ros:positiveDec3"
+			
+	/Associates element
+	[Updated]
+		@shareholdershares to "ros:positiveDec3"
+
+===========================================================================================================
+3.
+/TradeIncome/ element
+
+	/TradingResults element
+	[Addition]
+		+ @stallionprofits
+		+ @greyhoundstudfees
+
+===========================================================================================================
+4.
+/InvestmentIncome/ element
+
+	/OtherIncome element
+	[Addition]
+		+ @stallionprofits
+		+ @greyhoundstudfees
+		+ @stallionlosses
+		+ @greyhoundlosses
+		
+	/Foreign element
+	[Addition]
+		+ @OFA
+		+ @otherforeigndividendincome
+		+ @otherforeignincome
+		
+	/DividenedWithholdingTax
+	[Addition]
+		+ @amtdiststallion
+		+ @dwtdeductedstallion
+		
+============================================================================================================	
+5.
+/CapitalGains/ element
+
+	/AssetsDisposed element
+	[Deletion]
+		- @sharesquoted
+		- @sharesunquoted
+	
+============================================================================================================
+6.
+/CapitalGainsOnLand/ element
+
+	/AssetsDisposed element
+	[Deletion]
+		- @sharesquoted
+		- @sharesunquoted
+		
+============================================================================================================
+7.
+/Surcharges/ element
+
+	/SurchargesSection440 element
+		+ @election
+
+============================================================================================================
+8.
+/PropertyIncentives/ element
+
+	/Residential
+	[Deletion]
+		- @resotherscheme
+		- @resotheramt
+		
+	/Industrial
+	[Deletion]
+		- @indprivatehospitalowner
+		- @indprivatehospitalinvestor
+		- @indpsychiatrichospitalowner
+		- @indpsychiatrichospitalinvestor
+		- @indpsychiatriccentreowner
+		- @indpsychiatriccentreinvestor
+		- @indsportsinjuryclinicowner
+		- @indsportsinjuryclinicinvestor
+		
+	[Addition]
+		+ @indcampingcaravanowner
+		+ @indcampingcaravaninvestor
+		
+============================================================================================================
+9.
+/SummaryCalculation/ element
+
+	/Assessments element
+	[Addition]
+		+ /ForeignDividendIncome element
+		+ /OtherForeignIncome element
+		
+	[Deletion]
+		- /ForeignIncome element
+
+	/Deductions element
+	[Addition]
+		+ @minOccurs="0" 
+		+ @maxOccurs="1"
+	
+	[Deletion]
+		- /ReliefQualifyingGifts element
+		
+	/TaxableIncome element
+	[Addition]
+		+ @minOccurs="0" 
+		+ @maxOccurs="1"
+		
+		+ /TonnageTaxProfits element
+		
+	/Reliefs element
+	[Addition]
+		+ @minOccurs="0" 
+		+ @maxOccurs="1"
+		
+	/Surcharges element
+	[Addition]
+		+ @minOccurs="0" 
+		+ @maxOccurs="1"
+
+	/Credits element
+	[Addition]
+		+ @minOccurs="0" 
+		+ @maxOccurs="1"
+		
+		+ /RAndDCredit element
+
+
+============================================================================================================
+-->
+<xsd:schema targetNamespace="http://www.ros.ie/schemas/ct1/v8/" xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ros.ie/schemas/ct1/v8/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="../../rostypes/schema.xsd"/>
+	<xsd:element name="Ct1">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Company"/>
+				<xsd:element ref="TradeIncome" minOccurs="0"/>
+				<xsd:element ref="RentalIncome" minOccurs="0"/>
+				<xsd:element ref="InvestmentIncome" minOccurs="0"/>
+				<xsd:element ref="CapitalGains" minOccurs="0"/>
+				<xsd:element ref="CapitalGainsOnLand" minOccurs="0"/>
+				<xsd:element ref="DeductionsReliefs" minOccurs="0"/>
+				<xsd:element ref="PropertyIncentives" minOccurs="0"/>
+				<xsd:element ref="Surcharges" minOccurs="0"/>
+				<xsd:element ref="LtdCpyLess250" minOccurs="0"/>
+				<xsd:element ref="AdjustLess250" minOccurs="0"/>
+				<xsd:element ref="AccountDetails" minOccurs="0"/>
+				<xsd:element ref="AccountNotes" minOccurs="0"/>
+				<xsd:element ref="CalculationSummary" minOccurs="0"/>
+				<xsd:element ref="DetailsOfDisposals" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="currency" type="ros:currency" use="required" fixed="E"/>
+			<xsd:attribute name="formversion" type="xsd:string" use="required" fixed="8"/>
+			<xsd:attribute name="language" type="ros:language" use="required"/>
+			<xsd:attribute name="product" type="ros:alpha20" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Company">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CompanyDetails">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+referencenumber - The Company Reference Number. Must be a valid revenue reference number	
+companyname - The name of the company.						
+OA1 -The starting date for the accounting period, which is covered by the return.  Must be before the date on which the return is being filed. Must be before the end date of the accounting period for which the return is being filed.
+OA2 - The end date for the accounting period, which is covered by the return. Must be before the date on which the return is being filed. Must be no more  than 12 months after starting date for which the return is being filed.  Must be after the starting date for which the return is being filed.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="referencenumber" type="ros:registration" use="required"/>
+						<xsd:attribute name="companyname" type="ros:alpha40" use="required"/>
+						<xsd:attribute name="OA1" type="ros:date" use="required"/>
+						<xsd:attribute name="OA2" type="ros:date" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Indicate" minOccurs="0">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation> 
+companychanges - Indicator of whether the company has changed its nature of trade, business address or registered office address.
+tradenature (Nature of Trade, Business or Activity).
+businessaddress1, businessaddress2, businessaddress3, businessaddress4 (New Business Address of company).
+regofficeaddress1, regofficeaddress2, regofficeaddress3, regofficeaddress4 (New Registered Office of company).
+periodchanged - Indicator of whether the accounting period has changed since the last accounting period.
+closecompany - Indicator of whether the company in question is a close company.
+groupmember - Indicator of whether the return is being filed for a company that is a member of a group.
+branch - Indicator of whether the return is being filed for a company that is trading through a branch or agency. 
+companyassociates - Indicator of whether the company has associated companies. 
+parentname (The name of the parent company) 
+parentnumber (The Parent Company Reference Number)  
+parentcountry (The country in which the parent company is registered) 
+OA4 - The number of associated companies in the company. Required if companyassociates is true.
+directorOA2, amtofloanrepaid, amtofrefunddue - Required if repairpriorloan is true.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="companychanges" type="ros:boolean" default="false"/>
+						<xsd:attribute name="tradenature" type="ros:alpha30" use="optional"/>
+						<xsd:attribute name="businessaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="businessaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="businessaddress3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="businessaddress4" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="regofficeaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="regofficeaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="regofficeaddress3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="regofficeaddress4" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="periodchanged" type="ros:boolean" default="false"/>
+						<xsd:attribute name="closecompany" type="ros:boolean" default="false"/>
+						<xsd:attribute name="groupmember" type="ros:boolean" default="false"/>
+						<xsd:attribute name="branch" type="ros:boolean" default="false"/>
+						<xsd:attribute name="parentname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="parentnumber" type="ros:alpha20" use="optional"/>
+						<xsd:attribute name="parentcountry" type="ros:alpha25" use="optional"/>
+						<xsd:attribute name="companyassociates" type="ros:boolean" default="false"/>
+						<xsd:attribute name="OA4" type="ros:positive2" use="optional"/>
+						<xsd:attribute name="repairpriorloan" type="ros:boolean" default="false"/>
+						<xsd:attribute name="directorOA2" type="ros:date" use="optional"/>
+						<xsd:attribute name="amtofloanrepaid" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="amtofrefunddue" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="claimrelief" type="ros:positive8" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="GroupReliefSurrenderLosses" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+Group relief surrender of losses. 
+companyname - The Surrendering of losses Companys name. Relevant only if groupmember. 
+referencenumber - The Surrendering of losses Company Reference Number. Relevant only if groupmember is true.
+natureofrelief - The Nature of the relief for the surrendering losses.  Relevant only if groupmember is true.
+surrenderamt - The Amounts of Loss Surrendered relating to the company.  Relevant only if groupmember is true.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="companyname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="referencenumber" type="ros:alpha20" use="optional"/>
+						<xsd:attribute name="natureofrelief" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="surrenderamt" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="GroupReliefClaimLosses" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+Group relief claim losses. 
+claimlosscompanyname - Name of company to which loss is claimed. Relevant only if groupmember. 
+claimlossrefno - Reference Number of company to which loss is claimed. Relevant only if groupmember is true.
+claimlossreliefnature - The Nature of the relief for the losses claimed.  Relevant only if groupmember is true.
+amtclaimed - The Amount Claimed  Relevant only if groupmember is true.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="claimlosscompanyname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="claimlossrefno" type="ros:alpha20" use="optional"/>
+						<xsd:attribute name="claimlossreliefnature" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="amtclaimed" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="IrishSubsidiaries" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+Company Subsidiaries. 
+subsidiaryrefno - The Subsidiary Company's Reference Number. Relevant only if groupmember is true.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="subsidiaryrefno" type="ros:alpha20" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ForeignSubsidiaries" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+Company Subsidiaries. 
+subsidiaryname - The Subsidiary Company's name. Relevant only if groupmember. 
+subsidiarycountry - The Subsidiary Company's Country of Residence. Relevant only if groupmember is true.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="subsidiaryname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="subsidiarycountry" type="ros:alpha25" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Associates" minOccurs="0" maxOccurs="500">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+Associate Companies. 
+associatename - The Associate Companys name. Relevant only if companyassociates is true. 
+associaterefno - The Associate Company's Reference Number. Relevant only if companyassociates is true.
+shareholdername - The Associate Company's Shareholder's Name. Relevant only if companyassociates is true. 
+shareholdertaxreferenceno - The Associate Company's Shareholder's PPSN. Relevant only if companyassociates is true. 
+shareholdershares - The percentage shares the shareholder owns.  Relevant only if companyassociates is true. 
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="associatename" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="associaterefno" type="ros:registration" use="optional"/>
+						<xsd:attribute name="shareholdername" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="shareholdertaxreferenceno" type="ros:registration" use="optional"/>
+						<xsd:attribute name="shareholdershares" type="ros:positiveDec3" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="BeneficialOwnership" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+Details of the beneficial ownership of the issued shares and loan stock (including debentures) during the accounting period							
+ppsn -The PPSN of the Shareholder. Relevant only if closecompany is true.
+subsidiaryname -The Name of the Shareholder. Relevant only if closecompany is true.
+address -The address of the Shareholder. Relevant only if closecompany is true.
+holdingshares - Holding of %shares etc. Relevant only if closecompany is true.
+loanstock - Loan Stock etc. Relevant only if closecompany is true.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="ppsn" type="ros:registration" use="optional"/>
+						<xsd:attribute name="subsidiaryname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="address" type="ros:alpha140" use="optional"/>
+						<xsd:attribute name="holdingshares" type="ros:positiveDec3" use="optional"/>
+						<xsd:attribute name="loanstock" type="ros:rate" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Participators" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+ppsn-The PPSN of the person who was a participator in the Company at any time during the accounting period. Relevant only if closecompany is true.
+participatorname-The Name of the person who was a participator in the Company at any time during the accounting period. Relevant only if closecompany is true.
+participatoraddress-The Address of the person who was a participator in the Company at any time during the accounting period. Relevant only if closecompany is true.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="ppsn" type="ros:registration" use="optional"/>
+						<xsd:attribute name="participatorname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="participatoraddress" type="ros:alpha140" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ExpressionOfDoubt">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+expofdoubt - Indicator of whether the filer wishes to express any doubt about the details entered on the return.
+expofdoubtdetails - Relevant only if expofdoubt is true
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="expofdoubt" type="ros:boolean" default="false"/>
+						<xsd:attribute name="expofdoubtdetails" type="ros:alpha500" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AdditionalNotes">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+addnotes- Indicator of whether the filer wishes to add additional comments to the form
+details- The additional notes content. Relevant only if addnotes is true
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="addnotes" type="ros:boolean" default="false"/>
+						<xsd:attribute name="details" type="ros:alpha500" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="RemunerationDetails" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+ppsn-The PPSN of the director whose remuneration details are being recorded.
+directorsname - The name of the director whoses renumneration details are being recorded.
+salary- The amount of Salary, fees or remuneration relating the director whose details are being recorded.
+expenses - Expenses payments made to the Director.
+otherexpenses - Amounts paid to other persons to defray expenses incurred
+assetsdirectorstrans - Value of Assets transferred to Director
+assetsdirectorprov - Value of Assets provided for Director's use
+otherbenefits - Other expenses or benefits relating to the director whose details are being recorded.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="ppsn" type="ros:alpha20" use="optional"/>
+						<xsd:attribute name="directorsname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="salary" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="expenses" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="otherexpenses" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="assetsdirectorstrans" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="assetsdirectorprov" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="otherbenefits" type="ros:positive8" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="CurrentLoanAccounts" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+Current and Loan Accounts of Directors and Participators
+name - Name of Director or Participator.
+ppsnumber - The PPSN of the director or participator.
+debitopeningbal - Opening Balance - Debit.
+credittopeningbal - Opening Balance - Credit.
+debitsadvances - Debits/Advances.
+creditsrepay - Credits, Repayments.
+debitclosingbal - Closing Balance - Debit.
+creditclosingbal - Closing Balance - Credit.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="name" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="ppsnumber" type="ros:alpha20" use="optional"/>
+						<xsd:attribute name="debitopeningbal" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="credittopeningbal" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="debitsadvances" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="creditsrepay" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="debitclosingbal" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="creditclosingbal" type="ros:positive8" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AgentInfo" minOccurs="0">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+agenttain - The Agents TAIN
+agentreferenceno - The Agents reference number for the client or the Agents phone number 
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="agenttain" type="ros:registration" use="optional"/>
+						<xsd:attribute name="agentreferenceno" type="ros:alpha30" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TradeIncome">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ManufacturingTradingResults" minOccurs="0">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+OM1 - Profits per accounts as adjusted (after Capital Allowances). 
+OM2 - Any balancing charges paid on manufacturing trading results.
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="OM1" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OM2" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ManufacturingCapitalAllowances" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OM7 - Capital allowances on trading income relating to plant and machinery.
+OM8 - Capital allowances on trading income relating to industrial buildings.
+OM9 - Other capital allowances on trading income.
+manufacturingpropertyincentive - Indicates whether Capital Allowances include Property Incenitves.  If true Property Incentives section is included
+The total Capital Allowances (OM7 + OM8 + OS3) cannot exceed 1269738078
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OM7" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OM8" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OM9" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="manufacturingpropertyincentive" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ManufacturingTradingLosses" minOccurs="0">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+OM3 - Manufacturing Trading Losses incurred in previous trading periods, which is claimed under Section 396(1) TCA 1997 
+OM4 - Manufacturing Losses appropriate to this trade.
+OM5 - Manufacturing Charges - other than those on excepted trades.
+OM6 - Manufacturing Group Relief. Allowed only if groupmember is true in CompanyDetails/Indicate
+OM4, OM5, OM6 -Allowed only if OA4 > 0
+ManUITFChanges - Indicator to check if there has been a change this accounting period to the valuation of work-in-progress as a result of the application of UITF Abstract 40, 
+which gave rise to an uplift in value and that one fifth of the uplift in the trading profit is included, and will account for the remaining value over the next four accounting periodss
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="OM3" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OM4" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OM5" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OM6" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="ManUITFChanges" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TradingResults" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OD1 - Profits per accounts as adjusted (after Capital Allowances). Required if any other fields are filled for non-manufacturing trade income. Where losses occur enter 0.
+stallionprofits - Stallion profits from trade of farming.
+greyhoundstudfees - Profits refering to Greyhound Stud fees.
+OB1 - Any balancing charges paid on trading results.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OD1" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="stallionprofits" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="greyhoundstudfees" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OB1" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="NonManufacturingCapitalAllowances" minOccurs="0">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+OS1 - Capital allowances on trading income relating to plant and machinery.
+OS2 - Capital allowances on trading income relating to industrial buildings.
+OS3 - Other capital allowances on trading income.
+nonmanufacturingpropertyincentive - Indicates whether Capital Allowances include Property Incenitves.  If true Property Incentives section is included
+The total Capital Allowances (OS1 + OS2 + OS3) cannot exceed 1269738078
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="OS1" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OS2" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OS3" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="nonmanufacturingpropertyincentive" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TradingLosses" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OS6 - Trading Losses incurred in previous trading periods, which is claimed under Section 396(1) TCA 1997.
+OH1 - Losses appropriate to this trade. Allowed only if OA4 > 0.
+OH6 - Charges - other than those on excepted trades. Allowed only if OA4 > 0.
+OH7 - Group Relief. Allowed only if groupmember in CompanyDetails is true
+NonManUITFChanges - Indicator to check if there has been a change this accounting period to the valuation of work-in-progress as a result of the application of UITF Abstract 40, 
+which gave rise to an uplift in value and that one fifth of the uplift in the trading profit is included, and will account for the remaining value over the next four accounting periodss
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OS6" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OH1" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OH6" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OH7" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="NonManUITFChanges" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ExceptedTrade" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OD2 - Profits from excepted trade net after losses, charges, capital allowances, balancing charges and group relief.	
+ExcepTradUITFChanges - Indicator to check if there has been a change this accounting period to the valuation of work-in-progress as a result of the application of UITF Abstract 40, 
+which gave rise to an uplift in value and that one fifth of the uplift in the trading profit is included, and will account for the remaining value over the next four accounting periodss				
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OD2" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="ExcepTradUITFChanges" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ShippingIncome" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+qualactivities - Indicator whether there are any qualifying shipping activities.
+OD7 - Income from Shipping activities.
+OBO - Balancing charges relating to shipping income.					
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="qualactivities" type="ros:boolean" default="false"/>
+						<xsd:attribute name="OD7" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OBO" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ShipCapitalAllowances" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OSA - Specified capital allowances on shipping activities.
+OSB - Capital allowances on machinery and plant relating to shipping activities.
+OSC - Capital allowances on industrial buildings relating to shipping activities.
+OSD - Other capital allowances relating to shipping activities.
+The total Capital Allowances (OSA + OSB + OSC + OSD) cannot exceed 1269738078					
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OSA" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OSB" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OSC" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OSD" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ShipTradingLosses" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OSE - Trading losses on shipping activities.
+OHB - Charges on shipping activities.
+OHC - Group relief on shipping activities. Allowed only if groupmember in CompanyDetails is true
+UnallowedExpenditure - Indicator of whether or not the filer is making an election under section 284(2)(AB)TCA 1997 in respect of unallowed expenditure at 13/12/2001.				
+ShipIncomeUITFChanges - Indicator to check if there has been a change this accounting period to the valuation of work-in-progress as a result of the application of UITF Abstract 40, 
+which gave rise to an uplift in value and that one fifth of the uplift in the trading profit is included, and will account for the remaining value over the next four accounting periodss				
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OSE" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OHB" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OHC" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="UnallowedExpenditure" type="ros:boolean" default="false"/>
+						<xsd:attribute name="ShipIncomeUITFChanges" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TonnageTax" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+tonnagetaxelected - Indicator of whether or not there is any Tonnage tax elected under Section 697D TCA 1997
+OE7 - Tonnage Tax profits. 	Relevant only if  tonnagetaxelected is true.
+chartered75intonnage - Indicator of whether a single company met the 75% limit on chartered-in tonnage. Relevant only if  tonnagetaxelected is true.
+tonnagetaxgroupelect - Indicator of whether a group of companies was party to a tonnage Tax Group election. Relevant only if  tonnagetaxelected is true.
+groupname - Name of Group of companies. Relevant only if  tonnagetaxelected is true.
+namerepcompany - Name of representative company.  Relevant only if  tonnagetaxelected is true.
+referencenumber - Reference Number. Relevant only if  tonnagetaxelected is true.
+tonnagedatestart - Accounting period start date. Relevant only if  tonnagetaxelected is true.
+tonnagedateend - Accounting period end date. Relevant only if  tonnagetaxelected is true.
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="tonnagetaxelected" type="ros:boolean" default="false"/>
+						<xsd:attribute name="OE7" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="chartered75intonnage" type="ros:boolean" default="false"/>
+						<xsd:attribute name="tonnagetaxgroupelect" type="ros:boolean" default="false"/>
+						<xsd:attribute name="groupname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="namerepcompany" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="referencenumber" type="ros:registration" use="optional"/>
+						<xsd:attribute name="tonnagedatestart" type="ros:date" use="optional"/>
+						<xsd:attribute name="tonnagedateend" type="ros:date" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TonnageTaxProfitDetails" minOccurs="0" maxOccurs="100">
+					<xsd:annotation>
+						<xsd:documentation>
+imonumber - IMO Number. Relevant only if tonnagetaxelected is true.
+nameofship - Name of Ship. 	Relevant only if tonnagetaxelected is true.
+interestinship - Type of interest in Ship.  Must be either 'O', 'C' or 'G.  O = Owned of bareboat chartered in; C = Chartered in other than on 
+bareboat items; G = Chartered from another member of the same tonage tax group. Relevant only if  tonnagetaxelected is true.
+nettonnage - Net Tonnage.  Relevant only if  tonnagetaxelected is true.
+numberdays - Number of days operated.  Relevant only if  tonnagetaxelected is true.
+tonnageprofit - Tonnage Tax Profits.  The total of all the Tonnage Profits = OE7. Relevant only if  tonnagetaxelected is true.
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="imonumber" type="ros:positive7" use="optional"/>
+						<xsd:attribute name="nameofship" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="interestinship" type="ros:alpha5" use="optional"/>
+						<xsd:attribute name="nettonnage" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="numberdays" type="ros:positive5" use="optional"/>
+						<xsd:attribute name="tonnageprofit" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ShortLeaseAssets" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+taxationShortLeaseAssets- Indicator of whether or not the filer is making an election under Section 80A TCA 1997 for taxation of Short Lease Assets									
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="taxationshortleaseassets" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ApprovedDonations" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+donationsportsbodies - Donation has been made to Approved Sports Bodies.
+donationcharitiesotherbodies - Donation has been made to Charities and Other Approved Bodies.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="donationsportsbodies" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="donationcharitiesotherbodies" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RentalIncome">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="LandAndProperty" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>	
+rentedresidentialpremises - Indicator to show rented residential premises have met with registration requirements.						 
+OD5 - Net Rent received.
+unusedlosses - Unused losses from a prior year.
+OB2 - Balancing Charges .
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="rentedresidentialpremises" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="unusedlosses" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="OD5" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="OB2" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="CapitalAllowances" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>	
+capallowpropertyincentive - Indicates whether Rental Income include Property Incenitves.  If true Property Incentives section is included
+ringfencedprior - Capital Allowances which are allowable against Rental Income only (include Capital Allowances forward).
+other - Other Capital Allowances (To which Part 10 TCA 1997 applies but excluding those ringfenced by Sections 352 and 353 of that part).
+OJ4 - Total Capital Allowances - Sum of prior year + ringfenced
+offsetexcesscapallow - Indicator of whether the filer wishes to offset excess capital allowances against other income from this accounting period.
+offsetexcesscapitalallowamount - Amount of excess Capital Allowances. If offsetexcesscapitalallow is true, should enter a value in this field. 
+groupexcesscapitalallow - Amount of Group excess Capital Allowances.  Only allowed if groupmember in CompanyDetails/Indicate is true
+OH3 - Total Excess capital allowances OH3 figure is sum of offsetexcesscapitalallowamount + groupexcesscapitalallow
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="capallowpropertyincentive" type="ros:boolean" default="false"/>
+						<xsd:attribute name="ringfencedprior" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="other" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="OJ4" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="offsetexcesscapallow" type="ros:boolean" default="false"/>
+						<xsd:attribute name="offsetexcesscapitalallowamount" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="groupexcesscapitalallow" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="OH3" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="InvestmentIncome">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="InterestInState" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OD3 - Gross interest received or credited (without deduction of Irish Tax).
+OD6 - Gross interest received or credited (under deduction of Irish Tax).
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OD3" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OD6" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OtherIncome" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OD8 - Other Income received under deduction of Irish Tax.
+OD4 - Other Income received without deduction of Irish Tax.
+stallionprofits - Amount of Income of Other Income received without deduction of Irish Tax that refers to non-farmingtrade Stallion fees.
+greyhoundstudfees - Amount of Income of Other Income received without deduction of Irish Tax that refers to Greyhound Stud Fees.
+stallionlosses - Amount of Losses for carry forward against future non-farming trade Stallion profits.
+greyhoundlosses - Amount of Losses for carry forward against future Greyhound Stud Fees.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OD8" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OD4" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="stallionprofits" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="greyhoundstudfees" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="stallionlosses" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="greyhoundlosses" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Foreign" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OFA - Foreign Dividend Income before deduction of Irish tax* [Standard Rate 12.5%] for which a claim under Sec. 21B TCA 1997 is being made
+otherforeigndividendincome - Other Foreign Dividend Income before deduction of Irish tax* [Higher Rate 25%]
+otherforeignincome - Other Foreign Income before deduction of Irish tax* [Higher Rate 25%]
+OF5 - Sum of otherforeigndividendincome and otherforeignincome
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OFA" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="otherforeigndividendincome" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="otherforeignincome" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OF5" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ForeignLifeOffshore" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+foreignlife - Indicator of whether Foreign Life Policies (Part 26 ch 6 TCA 1997) applies- a policy was issued in the accounting period ending in the year 2004 from any Member State of the EU, EEA or from a Member State of the OECD with which Ireland has a double taxation agreement.
+offshore - Indicator of whether Offshore Funds (Part 27 ch 4 TCA 1997) applies - Any material interest in offshore fund(s) in the EU, EEA or in a Member State of the OECD with which Ireland has a double taxation agreement. 
+offshoreproducts - Indicator of whether Other Offshore Products applies - Details for each material interest in offshore products acquired in the accounting period ending in the year 2004 outside the EU or EEA or outside any Member State of the OECD with which Ireland has a double taxation agreement. 
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="foreignlife" type="ros:boolean" default="false"/>
+						<xsd:attribute name="offshore" type="ros:boolean" default="false"/>
+						<xsd:attribute name="offshoreproducts" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ForeignLifePolicyDetails" minOccurs="0" maxOccurs="10">
+					<xsd:annotation>
+						<xsd:documentation>
+commencename - Name of person who commenced the foreign life policy. Relevant only if foreignlife is true.
+commenceaddress1 - Address line 1 of person who commenced the foreign life policy. Relevant only if foreignlife is true.
+commenceaddress2 - Address line 2 of person who commenced the foreign life policy. Relevant only if foreignlife is true.
+commenceaddress3 - Address line 3 of person who commenced the foreign life policy. Relevant only if foreignlife is true.
+policyterms - Terms of policy.  Relevant only if foreignlife is true.
+annualpremiums - Annual premiums payable. Relevant only if foreignlife is true
+acquiredname - Name of the person through whom the foreign life policy was acquired. Relevant only if foreignlife is true
+acquiredaddress1 - Address line 1 of the person through whom the foreign life policy was acquired. Relevant only if foreignlife is true
+acquiredaddress2 - Address line 2 of the person through whom the foreign life policy was acquired. Relevant only if foreignlife is true
+acquiredaddress3 - Address line 3 of the person through whom the foreign life policy was acquired. Relevant only if foreignlife is true
+OF3 -Payment taxable as Case 111 Sch. D (Section 730j(b) TCA 1997)  Where the payment is not taken into account as a receipt of a trade carried on by the company. Relevant only if foreignlife is true
+OF4 - Gain taxable as Case 1V Sch. D (Section 730k(1) TCA 1997). Relevant only if foreignlife is true
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="commencename" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="commenceaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="commenceaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="commenceaddress3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="policyterms" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="annualpremiums" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="acquiredname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="acquiredaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="acquiredaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="acquiredaddress3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="OF3" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OF4" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OffShoreFundDetails" minOccurs="0" maxOccurs="10">
+					<xsd:annotation>
+						<xsd:documentation>
+offshorename - Name of offshore fund(s). Relevant only if offshore is true
+offshoreaddress1 - Address line 1 of offshore fund(s). Relevant only if offshore is true
+offshoreaddress2 - Address line 2 of offshore fund(s). Relevant only if offshore is true
+offshoreaddress3 - Address line 3 of offshore fund(s). Relevant only if offshore is true
+datematerial - Date material interest was acquired. Relevant only if offshore is true
+capitalinvestedamt - Amount of capital invested in acquiring material interest. Relevant only if offshore is true
+acquiredname - Name of intermediary (if any) through whom the material interest was acquired. Relevant only if offshore is true
+acquiredaddress1 - Address line 1 of intermediary (if any) through whom the material interest was acquired. Relevant only if offshore is true
+acquiredaddress2 - Address line 2 of intermediary (if any) through whom the material interest was acquired. Relevant only if offshore is true
+acquiredaddress3 - Address line 3 of intermediary (if any) through whom the material interest was acquired. Relevant only if offshore is true
+OF6 - Income taxable as Case 111 Sch. D (Section 747D(b) TCA 1997) (Where the income is not taken into account in computing the profits or gains of a trade carried on by the company) Relevant only if offshore is true
+OF7 - Gain taxable at 23% Case 1V Sch. D (Section 747E(1)(a) TCA 1997) Relevant only if offshore is true
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="offshorename" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="offshoreaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="offshoreaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="offshoreaddress3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="datematerial" type="ros:date" use="optional"/>
+						<xsd:attribute name="capitalinvestedamt" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="acquiredname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="acquiredaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="acquiredaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="acquiredaddress3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="OF6" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OF7" type="ros:positive10NewMax" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OtherOffShoreProductDetails" minOccurs="0" maxOccurs="10">
+					<xsd:annotation>
+						<xsd:documentation>
+offshorename - Name of offshore fund(s). Relevant only if offshore is true
+offshoreaddress1 - Address line 1 of offshore product(s). Relevant only if offshore is true
+offshoreaddress2 - Address line 2 of offshore product(s). Relevant only if offshore is true
+offshoreaddress3 - Address line 3 of offshore product(s). Relevant only if offshore is true
+datematerial - Date material interest was acquired. Relevant only if offshoreproducts is true
+paymentamt - Amount of payment made in acquiring material interest. Relevant only if offshoreproducts is true
+acquiredname - Name and address of intermediary (if any) through whom the material interest was acquired. Relevant only if offshoreproducts is true
+acquiredaddress1 - Name and address of intermediary (if any) through whom the material interest was acquired. Relevant only if offshoreproducts is true
+acquiredaddress2 - Name and address of intermediary (if any) through whom the material interest was acquired. Relevant only if offshoreproducts is true
+acquiredaddress3 - Name and address of intermediary (if any) through whom the material interest was acquired. Relevant only if offshoreproducts is true
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="offshorename" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="offshoreaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="offshoreaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="offshoreaddress3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="datematerial" type="ros:date" use="optional"/>
+						<xsd:attribute name="paymentamt" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="acquiredname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="acquiredaddress1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="acquiredaddress2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="acquiredaddress3" type="ros:alpha35" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ForeignDeposits" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+foreignbankdeposits- Indicator of whether any Foreign Bank Accounts was opened in this accounting period, of which the company was the beneficial owner.										</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="foreignbankdeposits" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ExemptProfits" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+stallionfees - Stallion Fees under S 231 TCA 1997
+distributionsstallionfees - Distributions out of exempt profit or gains from Stallion Fees
+woodlands - Woodlands under S 232 TCA 1997
+distributionswoodlands - Distributions out of exempt profit or gains from Woodlands
+greyhoundstudfees - Greyhound Stud Fees under S 233 TCA 1997 
+distributionsgreyhoundstudfees - Distributions out of exempt profit or gains from Greyhound Stud Fees
+patentincome - Patent Income under Section 234 TCA 1997
+distributionspatentincome - Distributions from Exempt Patent Income
+other - Other (specify)
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="stallionfees" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="distributionsstallionfees" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="woodlands" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="distributionswoodlands" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="greyhoundstudfees" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="distributionsgreyhoundstudfees" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="patentincome" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="distributionspatentincome" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="other" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DividendWithholdingTax" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+divwithtax - Indicator of whether the company has made a distribution in this accounting period.
+amtdiststallion - Total value of Distributions out of stallion fees.
+dwtdeductedstallion - DWT deducted on distributions out of Stallion fees.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="divwithtax" type="ros:boolean" default="false"/>
+						<xsd:attribute name="amtdiststallion" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="dwtdeductedstallion" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DWTDetails" minOccurs="0" maxOccurs="40">
+					<xsd:annotation>
+						<xsd:documentation>
+datedistribution - Date of DWT Distribution, only relevant if divwithtax is true. 
+grossvaluedistribution - Gross value of Distribution, only relevant if divwithtax is true.
+valuededucted - Value of DWT deducted, if any.  Only relevant if divwithtax is true.  Cannot be greater than 20% of grossvaluedistribution 
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="datedistribution" type="ros:date" use="optional"/>
+						<xsd:attribute name="grossvaluedistribution" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="valuededucted" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DistributionsReceived" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+amountdistribution - Amount of the Distributions 
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="amountdistribution" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ForeignAccounts" minOccurs="0" maxOccurs="10">
+					<xsd:annotation>
+						<xsd:documentation>
+nameacct - Name of bank where deposit account was opened.  Becomes required when any other attribute in the element is not empty.
+addressacct1 - Address of bank where deposit account was opened.
+addressacct2 - Address of bank where deposit account was opened.
+addressacct3 - Address of bank where deposit account was opened.
+dateacct - The date the account was opened. Must be before the date of Upload.  Becomes required when any other attribute in the element is not empty.
+amountdeposited - Amount deposited on opening the account.  Becomes required when any other attribute in the element is not empty.
+nameintermediary - Name of intermediary through whom account was opened.
+addressintermediary1 - Address of intermediary through whom account was opened.
+addressintermediary2 - Address of intermediary through whom account was opened.
+addressintermediary3 - Address of intermediary through whom account was opened.						
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="nameacct" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="addressacct1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="addressacct2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="addressacct3" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="dateacct" type="ros:date" use="optional"/>
+						<xsd:attribute name="amountdeposited" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="nameintermediary" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="addressintermediary1" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="addressintermediary2" type="ros:alpha35" use="optional"/>
+						<xsd:attribute name="addressintermediary3" type="ros:alpha35" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="MoreForeignAccounts" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+moreaccounts - Indicator of whether the company has more foreign bank accounts.						
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="moreaccounts" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="StapledStockArrangement" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+stapledstock - Indicator of whether the company entered into a stapled stock arrangement, under Section 172L TCA 1997, with a non -resident company and the non-resident company made any distribution in the accounting period
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="stapledstock" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="StapledStockDetails" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+companyname - Name of non-resident company. Relevant only if stapledstock is true
+recipientnameaddress - Name and address of recipient of distribution. Relevant only if stapledstock is true
+distributiondate - date of distribution. Relevant only if stapledstock is true
+amtdistribution - amount of distribution. Relevant only if stapledstock is true
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="companyname" type="ros:alpha40" use="optional"/>
+						<xsd:attribute name="recipientnameaddress" type="ros:alpha140" use="optional"/>
+						<xsd:attribute name="distributiondate" type="ros:date" use="optional"/>
+						<xsd:attribute name="amtdistribution" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CapitalGains">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AssetsDisposed" minOccurs="0">
+					<xsd:complexType>
+						<xsd:annotation>
+							<xsd:documentation>
+agriland - Number of disposals of agricultural land/buildings
+acreage - Acreage of the agricultural land disposed.
+agrilanddispconn - Indicator of whether there is disposals between connected parties on agricultural land
+agrilandconsid - Amount of consideration of the agricultural land
+sharesquoteddispconn - Indicator of whether there is disposals between connected parties on quoted shares
+sharesquotedconsid - Amount of consideration of quoted shares
+sharesunquoteddispconn - Indicator of whether there is disposals between connected parties on unquoted shares
+sharesunquotedconsid - Amount of consideration of unquoted shares
+commpremises - Number of disposals of commercial premises 
+commpremisesdispconn - Indicator of whether there is disposals between connected parties on commercial premises
+commpremisesconsid - Amount of consideration of commercial premises
+respremises - Number of disposals of residential premises
+respremisesdispconn - Indicator of whether there is disposals between connected parties on residential premises
+respremisesconsid - Amount of consideration of residential premises
+otherassets - Number of disposals of other assets
+otherassetsdispconn - Indicator of whether there is disposals between connected parties on other assets.
+otherassetsconsid - Amount of consideration of other assets.
+totalconsideration - Total amount of disposal consideration. Sum of agrilandconsid + sharesquotedconsid + sharesunquotedconsid + commpremisesconsid + respremisesconsid + otherassetsconsid.
+
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:attribute name="agriland" type="ros:positive3" use="optional"/>
+						<xsd:attribute name="acreage" type="ros:positiveDec5" use="optional"/>
+						<xsd:attribute name="agrilanddispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="agrilandconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="sharesquoteddispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="sharesquotedconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="sharesunquoteddispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="sharesunquotedconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="commpremises" type="ros:positive3" use="optional"/>
+						<xsd:attribute name="commpremisesdispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="commpremisesconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="respremises" type="ros:positive3" use="optional"/>
+						<xsd:attribute name="respremisesdispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="respremisesconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="otherassets" type="ros:positive3" use="optional"/>
+						<xsd:attribute name="otherassetsdispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="otherassetsconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="totalconsideration" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element ref="DetailsOfDisposals" minOccurs="0"/>
+				<xsd:element name="Acquisitions" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+armslength - Indicator of whether asset was acquired not at arms length.
+acquisitioncosts - The costs of Acquisitions -indexed where appropriate.
+enhanceexpenditure - The Enhancement expenditure claimed.
+chargeablegain - Amount of Chargeable Gain
+netgain - Net gain on the acquisition . chargeableathigher + chargeableatlower + chargeableatlowernew  must equal net gain.
+unusedlosses - Unused losses for carry forward to furture accounting periods.
+loss - Any loss.
+lossesforward - Losses brought forward.
+chargeableatlower - Capital gains chargeable at 20%.  chargeableathigher + chargeableatlower + chargeableatlowernew must equal net gain.
+chargeableatlowernew - Capital gains chargeable at 22%.  chargeableathigher + chargeableatlower + chargeableatlowernew must equal net gain.
+chargeableathigher- Capital gains chargeable at 40%.  chargeableathigher + chargeableatlower + chargeableatlowernew must equal net gain.
+previousgains - Previous Gains rolled over.
+		
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="armslength" type="ros:boolean" default="false"/>
+						<xsd:attribute name="acquisitioncosts" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="enhanceexpenditure" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="chargeablegain" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netgain" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="unusedlosses" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="loss" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="lossesforward" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="chargeableatlower" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="chargeableatlowernew" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="chargeableathigher" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="previousgains" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ChargeableAssetsAcquired" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+assetsacquired - Indicator of chargeable assets where acquired during the year.										
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="assetsacquired" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ChargeableAssets" minOccurs="0" maxOccurs="10">
+					<xsd:annotation>
+						<xsd:documentation>
+assetdescription - 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9,
+required Description of Asset:	
+1 for Agricultural Land	
+2 for Development Land
+3 for Shares (quoted and unquoted)
+4 for Commercial Premises	
+5 for Residential Premises	
+6 for Other Business Assets	
+7 for Antiques	
+8 for Paintings	
+9 for Other
+Becomes required when any other attribute in the element is not empty
+dateacquisition - Date of Acquisition. Must be before the date of Upload. Becomes required when any other attribute in the element is not empty
+costacquistion - Cost of Acquisition. Becomes required when any other attribute in the element is not empty
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="assetdescription" use="required">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:integer">
+									<xsd:enumeration value="1"/>
+									<xsd:enumeration value="2"/>
+									<xsd:enumeration value="3"/>
+									<xsd:enumeration value="4"/>
+									<xsd:enumeration value="5"/>
+									<xsd:enumeration value="6"/>
+									<xsd:enumeration value="7"/>
+									<xsd:enumeration value="8"/>
+									<xsd:enumeration value="9"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:attribute>
+						<xsd:attribute name="dateacquisition" type="ros:date" use="required"/>
+						<xsd:attribute name="costacquisition" type="ros:positive10" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CapitalGainsOnLand">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AssetsDisposed" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+developmentland - Number of disposals of development land/buildings
+devlanddispconn - Indicator of whether there is disposals between connected parties on development land
+devlandconsid - Amount of consideration on development land
+acreage - Acreage of the development land disposed.
+sharesdispconn - Indicator of whether there is disposals between connected parties on quoted shares
+sharesunquoteddispconn - Indicator of whether there is disposals between connected parties on unquoted shares
+sharesconsid - Amount of consideration on quoted shares
+sharesunquotedconsid - Amount of consideration on unquoted shares
+commpremises - Number of disposals of commercial premises 
+commpremisesdispconn - Indicator of whether there is disposals between connected parties on commercial premises
+commpremisesconsid - Amount of consideration on commercial premises
+respremises -  Number of disposals of residential premises 
+respremisesdispconn - Indicator of whether there is disposals between connected parties on residential premises
+respremisesconsid - Amount of consideration on residential premises
+otherassets - Number of disposals of other assets 	
+otherassetsdispconn - Indicator of whether there is disposals between connected parties on other assets
+otherassetsconsid - Amount of consideration on other assets
+totalconsideration -  Total amount of disposal consideration. Sum of devlandconsid +  sharesconsid + commpremisesconsid + respremisesconsid + otherassetsconsid.						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="developmentland" type="ros:positive2" use="optional"/>
+						<xsd:attribute name="devlanddispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="acreage" type="ros:positiveDec5" use="optional"/>
+						<xsd:attribute name="devlandconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="sharesdispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="sharesconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="sharesunquoteddispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="sharesunquotedconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="commpremises" type="ros:positive3" use="optional"/>
+						<xsd:attribute name="commpremisesdispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="commpremisesconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="respremises" type="ros:positive3" use="optional"/>
+						<xsd:attribute name="respremisesdispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="respremisesconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="otherassets" type="ros:positive3" use="optional"/>
+						<xsd:attribute name="otherassetsdispconn" type="ros:boolean" default="false"/>
+						<xsd:attribute name="otherassetsconsid" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="totalconsideration" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element ref="DetailsOfDisposals" minOccurs="0"/>
+				<xsd:element name="Acquisitions" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+armslength - Indicator of whether asset was acquired not at arms length.
+acquisitioncosts - The costs of Acquisitions -indexed where appropriate.
+currentuse - The current use value indexed where appropriate. 
+costlesscurruse - The cost less current use value no indexation. 
+enhanceexpenditure - The Enhancement expenditure claimed.
+charegablegain - Amount of Chargeable Gain
+netgain - Net gain on the acquisition. Chargeable gains must equal net gain.
+unusedlosses - Unused losses for carry forward to furture accounting periods.
+loss - Any loss.
+lossesforward - Losses brought forward.
+netchargeablegaininitialfirstperiod - Net Chargeable Gain in Initial Period 2007.
+netchargeablegainlaterfirstperiod - Net Chargeable Gain in Later Period 2007.
+netchargeablegaininitialsecondperiod - Net Chargeable Gain in Initial Period 2008.
+netchargeablegainlatersecondperiod- Net Chargeable Gain in Later Period 2008 (01/10/2008 - 14/10/2008).
+netchargeablegainlatersecondperiodnew- Net Chargeable Gain in Later Period 2008 (15/10/2008 - 31/12/2008).
+totalcapitalgainsdue - Total Capital Gains Tax due for this accounting period.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="armslength" type="ros:boolean" default="false"/>
+						<xsd:attribute name="acquisitioncosts" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="currentuse" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="costlesscurruse" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="enhanceexpenditure" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="charegablegain" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netgain" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="unusedlosses" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="loss" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="lossesforward" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netchargeablegaininitialfirstperiod" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netchargeablegainlaterfirstperiod" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netchargeablegaininitialsecondperiod" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netchargeablegainlatersecondperiod" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netchargeablegainlatersecondperiodnew" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="totalcapitalgainsdue" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PropertyIncentives">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Residential" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+resurbanrenewalinvestor - Residential Urban Renewal Scheme (Investor/Lessor)
+restownrenewalinvestor - Residential Town Renewal (Investor/Lessor)
+resseasideinvestor - Residential Seaside Resort (Investor/Lessor)
+resruralrenewalinvestor - Residential Rural Renewal Scheme (Investor/Lessor)
+reslivingovershopinvestor -  Residential Living Over the Shop (Investor/Lessor)
+resparkrideinvestor - Residential Park and Ride (Investor/Lessor)
+resstudentaccinvestor - Residential Student Accomodation (Investor/Lessor)
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="resurbanrenewalinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="restownrenewalinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="resseasideinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="resruralrenewalinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="reslivingovershopinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="resparkrideinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="resstudentaccinvestor" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Industrial" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+indurbanrenewalowner - Industrial Urban Renewal Scheme (Owner/Occupier)
+indurbanrenewalinvestor - Industrial Urban Renewal Scheme (Investor/Lessor)
+indtownrenewalowner - Industrial Town Renewal (Owner/Occupier)
+indtownrenewalinvestor - Industrial Town Renewal (Investor/Lessor)
+indseasideowner - Industrial Seaside Resort (Owner/Occupier)
+indseasideinvestor - Industrial Seaside Resort (Investor/Lessor)
+indruralrenewalowner - Industrial Rural Renewal Scheme (Owner/Occupier)
+indruralrenewalinvestor - Industrial Rural Renewal Scheme (Investor/Lessor)
+indmultistoreycarowner - Multi - Storey Car Parks (Owner/Occupier)
+indmultistoreycarinvestor - Multi - Storey Car Parks (Investor/Lessor)
+indlivingovershopowner - Industrial Living Over the Shop (Owner/Occupier)
+indlivingovershopinvestor - Industrial Living Over the Shop (Investor/Lessor)
+indenterpriseareaowner - Enterprise Areas (Owner/Occupier)
+indenterpriseareainvestor - Enterprise Areas  (Investor/Lessor)
+indparkrideowner - Park and Ride (Owner/Occupier)
+indparkrideinvestor - Park and Ride  (Investor/Lessor)
+indhotelowner - Hotels (Owner/Occupier)
+indhotelinvestor - Hotels  (Investor/Lessor)
+indholidaycottageowner - Holiday Cottages (Owner/Occupier)
+indholidaycottageinvestor - Holiday Cottages (Investor/Lessor)
+indholidayhostelowner - Holiday Hostel (Owner/Occupier)
+indholidayhostelinvestor - Holiday Hostel (Investor/Lessor)
+indguesthouseowner - Guest House (Owner/Occupier)
+indguesthouseinvestor - Guest House (Investor/Lessor) 
+indnursinghomeowner - Nursing Homes (Owner/Occupier)
+indnursinghomeinvestor - Nursing Homes (Investor/Lessor)
+indhousingelderlyowner - Housing for elderly/infirm (Owner/Occupier)
+indhousingelderlyinvestor - Housing for elderly/infirm (Investor/Lessor)
+indconvalescenthomeowner - Convalescent Homes (Owner/Occupier)
+indconvalescenthomeinvestor - Convalescent Homes (Investor/Lessor)
+indchildcarebuildingowner - Buildings used for certain childcare purposes (Owner/Occupier)
+indchildcarebuildinginvestor - Buildings used for certain childcare purposes (Investor/Lessor)
+indcampingcaravanowner - Buildings or structures in registered caravan and camping sites (Owner/Occupier)
+indcampingcaravaninvestor - Buildings or structures in registered caravan and camping sites (Investor/Lessor)
+indotherscheme - Industrial Scheme that is not listed (Owner Occupier/Investor-Lessor)
+indotheramt - Industrial Scheme amount that is not listed (Owner Occupier/Investor-Lessor)
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="indurbanrenewalowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indurbanrenewalinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indtownrenewalowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indtownrenewalinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indseasideowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indseasideinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indruralrenewalowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indruralrenewalinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indmultistoreycarowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indmultistoreycarinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indlivingovershopowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indlivingovershopinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indenterpriseareaowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indenterpriseareainvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indparkrideowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indparkrideinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indhotelowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indhotelinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indholidaycottageowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indholidaycottageinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indholidayhostelowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indholidayhostelinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indguesthouseowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indguesthouseinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indnursinghomeowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indnursinghomeinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indhousingelderlyowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indhousingelderlyinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indconvalescenthomeowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indconvalescenthomeinvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indchildcarebuildingowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indchildcarebuildinginvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indcampingcaravanowner" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indcampingcaravaninvestor" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="indotherscheme" type="ros:alpha70" use="optional"/>
+						<xsd:attribute name="indotheramt" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DeductionsReliefs">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>
+managementexpenses - Management Expenses
+groupmanagementexpenses - Group Relief - Management Expenses. Allowed only if groupmember in CompanyDetails/Indicate is true.
+OH2 - Total Management expenses. Sum of managementexpenses + groupmanagementexpenses. 
+OH8 - Other deductions.
+specifya - First part of details of other deductions.
+specifyb - Second part of details of other deductions.			
+			</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element name="Deductions" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="managementexpenses" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="groupmanagementexpenses" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OH2" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OH8" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="specifya" type="ros:alpha70" use="optional"/>
+						<xsd:attribute name="specifyb" type="ros:alpha70" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ReliefsCT" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OR3 - Manufacturing relief.
+OL1 - Manufacturing Losses. If a value is entered in this field OM4 must be > 0.
+OL2 - Manufacturing Charges. If a value is entered in this field OM5 must be > 0.
+OL3 - Manufacturing Group Relief.If a value is entered in this field OM6 must be > 0.
+OL4 - Trading Losses.If a value is entered in this field OH1 must be > 0.
+OL5 - Trading Charges.If a value is entered in this field OH6 must be > 0.
+OL6 - Trading Group Relief.  If a value is entered in this field OH7 must be > 0.
+OR2 - Double taxation relief. Can only be > 0 if OF5 > 0.
+residentialrelief - Residential Land Relief
+otherreliefs - Other reliefs
+OR9 - Total Other reliefs. Sum of residentialrelief + otherreliefs.
+reliefdetailsa - First part of details of other deductions.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OR3" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OL1" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OL2" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OL3" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OL4" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OL5" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OL6" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OR2" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="residentialrelief" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="otherreliefs" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OR9" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="reliefdetailsa" type="ros:alpha70" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Credits" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OT5 - Professional services withholding tax.
+OT6 - Other income tax borne on income received.
+taxexemptprofits - Indicator of whether the amount entered at OT6 includes tax borne on exempt profits.	
+researchdevcredit - Indicator of whether Research and development tax credit is being claimed
+rdcreditclaimed - Research and development tax credit. Amount of relief claimed under Section 766A TCA 1997 
+rdunusedcreditclaimed- Unused credit claimed under Section 766 TCA 1997 carried forward from previous period
+rdcreditdue - Research and development tax credit. Amount of relief due on the construction or refurbishment on a building under Section 766A TCA 1997
+rdunusedcreditdue - Unused credit claimed on the construction or refurbishment of a building carried forward from previous period
+rdgroupreliefclaim - Research and development tax credit. Amount of Group relief claimed under Section 766A(4) TCA 1997. Only allowed if groupmember in CompanyDetails/Indicate is true.
+rdgroupreliefsurr - Research and development tax credit. Amount of Group relief surrendered under Section 766A(4)  TCA 1997
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OT5" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="OT6" type="ros:positive10NewMax" use="optional"/>
+						<xsd:attribute name="taxexemptprofits" type="ros:boolean" default="false"/>
+						<xsd:attribute name="researchdevcredit" type="ros:boolean" default="false"/>
+						<xsd:attribute name="rdcreditclaimed" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="rdunusedcreditclaimed" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="rdcreditdue" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="rdunusedcreditdue" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="rdgroupreliefclaim" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="rdgroupreliefsurr" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Surcharges">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="SurchargesSection440" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+election - Indicator of whether an election under Section 434(3A)(a) TCA 1997 is being made.
+OV1 - Surcharges on undistributed investment and/or estate income.
+OV2 - Surcharges on undistributed income of service companies.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="election" type="ros:boolean" default="false"/>
+						<xsd:attribute name="OV1" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="OV2" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AmountsPayable" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OV9 - Payments in respect of which the company is liable to account for income tax under Section 239 TCA1997.
+OV3 - The amount of tax relief at source in respect of Insurance premiums paid as a perquisite for employees to an authorised user. 
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OV9" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="OV3" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="LtdCpyLess250">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Income" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+accperiodfrom - Account Period From Date.  Required if accperiodbto is present.  Must be before accperiodbto date.
+accperiodto - Account Period To Date.  Required if accperiodbfrom is present.  Must be after accperiodbfrom date.
+salesandrecip -  Sales/Receipts/Turnover. Required if govrecips and otherinc are empty. 
+govrecips -  Receipts from government agencies. Required if salesandrecip and otherinc are empty. 
+otherinc -  Other income. Required if salessandrecip and govrecips are empty. 			
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="accperiodfrom" type="ros:date" use="optional"/>
+						<xsd:attribute name="accperiodto" type="ros:date" use="optional"/>
+						<xsd:attribute name="salesandrecip" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="govrecips" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="otherinc" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="tradaccitemless250" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+purchases - Purchases.
+grosstp	- Gross trading profits.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="purchases" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="grosstp" type="ros:positive10" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="expdeductless250" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+swscosts - Salaries/Wages, Staff costs.
+directors - Directors remuneration including fees, bonuses, etc.
+cntrctrs - Sub- contractors.
+cpfees - Consultancy, professional fees.
+mts - Motor, Travel and subsistence.
+rprsrenew - Repairs/renewals.
+intpay - Interest payables.
+depwriteoff - Depreciation, goodwill, capital write-off .
+provdb - Provision including bad debts.
+totexp - Other expenses- total .						
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="swscosts" type="ros:positive10" use="required"/>
+						<xsd:attribute name="directors" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="cntrctrs" type="ros:positive10" use="required"/>
+						<xsd:attribute name="cpfees" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="mts" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="rprsrenew" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="intpay" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="depwriteoff" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="provdb" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="totexp" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="balcapless250" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+direcbal -  Balance of directors current and loan account.
+swfgoods - Stock, Work in progress, finished goods.
+bdprepay - Debtors and prepayments.
+cashbank - Cash/Bank - debit.
+blocredit - Bank/loans/overdraft credit.
+accruals - Creditors and accruals.
+cabalan - Client account balances- debit .
+cabalancredit - Client account balances - credit.
+taxcredit - Tax creditors.
+sharefunds - Shareholders funds.					
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="direcbal" type="ros:integer10" use="optional"/>
+						<xsd:attribute name="swfgoods" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="bdprepay" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="cashbank" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="blocredit" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="accruals" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="cabalan" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="cabalancredit" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="taxcredit" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="sharefunds" type="ros:integer10" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AdjustLess250">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AdjustProfComp" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+netprofacct - Profit on ordinary activities before taxation. Either the netprofacct or the lossordact must be filled in. Not allowed if lossordact present.
+lossordact - Loss on ordinary activities before taxation. Either the netprofacct or the lossordact must be filled in. Not allowed if netprofacct present.						
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="netprofacct" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="lossordact" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Adjustments" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+subsanddon - Subscriptions and donations .
+entertexp - Entertainment expenses.
+legalexpen - Legal and professional expenses.
+sect130 - Section 130 loan interest.
+lighthp - Light Heat and phone.
+netgain - Net gain on sale of fixed assets, not allowed if netloss present.
+netloss - Net loss on sale of fixed assets not allowed if netgain present.				
+				</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="subsanddon" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="entertexp" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="legalexpen" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="sect130" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="lighthp" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netgain" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="netloss" type="ros:positive10" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AccountDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AccTurnDetails" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+alrsubmit - Indicator of whether the accounts data has already been submitted.
+rtndtfrom - Starting date of the period covered by the previously submitted accounts data. Must be before the date on which the return is being filed.  Must be before the end date of the period covered by the accounts data. Becomes required if alrsubmit is true.
+rtndtto - Ending date of the period covered by the previously submitted accounts data. Must be before the date on which the return is being filed.  Must be before the end date of the period covered by the accounts data.  Becomes required if alrsubmit is true.
+periodenddt - Ending date of  the return with which the accounts were submitted. Must be before the date on which the return is being filed. Becomes required if alrsubmit is true.
+lessquarterm - If none of the above categories apply,this menu should be completed.					
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="alrsubmit" type="ros:boolean" default="false"/>
+						<xsd:attribute name="rtndtfrom" type="ros:date" use="optional"/>
+						<xsd:attribute name="rtndtto" type="ros:date" use="optional"/>
+						<xsd:attribute name="periodenddt" type="ros:date" use="optional"/>
+						<xsd:attribute name="lessquarterm" type="ros:boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AccountNotes">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AuditRepOpinion" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+adverseop - Indicator of whether there are any adverse opinions from the Auditors.
+disclaimop - Indicator of whether there are any disclaimer opinions from the Auditors.
+empofmatter - Indicator of whether there are any emphasis of matter opinions from the Auditors.
+qualifiedop - Indicator of whether there are any qualified opinions from the Auditors.		
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="adverseop" type="ros:boolean" default="false"/>
+						<xsd:attribute name="disclaimop" type="ros:boolean" default="false"/>
+						<xsd:attribute name="empofmatter" type="ros:boolean" default="false"/>
+						<xsd:attribute name="qualifiedop" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Change" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+ntsdeprec - Indicator of whether there have been any changes in accounting policy with regard to depreciation of fixed asset.
+ntsstocks - Indicator of whether there have been any changes in accounting policy with regard to stocks and work in progress.
+prpdevelop - Indicator of whether there have been any changes in accounting policy with regard to property development transactions.
+chngother - Indicator of whether there have been any other changes in accounting policy.					
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="ntsdeprec" type="ros:boolean" default="false"/>
+						<xsd:attribute name="ntsstocks" type="ros:boolean" default="false"/>
+						<xsd:attribute name="prpdevelop" type="ros:boolean" default="false"/>
+						<xsd:attribute name="chngother" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PriorYear" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+pradjust - Indicator of whether there are prior year adjustments arising from changes in accounting policies or from correction of fundamental errors.												</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="pradjust" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ChangeAct" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+activities - Indicator of whether there has been a change in the nature of the companys activities.																</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="activities" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Exceptional" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+excepitem-	Indicator of whether there is any exceptional item relating to any other exceptional items.																</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="excepitem" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ExtraNotes" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+notesbox - Any additional information relating to the return.	
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="notesbox" type="ros:alpha500" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CalculationSummary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Liability" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+OP8 - 	Positive Tax Liability - Money owed to Revenue. Should be provided if shortnoarequested is set to true. 
+OR8 -  	Negative Tax Liability - Money owed by Revenue. Should be provided if shortnoarequested is set to true.
+					</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="OP8" type="ros:positiveDec10"/>
+						<xsd:attribute name="OR8" type="ros:positiveDec10"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Section1085Restriction" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+indicaterestriction - Indicator of whether the return is being filed late, and the customer has taken account of the restrictions imposed by Section1085 TCA 1997.				
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="indicaterestriction" type="ros:boolean" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="NoticeOfAssessment" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+shortnoarequested-	Indicator that a Short Notice of Assessment has been requested.				
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:attribute name="shortnoarequested" type="ros:boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DetailsOfDisposals">
+		<xsd:annotation>
+			<xsd:documentation>
+netconsideration - The net consideration of the disposals in AssetsDisposed. (totalconsideration in Assets Disposed - incidentalcosts)
+incidentalcosts - Any incidental costs incurred in disposing of the assets in AssetsDisposed.			
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="netconsideration" type="ros:positive10" use="optional"/>
+			<xsd:attribute name="incidentalcosts" type="ros:positive10" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SummaryCalculation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Assessments">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ManufacturingIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TradeIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ExceptedTradesIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ShippingIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TonnageIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="RentalIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Interest">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ForeignDividendIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OtherForeignIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ForeignLifePolicyPayment">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ForeignLifePolicyGain">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OffshoreFundIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OffshoreFundGain">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OtherIncome">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="CapitalGains">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="PreviousGains">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="total" type="xsd:integer" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Deductions" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Losses">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Charges">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="GroupRelief">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ManagementExpenses">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OtherDeductions">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ExcessCapitalAllowances">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="total" type="xsd:integer" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TaxableIncome" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="CorporationTax" minOccurs="0" maxOccurs="4">
+								<xsd:complexType>
+									<xsd:complexContent>
+										<xsd:extension base="ros:taxbreakdown">
+											<xsd:attribute name="band" use="required">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:string">
+														<xsd:enumeration value="oldhigher"/>
+														<xsd:enumeration value="newlower"/>
+														<xsd:enumeration value="higher"/>
+														<xsd:enumeration value="ship"/>
+														<xsd:enumeration value="offshore"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+										</xsd:extension>
+									</xsd:complexContent>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TonnageTaxProfits" minOccurs="0">
+								<xsd:complexType>
+									<xsd:complexContent>
+										<xsd:extension base="ros:taxbreakdown">
+											<xsd:attribute name="band" use="required">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:string">
+														<xsd:enumeration value="tonnage"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+										</xsd:extension>
+									</xsd:complexContent>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TaxOnChargeable" minOccurs="0" maxOccurs="2">
+								<xsd:complexType>
+									<xsd:complexContent>
+										<xsd:extension base="ros:taxbreakdown">
+											<xsd:attribute name="band" use="required">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:string">
+														<xsd:enumeration value="old"/>
+														<xsd:enumeration value="new"/>
+														<xsd:enumeration value="higher"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+										</xsd:extension>
+									</xsd:complexContent>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="total" type="xsd:integer" use="optional"/>
+						<xsd:attribute name="totaltax" type="xsd:decimal" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Reliefs" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ManufacturingRelief">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="SmallCompaniesRelief">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ManufacturingTradeDeductions">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OtherTradeDeductions">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ReliefSurrendered">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="DoubleTaxationRelief">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OtherReliefs">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TaxBroughtForward">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="total" type="xsd:integer" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Surcharges" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="SurchargesSection440">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="SurchargesSection441">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="PayableUnderDeduction">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TRS">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="total" type="xsd:integer" use="optional"/>
+						<xsd:attribute name="totalreliefssurcharges" type="xsd:integer" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Credits" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="GrossWithholdingTax">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OtherIncomeTax">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="RAndDCredit">
+								<xsd:complexType>
+									<xsd:attribute name="entered" type="xsd:integer" use="optional"/>
+									<xsd:attribute name="allowed" type="xsd:integer" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="total" type="xsd:integer" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="companyname" type="ros:alpha40" use="required"/>
+			<xsd:attribute name="referencenumber" type="ros:registration" use="required"/>
+			<xsd:attribute name="date" type="ros:date" use="required"/>
+			<xsd:attribute name="currency" type="ros:currency" use="required"/>
+			<xsd:attribute name="periodstart" type="ros:date" use="required"/>
+			<xsd:attribute name="periodend" type="ros:date" use="required"/>
+			<xsd:attribute name="totalliability" type="xsd:decimal" use="required"/>
+			<xsd:attribute name="totalliabilityeuro" type="xsd:decimal" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Ct1Acknowledgement">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ros:AcknowledgementType">
+					<xsd:sequence>
+						<xsd:element ref="SummaryCalculation" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
