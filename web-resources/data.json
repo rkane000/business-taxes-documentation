@@ -343,21 +343,5 @@
 				"category": "download"
 			}
 		]
-	},
-	"future-developments-CT1": {
-		"title": "CT1 - Future Developments",
-		"anchor": "support",
-		"cardText": "<p>This section provides documentation which advises users on any planned future developments for new versions of CT1. This also doubles as a high-level requirements list for the next release, i.e. future developments for v19 will be implemented in v20, unless explicitly stated",
-		"cards": [
-			{
-				"link": "ct1/future-developments/v19/ct1_v19_future_developments.pdf",
-				"description": "CT1 Future Developments v19",
-				"anchor": "CT1_Future_Developments_v19",
-				"type": "PDF",
-				"environment": "Future Phase",
-				"dateLastUpdated": "06/04/2020",
-				"category": "download"
-			}
-		]
 	}
 }
