@@ -4,6 +4,24 @@
 		"anchor": "PIT",
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of CT1",
 		"cards": [{
+				"link": "ct1/pit1/v20/formct1-v20-schema.xsd",
+				"description": "CT1 Schema v20",
+				"anchor": "CT1_Schema_v20",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "06/04/2020",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v20/ct1v20notes.pdf",
+				"description": "CT1 Notes v20",
+				"anchor": "CT1_Notes_v20",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "06/04/2020",
+				"category": "download"
+			},
+			{
 				"link": "ct1/pit1/v19/formct1-v19-schema.xsd",
 				"description": "CT1 Schema v19",
 				"anchor": "CT1_Schema_v19",
@@ -309,5 +327,37 @@
 				"dateLastUpdated": "04/04/2020",
 				"category": "download"
 			}]
+	},
+	"known-issues-CT1": {
+		"title": "CT1 - Known Issues",
+		"anchor": "support",
+		"cardText": "<p>This section provides documentation which advises users on any known issues for a version of CT1",
+		"cards": [
+			{
+				"link": "ct1/known-issues/v20/ct1_v20_known_issues.pdf",
+				"description": "CT1 Known Issues v20",
+				"anchor": "CT1_Known_Issues_v20",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "06/04/2020",
+				"category": "download"
+			}
+		]
+	},
+	"future-developments-CT1": {
+		"title": "CT1 - Future Developments",
+		"anchor": "support",
+		"cardText": "<p>This section provides documentation which advises users on any planned future developments for new versions of CT1. This also doubles as a high-level requirements list for the next release, i.e. future developments for v19 will be implemented in v20, unless explicitly stated",
+		"cards": [
+			{
+				"link": "ct1/future-developments/v19/ct1_v19_future_developments.pdf",
+				"description": "CT1 Future Developments v19",
+				"anchor": "CT1_Future_Developments_v19",
+				"type": "PDF",
+				"environment": "Future Phase",
+				"dateLastUpdated": "06/04/2020",
+				"category": "download"
+			}
+		]
 	}
 }
