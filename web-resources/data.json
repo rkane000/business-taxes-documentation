@@ -343,5 +343,352 @@
 				"category": "download"
 			}
 		]
+	},
+	"Form11": {
+		"title": "Form11 - Schema & Notes",
+		"anchor": "PIT",
+		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form11",
+		"cards": [
+			{
+				"link": "form11/pit1/v20/form11-v20-schema.xsd",
+				"description": "Form11 Schema v20",
+				"anchor": "Form11_Schema_v20",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2019",
+				"dateLastUpdated": "13/06/2020",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v20/form11v20notes.pdf",
+				"description": "Form11 Notes v20",
+				"anchor": "Form11_Notes_v20",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2019",
+				"dateLastUpdated": "13/06/2020",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v19/form11-v19-schema.xsd",
+				"description": "Form11 Schema v19",
+				"anchor": "Form11_Schema_v19",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2018",
+				"dateLastUpdated": "31/01/2019",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v19/form11v19notes.pdf",
+				"description": "Form11 Notes v19",
+				"anchor": "Form11_Notes_v19",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2018",
+				"dateLastUpdated": "31/01/2019",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v18/form11-v18-schema.xsd",
+				"description": "Form11 Schema v18",
+				"anchor": "Form11_Schema_v18",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2017",
+				"dateLastUpdated": "04/05/2018",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v18/form11v18notes.pdf",
+				"description": "Form11 Notes v18",
+				"anchor": "Form11_Notes_v18",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2017",
+				"dateLastUpdated": "04/05/2018",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v17/form11-v17-schema.xsd",
+				"description": "Form11 Schema v17",
+				"anchor": "Form11_Schema_v17",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2016",
+				"dateLastUpdated": "24/04/2017",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v17/form11v17notes.pdf",
+				"description": "Form11 Notes v17",
+				"anchor": "Form11_Notes_v17",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2016",
+				"dateLastUpdated": "24/04/2017",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v16/form11-v16-schema.xsd",
+				"description": "Form11 Schema v16",
+				"anchor": "Form11_Schema_v16",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2015",
+				"dateLastUpdated": "12/05/2016",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v16/form11v16notes.pdf",
+				"description": "Form11 Notes v16",
+				"anchor": "Form11_Notes_v16",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2015",
+				"dateLastUpdated": "12/05/2016",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v15/form11-v15-schema.xsd",
+				"description": "Form11 Schema v15",
+				"anchor": "Form11_Schema_v15",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2014",
+				"dateLastUpdated": "10/04/2015",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v15/form11v15notes.pdf",
+				"description": "Form11 Notes v15",
+				"anchor": "Form11_Notes_v15",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2014",
+				"dateLastUpdated": "10/04/2015",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v14/form11-v14-schema.xsd",
+				"description": "Form11 Schema v14",
+				"anchor": "Form11_Schema_v14",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2013",
+				"dateLastUpdated": "06/05/2014",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v14/form11v14notes.pdf",
+				"description": "Form11 Notes v14",
+				"anchor": "Form11_Notes_v14",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2013",
+				"dateLastUpdated": "06/05/2014",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v13/form11-v13-schema.xsd",
+				"description": "Form11 Schema v13",
+				"anchor": "Form11_Schema_v13",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2012",
+				"dateLastUpdated": "01/08/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v13/form11v13notes.pdf",
+				"description": "Form11 Notes v13",
+				"anchor": "Form11_Notes_v13",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2012",
+				"dateLastUpdated": "01/08/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v12/form11-v12-schema.xsd",
+				"description": "Form11 Schema v12",
+				"anchor": "Form11_Schema_v12",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2011",
+				"dateLastUpdated": "01/08/2011",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v12/form11v12notes.pdf",
+				"description": "Form11 Notes v12",
+				"anchor": "Form11_Notes_v12",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2011",
+				"dateLastUpdated": "01/08/2011",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v11/form11-v11-schema.xsd",
+				"description": "Form11 Schema v11",
+				"anchor": "Form11_Schema_v11",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2010",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v11/form11v11notes.pdf",
+				"description": "Form11 Notes v11",
+				"anchor": "Form11_Notes_v11",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2010",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v10/form11-v10-schema.xsd",
+				"description": "Form11 Schema v10",
+				"anchor": "Form11_Schema_v10",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2009",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v10/form11v10notes.pdf",
+				"description": "Form11 Notes v10",
+				"anchor": "Form11_Notes_v10",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2009",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v9/form11-v09-schema.xsd",
+				"description": "Form11 Schema v09",
+				"anchor": "Form11_Schema_v09",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2008",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v9/form11v09notes.pdf",
+				"description": "Form11 Notes v09",
+				"anchor": "Form11_Notes_v09",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2008",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v8/form11-v08-schema.xsd",
+				"description": "Form11 Schema v08",
+				"anchor": "Form11_Schema_v08",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2007",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v8/form11v08notes.pdf",
+				"description": "Form11 Notes v08",
+				"anchor": "Form11_Notes_v08",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2007",
+				"dateLastUpdated": "20/07/2012",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v7/form11-v07-schema.xsd",
+				"description": "Form11 Schema v07",
+				"anchor": "Form11_Schema_v07",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2006",
+				"dateLastUpdated": "09/01/2007",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v7/form11v07notes.pdf",
+				"description": "Form11 Notes v07",
+				"anchor": "Form11_Notes_v07",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2006",
+				"dateLastUpdated": "09/01/2007",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v6/form11-v06-schema.xsd",
+				"description": "Form11 Schema v06",
+				"anchor": "Form11_Schema_v06",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2005",
+				"dateLastUpdated": "22/05/2006",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v6/form11v06notes.pdf",
+				"description": "Form11 Notes v06",
+				"anchor": "Form11_Notes_v06",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2005",
+				"dateLastUpdated": "22/05/2006",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v5/form11-v05-schema.xsd",
+				"description": "Form11 Schema v05",
+				"anchor": "Form11_Schema_v05",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2004",
+				"dateLastUpdated": "22/05/2006",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v5/form11v05notes.pdf",
+				"description": "Form11 Notes v05",
+				"anchor": "Form11_Notes_v05",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2004",
+				"dateLastUpdated": "22/05/2006",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v4/form11-v04-schema.xsd",
+				"description": "Form11 Schema v04",
+				"anchor": "Form11_Schema_v04",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2003",
+				"dateLastUpdated": "07/08/2004",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v4/form11v04notes.pdf",
+				"description": "Form11 Notes v04",
+				"anchor": "Form11_Notes_v04",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2003",
+				"dateLastUpdated": "07/08/2004",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v3/form11-v03-schema.xsd",
+				"description": "Form11 Schema v03",
+				"anchor": "Form11_Schema_v03",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2002",
+				"dateLastUpdated": "28/04/2003",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v3/form11v03notes.pdf",
+				"description": "Form11 Notes v03",
+				"anchor": "Form11_Notes_v03",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2002",
+				"dateLastUpdated": "28/04/2003",
+				"category": "download"
+			}
+		]
+	},
+	"known-issues-Form11": {
+		"title": "Form11 - Known Issues",
+		"anchor": "support",
+		"cardText": "<p>This section provides documentation which advises users on any known issues for a version of Form11",
+		"cards": [
+			{
+				"link": "form11/known-issues/v20/form11_v20_known_issues.pdf",
+				"description": "Form11 Known Issues v20",
+				"anchor": "Form11_Known_Issues_v20",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2019",
+				"dateLastUpdated": "15/06/2020",
+				"category": "download"
+			}
+		]
 	}
 }
