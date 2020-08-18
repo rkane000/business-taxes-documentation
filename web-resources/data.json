@@ -9,7 +9,7 @@
 				"anchor": "CT1_Schema_v20",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2020",
-				"dateLastUpdated": "17/04/2020",
+				"dateLastUpdated": "18/08/2020",
 				"category": "download"
 			},
 			{
@@ -18,7 +18,7 @@
 				"anchor": "CT1_Notes_v20",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2020",
-				"dateLastUpdated": "17/04/2020",
+				"dateLastUpdated": "18/08/2020",
 				"category": "download"
 			},
 			{
@@ -27,7 +27,7 @@
 				"anchor": "CT1_Schema_v19",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2019",
-				"dateLastUpdated": "17/04/2020",
+				"dateLastUpdated": "18/08/2020",
 				"category": "download"
 			},
 			{
@@ -36,7 +36,7 @@
 				"anchor": "CT1_Notes_v19",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2019",
-				"dateLastUpdated": "17/04/2020",
+				"dateLastUpdated": "18/08/2020",
 				"category": "download"
 			},
 			{
@@ -355,7 +355,7 @@
 				"anchor": "Form11_Schema_v20",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2019",
-				"dateLastUpdated": "13/06/2020",
+				"dateLastUpdated": "07/08/2020",
 				"category": "download"
 			},
 			{
@@ -364,7 +364,7 @@
 				"anchor": "Form11_Notes_v20",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2019",
-				"dateLastUpdated": "13/06/2020",
+				"dateLastUpdated": "07/08/2020",
 				"category": "download"
 			},
 			{

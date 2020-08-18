@@ -213,6 +213,20 @@ __________________________________________________________
 		[MandatoryDisclosure2 contain the following attributes]
 			@crossborderrefnumbersf
 			@crossborderrefnumbersp
+			
+	16 - Form11/Trade/TradeInfo/
+		[added the following attributes]
+		@losssubsequentyrone
+		@lossescarriedbacksubsequentyrone
+		@cacarriedbacksubsequentyrone
+		@claiminterimreliefsubsequentyrone
+		@taxsec395bsubsequentyrone
+		@losssubsequentyrtwo
+		@lossescarriedbacksubsequentyrtwo
+		@cacarriedbacksubsequentyrtwo
+		@claiminterimreliefsubsequentyrtwo
+		@taxsec395bsubsequentyrtwo
+		@amountofsubsequentlossrelief
 -->	
 
 <xsd:schema xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns="http://www.ros.ie/schemas/form11/v20/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/form11/v20/" elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -470,6 +484,17 @@ __________________________________________________________
 						<xsd:attribute name="amountofunusedcapallw" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="amountoflossrelief" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="datetradeceased" type="ros:date" use="optional"/>
+						<xsd:attribute name="losssubsequentyrone" type="ros:boolean" default="false"/>
+						<xsd:attribute name="lossescarriedbacksubsequentyrone" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="cacarriedbacksubsequentyrone" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="claiminterimreliefsubsequentyrone" type="ros:boolean" default="false"/>
+						<xsd:attribute name="taxsec395bsubsequentyrone" type="ros:boolean" default="false"/>
+						<xsd:attribute name="losssubsequentyrtwo" type="ros:boolean" default="false"/>
+						<xsd:attribute name="lossescarriedbacksubsequentyrtwo" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="cacarriedbacksubsequentyrtwo" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="claiminterimreliefsubsequentyrtwo" type="ros:boolean" default="false"/>
+						<xsd:attribute name="taxsec395bsubsequentyrtwo" type="ros:boolean" default="false"/>
+						<xsd:attribute name="amountofsubsequentlossrelief" type="ros:positive8" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<!-- Added for 2015 Annualisation -->

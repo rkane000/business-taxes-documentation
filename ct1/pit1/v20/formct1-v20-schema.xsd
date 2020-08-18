@@ -25,7 +25,7 @@ Document History:
 		[Contains the following attributes]
 		+@numberOfTransactionSec817hb
 		[Contains new element]
-		transactionsUnderSec817hb
+		crossBorderArrangment
 		[Contains the following attributes]
 		+@referenceNumber
 	
@@ -123,8 +123,109 @@ Document History:
 		+@creditOffsetPayRoll
 		+@creditOffsetVat
 
-				
-  -->
+	v - added by dryan010
+		[new attributes] for tradingResults.relevantTradeWithinSection291A
+		+@amountCapitalAllowancesUsedBefore
+		+@amountCapitalAllowancesUsedAfter
+		+@amountCapitalAllowancesUndetTcaUsedBefore
+		+@amountCapitalAllowancesUndetTcaUsedAfter
+		+@amountInterestUsedBefore
+		+@amountInterestUsedAfter
+	vi - removed by dryan010, but reinstated to avoid validation blocking filers
+		Write in Notes that these are now redundant
+		[defunct attributes for tradingResults.ExceptedTradeProfits
+		doProfitsRelateToRelevantTrade
+		amountCapitalAllowancesBefore
+		amountCapitalAllowancesAfter
+		amountCapitalAllowancesClaimedNotUsed
+		amountCapitalAllowancesNotUsedAfter
+		companyisMakingElectionUnderTca
+		amountCapitalAllowancesUndetTcaBefore
+		amountCapitalAllowancesUndetTcaAfter
+		amountCapitalAllowancesUndetTcaNotUsed
+		amountCapitalAllowancesUndetTcaNotUsedAfter
+		amountInterestClaimedBefore
+		amountInterestClaimedAfter
+		amountInterestClaimedForCarryBefore
+		amountInterestClaimedForCarryAfter
+		amountInterestClaimedUnderTca
+		jointElectionUnderTca615
+		transferringOrAquiringUnder615
+		companyTaxNumberUnder615
+		companyNameUnder615
+		jointElectionUnderTca617
+		transferringOrAquiringUnder617
+		companyTaxNumberUnder617
+		companyNameUnder617
+	vii - modified attribute by dryan010
+		attribute of FilmCorporationTaxCredit
+		qualifyingCompanyName change from type="text20"to type="text40"
+	viii - elements removed by dryan010 from TradeProfit.IntangibleAssets 
+		but reinstated to avoid validation blocking filers
+		Write in Notes that these are now redundant
+		JntSection615NamePpsn
+		JntSection617NamePpsn
+		attributes removed from TradeProfit.IntangibleAssets
+		but reinstated to avoid validation blocking filers
+		Write in Notes that these are now redundant
+		capAllowClaimedAccounts
+		capAllowClaimedFixed
+		companyElectionSec291A4
+		interestClaimedTradeDed
+		interestClaimedAsCharge
+		jntSection615ElectTrans
+		jntSection615ElectAcq
+		jntSection617ElectTrans
+		jntSection617ElectAcq
+
+======== Version 1.1 ====================================
+
+	ix - 
+		HybridMismatches element: added attribute
+			permeantDeductionUnderSec835AGbAt33
+		SummaryCalculation element: added attribute
+			permeantDeductionUnderSec835AGbAt33
+	x - new attributes added by dryan010 to 
+		QualifyingAssetsProfits
+			s291aAmountsIncluded
+		and ExceptedTradeProfits
+			s291aAmountsIncluded
+			
+	xi - FormCt1/TradingResults/TradeProfits
+		[new attributes]					
+		+@interinClainUnderSec396d
+		+@finalClainUnderSec396a
+		+@companyExpectLoss
+		+@companyIsTaxCompliant
+		
+	
+	xii - FormCt1/TradingResults/expectedTradeProfits
+		[new attributes]
+		+@lossClaimUnderCarryBack					
+		+@interinClainUnderSec396d
+		+@finalClainUnderSec396a
+		+@companyExpectLoss
+		+@companyIsTaxCompliant	
+		
+	xiii - FormCt1/TradingResults/qualifyingAssestsProfits
+		[new attributes]					
+		+@interinClainUnderSec396d
+		+@finalClainUnderSec396a
+		+@companyExpectLoss
+		+@companyIsTaxCompliant
+		
+	xiv - FormCt1/deduction/ReliefOnValueBasis
+		[new attributes]					
+		+@interinClainUnderSec396d
+		+@finalClainUnderSec396a
+		+@companyExpectLoss
+		+@companyIsTaxCompliant
+		+@QualyInterinClainUnderSec396d
+		+@QualyFinalClainUnderSec396a
+		+@QualyCompanyExpectLoss
+		+@QualyCompanyIsTaxCompliant
+		
+-->
 
  
 <xsd:schema xmlns="http://www.ros.ie/schemas/formct1/v20/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/formct1/v20/" elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -515,6 +616,10 @@ Document History:
 						<xsd:complexContent>
 					    	<xsd:extension base="TradeProfit">
 								<xsd:attribute name="lossClaimUnderCarryBack" type="euros16" use="optional"/>
+								<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
 					    	</xsd:extension>
 						</xsd:complexContent>
 					</xsd:complexType>
@@ -549,6 +654,12 @@ Document History:
 			      		<xsd:attribute name="amountOfLossesUtilised" type="euros16" use="optional"/>
 						<xsd:attribute name="balTradLossAvailCarryFwd" type="euros16" use="optional"/>
 						<xsd:attribute name="lossesAppropriateToTrade" type="euros16" use="optional"/>
+						<xsd:attribute name="s291aAmountsIncluded" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="lossClaimUnderCarryBack" type="euros12" use="optional"/>
+						<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="ProfitResourceRentTax" minOccurs="0" maxOccurs="1">
@@ -620,15 +731,21 @@ Document History:
 						<xsd:attribute name="balanceCapitalExpenditureAfter" type="euros16" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesBefore" type="euros16" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUsedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUsedAfter" type="euros16" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesClaimedNotUsed" type="euros16" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesNotUsedAfter" type="euros16" use="optional"/>
 						<xsd:attribute name="companyisMakingElectionUnderTca" type="boolean" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesUndetTcaBefore" type="euros16" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesUndetTcaAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaUsedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaUsedAfter" type="euros16" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesUndetTcaNotUsed" type="euros16" use="optional"/>
 						<xsd:attribute name="amountCapitalAllowancesUndetTcaNotUsedAfter" type="euros16" use="optional"/>
 						<xsd:attribute name="amountInterestClaimedBefore" type="euros16" use="optional"/>
 						<xsd:attribute name="amountInterestClaimedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestUsedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestUsedAfter" type="euros16" use="optional"/>
 						<xsd:attribute name="amountInterestClaimedForCarryBefore" type="euros16" use="optional"/>
 						<xsd:attribute name="amountInterestClaimedForCarryAfter" type="euros16" use="optional"/>
 						<xsd:attribute name="amountInterestClaimedUnderTca" type="euros16" use="optional"/>
@@ -692,6 +809,11 @@ Document History:
 								<xsd:attribute name="priorYearProtectiveClaim" type="euros16" use="optional"/>
 								<xsd:attribute name="currentYearProtectiveClaim" type="euros16" use="optional"/>
 								<xsd:attribute name="totalProtectiveClaim" type="euros16" use="optional"/>
+								<xsd:attribute name="s291aAmountsIncluded" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
 					    	</xsd:extension>
 						</xsd:complexContent>
 					</xsd:complexType>
@@ -919,6 +1041,7 @@ Document History:
 						<xsd:attribute name="doubleDeductionUnderSec835ADb" type="euros16"  use="optional"/>
 						<xsd:attribute name="permeantDeductionUnderSec835AGa" type="euros16"  use="optional"/>
 						<xsd:attribute name="permeantDeductionUnderSec835AGb" type="euros16"  use="optional"/>
+						<xsd:attribute name="permeantDeductionUnderSec835AGbAt33" type="euros16"  use="optional"/>
 						<xsd:attribute name="finInstrumentDeductionUnderSec835AJa" type="euros16"  use="optional"/>
 						<xsd:attribute name="finInstrumentDeductionAmount" type="euros16"  use="optional"/>
 						<xsd:attribute name="finInstrumentDeductionDetails" type="text20"  use="optional"/>
@@ -1127,8 +1250,16 @@ Document History:
 						<xsd:attribute name="qualAssetsLosses" type="euros16" use="optional"/>
 						<xsd:attribute name="qualAssetsCharges" type="euros16" use="optional"/>
 						<xsd:attribute name="qualAssetsGroupRelief" type="euros16" use="optional"/>	
-						<xsd:attribute name="qualAssetsLossesCarriedBack" type="euros16" use="optional"/>											
-										</xsd:complexType>
+						<xsd:attribute name="qualAssetsLossesCarriedBack" type="euros16" use="optional"/>
+						<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyInterinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyFinalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyCompanyExpectLoss" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyCompanyIsTaxCompliant" type="boolean" use="optional" default="false"/>											
+					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="Credits" minOccurs="0">
 					<xsd:complexType>
@@ -1243,7 +1374,7 @@ Document History:
 						<xsd:attribute name="filmCertDate" type="date" use="optional"/>
 						<xsd:attribute name="filmType" type="text20" use="optional"/>
 						<xsd:attribute name="filmDateDelivered" type="date" use="optional"/>
-						<xsd:attribute name="qualifyingCompanyName" type="text20" use="optional"/>
+						<xsd:attribute name="qualifyingCompanyName" type="text40" use="optional"/>
 						<xsd:attribute name="qualifyingCompanyTaxNumber" type="text20" use="optional"/>
 						<xsd:attribute name="totalCost" type="euros16" use="optional"/>
 						<xsd:attribute name="expenditureOnEmployment" type="euros16" use="optional"/>
@@ -1450,6 +1581,7 @@ Document History:
 			<xsd:attribute name="miscRepay" type="euros16" use="optional"/>
 			<xsd:attribute name="miscRepayDesc" type="text64" use="optional"/>
 			<xsd:attribute name="permeantDeductionUnderSec835AGb" type="euros16"  use="optional"/>
+			<xsd:attribute name="permeantDeductionUnderSec835AGbAt33" type="euros16"  use="optional"/>
 			<xsd:attribute name="finInstrumentDeductionPayeeCharge" type="euros16"  use="optional"/>
 			<xsd:attribute name="hybridMismatchDeductionPayeeCharge" type="euros16"  use="optional"/>
 		</xsd:complexType>
