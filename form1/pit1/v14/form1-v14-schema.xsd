@@ -663,7 +663,7 @@ Version 1.0:
 								<xsd:complexType>
 									<xsd:attribute name="tradingaccountpurchases"
 										type="euros10" use="optional" />
-									<xsd:attribute name="grosstradingprofits" type="euros10"
+									<xsd:attribute name="grosstradingprofits" type="negeuros10"
 										use="optional" />
 								</xsd:complexType>
 							</xsd:element>
@@ -1565,6 +1565,12 @@ Version 1.0:
 	<xsd:simpleType name="euros10">
 		<xsd:restriction base="xsd:integer">
 			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="9999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="negeuros10">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="-9999999999"  />
 			<xsd:maxInclusive value="9999999999" />
 		</xsd:restriction>
 	</xsd:simpleType>

@@ -136,7 +136,7 @@ __________________________________________________________
 											<xsd:element name="TradeAccountsItems" minOccurs="0">
 												<xsd:complexType>
 													<xsd:attribute name="purchases" type="ros:positive10NewMax"/>
-													<xsd:attribute name="grosstradingprofits" type="ros:positive10NewMax"/>
+													<xsd:attribute name="grosstradingprofits" type="ros:integer10"/>
 												</xsd:complexType>
 											</xsd:element>
 											<xsd:element name="ExpensesAndDeductions" minOccurs="0">
