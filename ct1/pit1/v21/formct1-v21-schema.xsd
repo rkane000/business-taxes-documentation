@@ -49,13 +49,13 @@ v- Formct1/CapitalGains
 
 vi- Formct1/CloseCompanySurcharge
 	[new element]
-	CloseCompanySurcharge
+	CloseCompanyDetails
 	[new attribute]
 	taxReference
 	amountPaid
 	distributionDate
 	
-vii- Formct1/CloseCompanySurcharge/DistributionDetails
+vii- Formct1/DividendWithholdingTax/DistributionDetails
 	[new element]
 	dwtCompanyDetails
 	[new attribute]
@@ -881,7 +881,7 @@ vii- Formct1/CloseCompanySurcharge/DistributionDetails
 				<xsd:element name="DistributionsResidentComp" minOccurs="0">
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element name="ReitTaxReference" minOccurs="0" maxOccurs="20">
+							<xsd:element name="ReitTaxReference" minOccurs="0" maxOccurs="10">
 								<xsd:complexType>
 									<xsd:attribute name="taxReferenceNumber" type="text12" use="optional"/>
 									<xsd:attribute name="itRefersToReit" type="boolean" use="optional" default="false"/>
