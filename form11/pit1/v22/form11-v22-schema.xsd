@@ -43,6 +43,11 @@ __________________________________________________________
 	@ofnonrelevanttaxgain20spouse
 	@oopamountacquired20self
 	@oopamountacquired20spouse	
+	
+	i-UkForeign/ForeignEmployement
+	[add attribute]
+	@employgrossnotaxself
+	@employgrossnotaxspouse
 
 	i-CapitalGains/AcquisitionDetails
 	[add attribute]
@@ -57,10 +62,31 @@ __________________________________________________________
 	
 	i-Trade/Farmer
 	[remove attribute]
-	registeredFarmPartnerReliefPriorYears
+	@registeredFarmPartnerReliefPriorYears
 	[add attribute]
-	registeredFarmPartnerReliefPriorOneYear
-	registeredFarmPartnerReliefPriorTwoYears
+	@registeredFarmPartnerReliefPriorOneYear
+	@registeredFarmPartnerReliefPriorTwoYears
+	
+	i-Personal/Details
+	[remove attribute]
+	@personalrepresentative
+	[add attribute]
+	@personalrepresentativename
+	@personalrepresentativeaddress
+	
+	i-Paye
+	[add element]
+	@DSPDetails
+	
+	i-Paye/Pension/Expenses
+	[add attribute]
+	@utilityallowableself
+	@broadbandallowableself
+	@daysworkedremoteself
+	@utilityallowablespouse
+	@broadbandallowablespouse
+	@daysworkedremotespouse
+	
 -->	
 
 <xsd:schema xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns="http://www.ros.ie/schemas/form11/v22/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/form11/v22/" elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -747,6 +773,12 @@ __________________________________________________________
 								<xsd:attribute name="totalempspouse" type="ros:positive8" use="optional"/>
 								<xsd:attribute name="totaldirself" type="ros:positive8" use="optional"/>
 								<xsd:attribute name="totaldirspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="utilityallowableself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="broadbandallowableself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="daysworkedremoteself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="utilityallowablespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="broadbandallowablespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="daysworkedremotespouse" type="ros:positive8" use="optional"/>
 							</xsd:complexType>
 						</xsd:element>
 						<xsd:element name="ForeignEarningsDeductionClaimedAmount" minOccurs="0">
