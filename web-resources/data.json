@@ -4,6 +4,24 @@
 		"anchor": "PIT",
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of CT1",
 		"cards": [{
+				"link": "ct1/pit1/v22/formct1-v22-schema.xsd",
+				"description": "CT1 Schema v22",
+				"anchor": "CT1_Schema_v22",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "01/03/2022",
+				"category": "download"
+			},
+			{
+				"link": "ct1/pit1/v22/ct1v22notes.pdf",
+				"description": "CT1 Notes v22",
+				"anchor": "CT1_Notes_v22",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "01/03/2022",
+				"category": "download"
+			},
+			{
 				"link": "ct1/pit1/v21/formct1-v21-schema.xsd",
 				"description": "CT1 Schema v21",
 				"anchor": "CT1_Schema_v21",
