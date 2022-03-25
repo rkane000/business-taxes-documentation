@@ -79,6 +79,10 @@ incomeNetInterest
 expensesNetInterest
 netInterestExpense
 
+ExtractsAccounts/Expenses
+[added attribute]
+totalCrssAndBrss
+
 <xsd:attribute name="incomeNetInterest" type="euros16" use="optional" />
 						<xsd:attribute name="expensesNetInterest" type="euros16" use="optional" />
 						<xsd:attribute name="netInterestExpense" type="euros16" use="optional" />
@@ -801,6 +805,7 @@ netInterestExpense
 						<xsd:attribute name="subContractorsOther" type="euros16" use="optional"/>
 						<xsd:attribute name="rentPaid" type="euros16" use="optional"/>
 						<xsd:attribute name="otherExpensesTotal" type="euros16" use="optional"/>
+						<xsd:attribute name="totalCrssAndBrss" type="euros16" use="optional"/>
 						<xsd:attribute name="otherExpensesComment" type="text500" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
