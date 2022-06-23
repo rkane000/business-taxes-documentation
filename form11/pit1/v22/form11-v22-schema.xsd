@@ -399,6 +399,7 @@ __________________________________________________________
 						<xsd:attribute name="confirmsuccessorage" type="ros:boolean" default="false"/>
 						<xsd:attribute name="profitsharepercentage" type="xsd:decimal" use="optional"/>
 						<xsd:attribute name="successiontaxcredit" type="xsd:decimal" use="optional"/>
+						<xsd:attribute name="successiontaxcreditprioryears" type="xsd:decimal" use="optional"/>
 						<xsd:attribute name="registeredFarmPartnerReliefPriorOneYear" type="ros:positive10" use="optional"/>	
 						<xsd:attribute name="registeredFarmPartnerReliefPriorTwoYears" type="ros:positive10" use="optional"/>	
 						<xsd:attribute name="qualifyFarmerReliefPriorYears" type="ros:positive10" use="optional"/>	
@@ -408,6 +409,12 @@ __________________________________________________________
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="SpecReliefCapitalAllow" type="SpecReliefCapitalAllow" minOccurs="0" maxOccurs="1"/>
+							<xsd:element name="FoodMarineAgricultureQualyCert" minOccurs="0" maxOccurs="5"> 
+								<xsd:complexType>
+									<xsd:attribute name="certnumber" type="ros:string20" use="optional"/>
+									<xsd:attribute name="amountclaimed" type="ros:positive8" use="optional"/>
+								</xsd:complexType>	
+							</xsd:element>
 						</xsd:sequence>
 						<xsd:attribute name="machinery" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="machinerychildfitnesscentreequip" type="ros:positive8" use="optional"/>
@@ -423,6 +430,8 @@ __________________________________________________________
 						<xsd:attribute name="childCareOrFitnessBuildCap" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="aviationservicesfacility" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="otherspecreliefcap" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="farmsafetyequip" type="ros:positive8" use="optional"/>
+						
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="Losses" minOccurs="0">

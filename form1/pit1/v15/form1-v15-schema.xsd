@@ -13,6 +13,32 @@ Version 1.0:
 		@subtrusttype
 		@othersubtrusttype
 		@foreignunittrust
+		
+2. Form1/CapitalGains/AcquisitionDetails
+		[Added the following attributes]
+		@currentyearcarried
+		@prioryearcarried
+		
+3. Form1/ForeignIncome/ForeignAccountDetails/
+		[removed]
+		@opaddintermediary
+		@opnameintermediary
+		@ofaddintermediary
+		@ofnameintermediary
+		@flnameintermediary
+		@fladdintermediary
+		@fbanameintermediary
+		@fbaaddintermediary
+
+4. Form1/ForeignIncome/ForeignAccountDetails
+		[added]
+		@opnameaddressintermediary
+		@ofnameaddressintermediary
+		@flnameaddressintermediary
+		@fbanameaddressintermediary
+		@opampaymadeacqmat20
+		@ofampaymadeacqmat20
+		@lpAmPayMadeAcqMat20
 						
 -->
 <xsd:schema xmlns="http://www.ros.ie/schemas/form1/v15/"
@@ -468,7 +494,7 @@ Version 1.0:
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="LifePolicies" minOccurs="0"
-								maxOccurs="10">
+								maxOccurs="20">
 								<xsd:complexType>
 									<xsd:attribute name="flrelpayr0" type="euros10"
 										use="optional" />
@@ -484,14 +510,12 @@ Version 1.0:
 									<xsd:attribute name="flterms" type="text40" use="optional" />
 									<xsd:attribute name="flannprempay" type="euros10"
 										use="optional" />
-									<xsd:attribute name="flnameintermediary" type="text170"
-										use="optional" />
-									<xsd:attribute name="fladdintermediary" type="text170"
+									<xsd:attribute name="flnameaddressintermediary" type="text170"
 										use="optional" />
 								</xsd:complexType>
 							</xsd:element>
 							<xsd:element name="OffshoreFunds" minOccurs="0"
-								maxOccurs="10">
+								maxOccurs="20">
 								<xsd:complexType>
 									<xsd:attribute name="ofrelpayr0" type="euros10"
 										use="optional" />
@@ -510,14 +534,12 @@ Version 1.0:
 										use="optional" />
 									<xsd:attribute name="ofmatinterestdescription"
 										type="text170" use="optional" />
-									<xsd:attribute name="ofnameintermediary" type="text170"
-										use="optional" />
-									<xsd:attribute name="ofaddintermediary" type="text170"
+									<xsd:attribute name="ofnameaddressintermediary" type="text170"
 										use="optional" />
 								</xsd:complexType>
 							</xsd:element>
 							<xsd:element name="OtherOffshoreFunds" minOccurs="0"
-								maxOccurs="10">
+								maxOccurs="20">
 								<xsd:complexType>
 									<xsd:attribute name="opname" type="text170" use="optional" />
 									<xsd:attribute name="opaddress" type="text170"
@@ -530,14 +552,12 @@ Version 1.0:
 										use="optional" />
 									<xsd:attribute name="opmatinterestdescription"
 										type="text170" use="optional" />
-									<xsd:attribute name="opnameintermediary" type="text170"
-										use="optional" />
-									<xsd:attribute name="opaddintermediary" type="text170"
+									<xsd:attribute name="opnameaddressintermediary" type="text170"
 										use="optional" />
 								</xsd:complexType>
 							</xsd:element>
 							<xsd:element name="ForeignBankAccounts" minOccurs="0"
-								maxOccurs="10">
+								maxOccurs="20">
 								<xsd:complexType>
 									<xsd:attribute name="fbaname" type="text170" use="optional" />
 									<xsd:attribute name="fbaaddress" type="text170"
@@ -546,13 +566,24 @@ Version 1.0:
 										use="optional" />
 									<xsd:attribute name="fbaamofmoneydep" type="euros10"
 										use="optional" />
-									<xsd:attribute name="fbanameintermediary" type="text170"
-										use="optional" />
-									<xsd:attribute name="fbaaddintermediary" type="text170"
+									<xsd:attribute name="fbanameaddressintermediary" type="text170"
 										use="optional" />
 								</xsd:complexType>
 							</xsd:element>
 						</xsd:sequence>
+						
+						<!-- Added to handle the 20th instance of the offshoreProduct panel -->
+						<xsd:attribute name="opampaymadeacqmat20" type="eurosDec8" use="optional"/>
+						
+						<!-- Added to handle the 20th instance of the offshoreFunds panel -->
+						<xsd:attribute name="ofampaymadeacqmat20" type="eurosDec8" use="optional"/>
+						
+						<!-- Added to handle the 20th instance of the offshoreFunds panel -->
+						<xsd:attribute name="lpampaymadeacqmat20" type="eurosDec8" use="optional"/>
+						
+						<!-- Added to handle the 20th instance of the offshoreFunds panel -->
+						<xsd:attribute name="fbaampaymadeacqmat20" type="eurosDec8" use="optional"/>
+						
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="AdditionalDTR" minOccurs="0">
@@ -956,6 +987,10 @@ Version 1.0:
 						<xsd:attribute name="chargeablegainself" type="euros9"
 							use="optional" />
 						<xsd:attribute name="foreignlifehighrt" type="euros9"
+							use="optional" />
+						<xsd:attribute name="currentyearcarried" type="euros9"
+							use="optional" />
+						<xsd:attribute name="prioryearcarried" type="euros9"
 							use="optional" />
 						<xsd:attribute name="lossforwardself" type="euros9"
 							use="optional" />

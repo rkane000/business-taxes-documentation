@@ -370,7 +370,7 @@
 		"cardText": "<p>This section provides documentation which advises users on any known issues for a version of CT1",
 		"cards": [
 			{
-				"link": "ct1/known-issues/v20/ct1_v20_known_issues.pdf",
+				"link": "ct1/known-issues/v20/ct1_v20_known_issues.pdf2",
 				"description": "CT1 Known Issues v20",
 				"anchor": "CT1_Known_Issues_v20",
 				"type": "PDF",
@@ -391,7 +391,7 @@
 				"anchor": "Form11_Schema_v22",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "28/10/2021",
+				"dateLastUpdated": "23/06/2022",
 				"category": "download"
 			},
 			{
@@ -400,7 +400,7 @@
 				"anchor": "Form11_Notes_v22",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "28/10/2021",
+				"dateLastUpdated": "23/06/2022",
 				"category": "download"
 			},
 			{
@@ -753,7 +753,7 @@
 		"cardText": "<p>This section provides documentation which advises users on any known issues for a version of Form11",
 		"cards": [
 			{
-				"link": "form11/known-issues/v20/form11_v20_known_issues.pdf",
+				"link": "form11/known-issues/v20/form11_v20_known_issues.pdf2",
 				"description": "Form11 Known Issues v20",
 				"anchor": "Form11_Known_Issues_v20",
 				"type": "PDF",
@@ -774,7 +774,7 @@
 				"anchor": "Form1-Firms_Schema_v22",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "02/11/2021",
+				"dateLastUpdated": "23/06/2022",
 				"category": "download"
 			},
 			{
@@ -783,7 +783,7 @@
 				"anchor": "Form1-Firms_Notes_v22",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "02/11/2021",
+				"dateLastUpdated": "23/06/2022",
 				"category": "download"
 			},
 			{
@@ -1069,7 +1069,7 @@
 				"anchor": "Form1_Schema_v15",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "02/11/2021",
+				"dateLastUpdated": "23/06/2022",
 				"category": "download"
 			},
 			{
@@ -1078,7 +1078,7 @@
 				"anchor": "Form1_Notes_v15",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "02/11/2021",
+				"dateLastUpdated": "23/06/2022",
 				"category": "download"
 			},
 			{
