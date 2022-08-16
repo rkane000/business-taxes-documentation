@@ -61,6 +61,41 @@ vii- Formct1/DividendWithholdingTax/DistributionDetails
 	[new attribute]
 	taxReference
 	amountPaid
+	
+viii- Formct1/IrishInvestmentIncome/DigitalGamesRelief
+	[new element]
+	DigitalGamesReliefUnderS481A19
+	[new attribute]
+	gameTitle
+	interimCulturalCertNumber
+	certDateIssued
+	accountingPeriodBegin
+	accountingPeriodEnd
+	eligibleExpenditure
+	qualiffyingExpenditure
+	interimTaxCreditClaimedPreviousYears
+	interimTaxClaimedAt32
+	
+	[new element]
+	DigitalGamesReliefUnderS481A20
+	[new attribute]
+	gameTitle
+	finalCulturalCertNumber
+	certDateIssued
+	dateOfCompletion
+	eligibleExpenditure
+	qualiffyingExpenditure
+	interimTaxCreditClaimedPreviousYears
+	isClaimBeingMadeIncurredSinceDateSec481A
+	isExpenditureClaimIncurredSinceDateOfCredit
+	isExpenditureClaimIncurredSinceDateOfCredit
+	
+	[new element]
+	ClawbackGamesReliefS481A26/ClawbackCert
+	[new attribute]
+	certNumber
+	unauthorisedAmountTax
+	totalClawback
 
 -->
 
@@ -919,6 +954,52 @@ vii- Formct1/DividendWithholdingTax/DistributionDetails
 				<xsd:element name="leasingProfits" minOccurs="0">
 					<xsd:complexType>
 						<xsd:attribute name="profitsFromNonTradingLeasing" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DigitalGamesRelief" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="DigitalGamesReliefUnderS481A19" minOccurs="0" maxOccurs="40">
+								<xsd:complexType>
+									<xsd:attribute name="gameTitle" type="text20" use="optional"/>
+									<xsd:attribute name="interimCulturalCertNumber" type="text20" use="optional"/>
+									<xsd:attribute name="certDateIssued" type="date" use="optional"/>
+									<xsd:attribute name="accountingPeriodBegin" type="date" use="optional"/>
+									<xsd:attribute name="accountingPeriodEnd" type="date" use="optional"/>
+									<xsd:attribute name="eligibleExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
+									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="DigitalGamesReliefUnderS481A20" minOccurs="0" maxOccurs="40">
+								<xsd:complexType>
+									<xsd:attribute name="gameTitle" type="text20" use="optional"/>
+									<xsd:attribute name="finalCulturalCertNumber" type="text20" use="optional"/>
+									<xsd:attribute name="certDateIssued" type="date" use="optional"/>
+									<xsd:attribute name="dateOfCompletion" type="date" use="optional"/>
+									<xsd:attribute name="eligibleExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
+									<xsd:attribute name="isClaimBeingMadeIncurredSinceDateSec481A" type="boolean" use="optional"/>
+									<xsd:attribute name="isExpenditureClaimIncurredSinceDateOfCredit" type="boolean" use="optional"/>
+									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ClawbackGamesReliefS481A26" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ClawbackCert" minOccurs="0" maxOccurs="20">
+											<xsd:complexType>
+												<xsd:attribute name="certNumber" type="text20" use="optional"/>
+												<xsd:attribute name="unauthorisedAmountTax" type="euros16" use="optional"/>
+												<xsd:attribute name="totalClawback" type="euros16" use="optional"/>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
 			</xsd:sequence>
