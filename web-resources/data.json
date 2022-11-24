@@ -386,6 +386,24 @@
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form11",
 		"cards": [
 			{
+				"link": "form11/pit1/v23/form11-v23-schema.xsd",
+				"description": "Form11 Schema v23",
+				"anchor": "Form11_Schema_v23",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "08/11/2022",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v23/form11v23notes.pdf",
+				"description": "Form11 Notes v23",
+				"anchor": "Form11_Notes_v23",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "08/11/2022",
+				"category": "download"
+			},
+			{
 				"link": "form11/pit1/v22/form11-v22-schema.xsd",
 				"description": "Form11 Schema v22",
 				"anchor": "Form11_Schema_v22",
@@ -769,6 +787,24 @@
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Firms",
 		"cards": [
 			{
+				"link": "form1firms/pit1/v23/form1firms-v23-schema.xsd",
+				"description": "Form1-Firms Schema v23",
+				"anchor": "Form1-Firms_Schema_v23",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "08/11/2022",
+				"category": "download"
+			},
+			{
+				"link": "form1firms/pit1/v23/form1firmsv23notes.pdf",
+				"description": "Form1-Firms Notes v23",
+				"anchor": "Form1-Firms_Notes_v23",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "08/11/2022",
+				"category": "download"
+			},
+			{
 				"link": "form1firms/pit1/v22/form1firms-v22-schema.xsd",
 				"description": "Form1-Firms Schema v22",
 				"anchor": "Form1-Firms_Schema_v22",
@@ -1063,6 +1099,24 @@
 		"anchor": "PIT",
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Trusts & Estates",
 		"cards": [
+			{
+				"link": "form1/pit1/v16/form1-v16-schema.xsd",
+				"description": "Form1 Schema v16",
+				"anchor": "Form1_Schema_v16",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "08/11/2022",
+				"category": "download"
+			},
+			{
+				"link": "form1/pit1/v16/form1v16notes.pdf",
+				"description": "Form1 Notes v16",
+				"anchor": "Form1_Notes_v16",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2022",
+				"dateLastUpdated": "08/11/2022",
+				"category": "download"
+			},
 			{
 				"link": "form1/pit1/v15/form1-v15-schema.xsd",
 				"description": "Form1 Schema v15",
