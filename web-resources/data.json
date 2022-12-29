@@ -3,7 +3,8 @@
 		"title": "CT1 - Schema & Notes",
 		"anchor": "PIT",
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of CT1",
-		"cards": [{
+		"cards": [
+			{
 				"link": "ct1/pit1/v22/formct1-v22-schema.xsd",
 				"description": "CT1 Schema v22",
 				"anchor": "CT1_Schema_v22",
@@ -27,7 +28,7 @@
 				"anchor": "CT1_Schema_v21",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "13/08/2022",
+				"dateLastUpdated": "19/12/2022",
 				"category": "download"
 			},
 			{
@@ -36,7 +37,7 @@
 				"anchor": "CT1_Notes_v21",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "13/08/2022",
+				"dateLastUpdated": "19/12/2022",
 				"category": "download"
 			},
 			{
@@ -363,22 +364,6 @@
 				"dateLastUpdated": "20/07/2012",
 				"category": "download"
 			}]
-	},
-	"known-issues-CT1": {
-		"title": "CT1 - Known Issues",
-		"anchor": "support",
-		"cardText": "<p>This section provides documentation which advises users on any known issues for a version of CT1",
-		"cards": [
-			{
-				"link": "ct1/known-issues/v20/ct1_v20_known_issues.pdf2",
-				"description": "CT1 Known Issues v20",
-				"anchor": "CT1_Known_Issues_v20",
-				"type": "PDF",
-				"environment": "Tax periods ending in 2020",
-				"dateLastUpdated": "04/04/2020",
-				"category": "download"
-			}
-		]
 	},
 	"Form11": {
 		"title": "Form11 - Schema & Notes",
@@ -761,22 +746,6 @@
 				"type": "PDF",
 				"environment": "Tax periods ending in 2002",
 				"dateLastUpdated": "28/04/2003",
-				"category": "download"
-			}
-		]
-	},
-	"known-issues-Form11": {
-		"title": "Form11 - Known Issues",
-		"anchor": "support",
-		"cardText": "<p>This section provides documentation which advises users on any known issues for a version of Form11",
-		"cards": [
-			{
-				"link": "form11/known-issues/v20/form11_v20_known_issues.pdf2",
-				"description": "Form11 Known Issues v20",
-				"anchor": "Form11_Known_Issues_v20",
-				"type": "PDF",
-				"environment": "Tax periods ending in 2019",
-				"dateLastUpdated": "15/06/2020",
 				"category": "download"
 			}
 		]

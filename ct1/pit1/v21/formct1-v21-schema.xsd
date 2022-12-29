@@ -61,41 +61,6 @@ vii- Formct1/DividendWithholdingTax/DistributionDetails
 	[new attribute]
 	taxReference
 	amountPaid
-	
-viii- Formct1/IrishInvestmentIncome/DigitalGamesRelief
-	[new element]
-	DigitalGamesReliefUnderS481A19
-	[new attribute]
-	gameTitle
-	interimCulturalCertNumber
-	certDateIssued
-	accountingPeriodBegin
-	accountingPeriodEnd
-	eligibleExpenditure
-	qualiffyingExpenditure
-	interimTaxCreditClaimedPreviousYears
-	interimTaxClaimedAt32
-	
-	[new element]
-	DigitalGamesReliefUnderS481A20
-	[new attribute]
-	gameTitle
-	finalCulturalCertNumber
-	certDateIssued
-	dateOfCompletion
-	eligibleExpenditure
-	qualiffyingExpenditure
-	interimTaxCreditClaimedPreviousYears
-	isClaimBeingMadeIncurredSinceDateSec481A
-	isExpenditureClaimIncurredSinceDateOfCredit
-	isExpenditureClaimIncurredSinceDateOfCredit
-	
-	[new element]
-	ClawbackGamesReliefS481A26/ClawbackCert
-	[new attribute]
-	certNumber
-	unauthorisedAmountTax
-	totalClawback
 
 -->
 
@@ -970,6 +935,7 @@ viii- Formct1/IrishInvestmentIncome/DigitalGamesRelief
 									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
 									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
 									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
+									<xsd:attribute name="isClaimBeingMadeSinceDateSec481A" type="boolean" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
 							<xsd:element name="DigitalGamesReliefUnderS481A20" minOccurs="0" maxOccurs="40">
@@ -981,8 +947,7 @@ viii- Formct1/IrishInvestmentIncome/DigitalGamesRelief
 									<xsd:attribute name="eligibleExpenditure" type="euros16" use="optional"/>
 									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
 									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
-									<xsd:attribute name="isClaimBeingMadeIncurredSinceDateSec481A" type="boolean" use="optional"/>
-									<xsd:attribute name="isExpenditureClaimIncurredSinceDateOfCredit" type="boolean" use="optional"/>
+									<xsd:attribute name="isClaimBeingMadeSinceDateSec481A" type="boolean" use="optional"/>
 									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
@@ -1519,6 +1484,7 @@ viii- Formct1/IrishInvestmentIncome/DigitalGamesRelief
 			<xsd:attribute name="surcharge" type="positiveDec13" use="optional"/>
 			<xsd:attribute name="otherForeignIncome" type="euros16" use="optional"/>
 			<xsd:attribute name="rAndDRepayableCredits" type="euros16" use="optional"/>
+			<xsd:attribute name="digitalGamesRelief" type="euros16" use="optional"/>
 			<xsd:attribute name="repaidCreditAmount" type="positiveDec12" use="optional"/>
 			<xsd:attribute name="reliefUnderSection247" type="euros16" use="optional"/>
 			<xsd:attribute name="miscIncomeAm" type="euros16" use="optional"/>
