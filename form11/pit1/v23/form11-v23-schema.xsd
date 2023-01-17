@@ -4,88 +4,113 @@
 Document History:
 __________________________________________________________
 
-	i-personal/marital
-	[remove attributes]
-	@dateofdeath
+	new elements
 	
-	i-allowances/eiiallowance/certsthreeyearsbefore
-	[edit attributes]
-	@certnumberself (type ros:string8 -> ros:string20)
-	@certnumberspouse (type ros:string8 -> ros:string20)
 	
-	i-allowances/eiiallowance
-	[remove elements]
-	@sharesIssuedInCurrentYears
-	@certsyearsbefore
-	[remove attributes]
-	@amtsharesyearbeforeself
-	@amtsharesyearbeforespouse	
+	Personal > Reason
+@otherreason
+@checknoneabove
 
-	i-UkForeign/ForeignAccountDetails
-	[add attributes]
-	@fba20self
-	@fba20spouse
-	@lprelevanttax20self
-	@lprelevanttax20spouse
-	@lpnonrelevanttax20self
-	@lpnonrelevanttax20spouse
-	@lprelevanttaxgain20self
-	@lprelevanttaxgain20spouse
-	@lpnonrelevanttaxgain20self
-	@lpnonrelevanttaxgain20spouse
-	@ofrelevanttax20self
-	@ofrelevanttax20spouse
-	@ofnonrelevanttax20self
-	@ofnonrelevanttax20spouse
-	@ofrelevanttaxgain20self
-	@ofrelevanttaxgain20spouse
-	@ofnonrelevanttaxgain20self
-	@ofnonrelevanttaxgain20spouse
-	@oopamountacquired20self
-	@oopamountacquired20spouse	
-	
-	i-UkForeign/ForeignEmployement
-	[add attribute]
-	@employgrossnotaxself
-	@employgrossnotaxspouse
+Paye > Pensions/Expenses
+@realtimeclaimedself
+@realtimeclaimedspouse
 
-	i-CapitalGains/AcquisitionDetails
-	[add attribute]
-	@curlossprioryearcarriedfwself
-	@curlossprioryearcarriedfwspouse
-	@unusedlossprioryearcarriedfwself
-	@unusedlossprioryearcarriedfwspouse	
-	
-	i-Personal
-	[add element]
-	@Reason
-	
-	i-Trade/Farmer
-	[remove attribute]
-	@registeredFarmPartnerReliefPriorYears
-	[add attribute]
-	@registeredFarmPartnerReliefPriorOneYear
-	@registeredFarmPartnerReliefPriorTwoYears
-	
-	i-Personal/Details
-	[remove attribute]
-	@personalrepresentative
-	[add attribute]
-	@personalrepresentativename
-	@personalrepresentativeaddress
-	
-	i-Paye
-	[add element]
-	@DSPDetails
-	
-	i-Paye/Pension/Expenses
-	[add attribute]
-	@utilityallowableself
-	@broadbandallowableself
-	@daysworkedremoteself
-	@utilityallowablespouse
-	@broadbandallowablespouse
-	@daysworkedremotespouse
+Allowances > MedicalExpenses/MedicalExpensesDtls/MedExpenses
+@realtimeclaimed 
+
+
+
+ChargesDeductions > @InterestPaidTaxDeduction 
+@taxdeductioncountryself
+@taxdeductioncountryspouse
+@interestamountpaidself
+@interestamountpaidspouse
+@incometaxdeductedself
+@incometaxdeductedspouse
+@notaxdeductioncountryself
+@notaxdeductioncountryspouse
+@nodeductioninterestpaidself
+@nodeductioninterestpaidspouse
+
+Trade > Farmer
+@shareofsuccessiontax667DpriorYears
+
+
+Allowances > SCIAllowance/@SCIinvestmentssevenyears
+@companynameself
+@companynamespouse
+@taxreferenceself
+@taxreferencespouse
+@eii5dateself
+@eii5datespouse
+@statequalydateself
+@statequalydatespouse
+@amtinvestunder502aself
+@amtinvestunder502aspouse
+@amtdeductionunder502aself
+@amtdeductionunder502aspouse
+@amttobecarriedfwdself
+@amttobecarriedfwdspouse
+@amteligiblesharesself
+@amteligiblesharesspouse
+
+Allowances > SCIAllowance/@SCIinvestmentssevenyears	
+@amtSharesself
+@amtSharesspouse
+@companynameself
+@companynamespouse
+@taxnumberself
+@taxnumberspouse
+@dateofqualificationself
+@dateofqualificationspouse
+@amtinvestunder502aself
+@amtinvestunder502aspouse
+@amtdeductionunder502aself
+@amtdeductionunder502aspouse
+@amttobecarriedfwdself
+@amttobecarriedfwdspouse
+		
+Allowances > @rentTaxCredits
+@rentConfirmationSelf1*
+@rentConfirmationSpouse1*
+@rentConfirmationSelf2*
+@rentConfirmationSpouse2*
+@rentConfirmationSelf3*
+@rentConfirmationSpouse3*
+@propertyConfirmationSelf1*
+@propertyConfirmationSpouse1*
+@propertyConfirmationSelf2*
+@propertyConfirmationSpouse2*
+
+
+Allowances > @rentTaxCredits/@AddressList
+
+@rentedPropertyAddressSelf*
+@rentedPropertyAddressSpouse*
+@rentedPropertyEircodeSelf*
+@rentedPropertyEircodeSpouse*
+@nameOfTenantSelf*
+@nameOfTenantSpouse*
+@ppsNumOfTenantSelf*
+@ppsNumOfTenantSpouse*
+@tenancyStartDateSelf*
+@tenancyStartDateSpouse*
+@tenancyEndDate2022Self*
+@tenancyEndDate2022Spouse*
+@grossRentPaidSelf*
+@grossRentPaidSpouse*
+@rentedPropertyLLAddressSelf*
+@rentedPropertyLLAddressSpouse*
+@landlordEircodeSelf*
+@landlordEircodeSpouse*
+@landlordNonResidientSelf*
+@landlordNonResidientSpouse*
+@agentNameAddressOfLandlordSelf*
+@agentNameAddressOfLandlordSpouse*
+@landlordPPSSelf*
+@landlordPPSSpouse*
+@rtbRegistrationNumSelf*
+@rtbRegistrationNumSpouse*
 	
 -->	
 
@@ -114,7 +139,6 @@ __________________________________________________________
 				<xsd:element ref="SelfAssessmentCGT" minOccurs="0"/>
 				<xsd:element ref="CapitalAcquisitions" minOccurs="0"/>
 				<xsd:element ref="ChargeableAssets" minOccurs="0"/>
-				
 				<xsd:element ref="Prepopulation" minOccurs="0"/>
 				<xsd:element ref="SummaryCalculation" minOccurs="0"/>
 			</xsd:sequence>
@@ -167,7 +191,7 @@ __________________________________________________________
 						<xsd:attribute name="checkrentalincome" type="ros:boolean" default="false"/>
 						<xsd:attribute name="checknonpayeincome" type="ros:boolean" default="false"/>
 						<xsd:attribute name="checkother" type="ros:boolean" default="false"/>
-						<xsd:attribute name="otherreason" type="ros:string20" use="optional"/>
+						<xsd:attribute name="otherreason" type="ros:string170" use="optional"/>
 						<xsd:attribute name="checknoneabove" type="ros:boolean" default="false"/>
 					</xsd:complexType>
 				</xsd:element>		
@@ -453,6 +477,10 @@ __________________________________________________________
 				<xsd:element name="PSWT" minOccurs="0">
 					<xsd:complexType>
 						<xsd:attribute name="pswt" type="xsd:decimal" use="optional"/>
+						<!-- <xsd:attribute name="pswtPayment" type="xsd:decimal" use="optional"/>
+						<xsd:attribute name="pswtDeductions" type="xsd:decimal" use="optional"/>
+						<xsd:attribute name="pswtInterimRefunds" type="xsd:decimal" use="optional"/>
+						<xsd:attribute name="pswtRemainingRefunds" type="xsd:decimal" use="optional"/> -->
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="PRSIPaid" minOccurs="0">
@@ -1900,6 +1928,52 @@ __________________________________________________________
 					<xsd:complexType>
 						<xsd:attribute name="amtjobclaimself" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="amtjobclaimspouse" type="ros:positive8" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="RentTaxCredit" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="AddressList" minOccurs="0" maxOccurs="5">
+								<xsd:complexType>
+									<xsd:attribute name="rentedPropertyAddressSelf" type="ros:string500" use="optional"/>
+									<xsd:attribute name="rentedPropertyAddressSpouse" type="ros:string500" use="optional"/>
+									<xsd:attribute name="rentedPropertyEircodeSelf" type="ros:string500" use="optional"/>
+									<xsd:attribute name="rentedPropertyEircodeSpouse" type="ros:string500" use="optional"/>
+									<xsd:attribute name="nameOfTenantSelf" type="ros:string40" use="optional"/>
+									<xsd:attribute name="nameOfTenantSpouse" type="ros:string40" use="optional"/>
+									<xsd:attribute name="ppsNumOfTenantSelf" type="ros:string20" use="optional"/>
+									<xsd:attribute name="ppsNumOfTenantSpouse" type="ros:string20" use="optional"/>
+									<xsd:attribute name="tenancyStartDateSelf" type="ros:date" use="optional"/>
+									<xsd:attribute name="tenancyStartDateSpouse" type="ros:date" use="optional"/>
+									<xsd:attribute name="tenancyEndDate2022Self" type="ros:date" use="optional"/>
+									<xsd:attribute name="tenancyEndDate2022Spouse" type="ros:date" use="optional"/>
+									<xsd:attribute name="grossRentPaidSelf" type="ros:positive10" use="optional"/>
+									<xsd:attribute name="grossRentPaidSpouse" type="ros:positive10" use="optional"/>
+									<xsd:attribute name="rentedPropertyLLAddressSelf" type="ros:string500" use="optional"/>
+									<xsd:attribute name="rentedPropertyLLAddressSpouse" type="ros:string500" use="optional"/>
+									<xsd:attribute name="landlordEircodeSelf" type="ros:string10" use="optional"/>
+									<xsd:attribute name="landlordEircodeSpouse" type="ros:string10" use="optional"/>
+									<xsd:attribute name="landlordNonResidientSelf" type="ros:boolean" use="optional"/>
+									<xsd:attribute name="landlordNonResidientSpouse" type="ros:boolean" use="optional"/>
+									<xsd:attribute name="agentNameAddressOfLandlordSelf" type="ros:string500" use="optional"/>
+									<xsd:attribute name="agentNameAddressOfLandlordSpouse" type="ros:string500" use="optional"/>
+									<xsd:attribute name="landlordPPSSelf" type="ros:string20" use="optional"/>
+									<xsd:attribute name="landlordPPSSpouse" type="ros:string20" use="optional"/>
+									<xsd:attribute name="rtbRegistrationNumSelf" type="ros:string20" use="optional"/>
+									<xsd:attribute name="rtbRegistrationNumSpouse" type="ros:string20" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="rentConfirmationSelf1" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="rentConfirmationSpouse1" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="rentConfirmationSelf2" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="rentConfirmationSpouse2" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="rentConfirmationSelf3" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="rentConfirmationSpouse3" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="propertyConfirmationSelf1" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="propertyConfirmationSpouse1" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="propertyConfirmationSelf2" type="ros:boolean" use="optional"/>
+						<xsd:attribute name="propertyConfirmationSpouse2" type="ros:boolean" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="FisherTaxCredit" minOccurs="0">
@@ -3496,6 +3570,12 @@ __________________________________________________________
 									<xsd:attribute name="spouse" type="xsd:decimal" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
+							<xsd:element name="RentTaxCredit" minOccurs="0">
+								<xsd:complexType>
+									<xsd:attribute name="amount" type="xsd:decimal" use="optional"/>
+									<xsd:attribute name="spouse" type="xsd:decimal" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
 							<xsd:element name="seaGoingNavalCredit" minOccurs="0">
 								<xsd:complexType>
 									<xsd:attribute name="amount" type="xsd:decimal" use="optional"/>
@@ -3877,6 +3957,7 @@ __________________________________________________________
 				<xsd:element ref="AddressDetails" minOccurs="0"/>
 				<xsd:element ref="RCTDetails" minOccurs="0"/>
 				<xsd:element ref="HRIDetails" minOccurs="0"/>
+				<!-- <xsd:element ref="EPSWTDetails" minOccurs="0"/> -->
 				<xsd:element ref="DAFMDetails" minOccurs="0"/>
 				<xsd:element ref="RentIncDetails" minOccurs="0"/>
 				<xsd:element ref="RemoteWorking" minOccurs="0"/>
@@ -3958,6 +4039,16 @@ __________________________________________________________
 			<xsd:attribute name="paymentAmount" type="xsd:decimal"/>
 			<xsd:attribute name="claimDate" type="ros:date"/>
 			<xsd:attribute name="hriCarriedForwardSelfAmount" type="xsd:decimal"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="EPSWTDetails">
+		<xsd:complexType>
+			<xsd:attribute name="totalGrossPay" type="xsd:decimal"/>
+			<xsd:attribute name="totalDeductionAmt" type="xsd:decimal"/>
+			<xsd:attribute name="totalRefundedAmt" type="xsd:decimal"/>
+			<xsd:attribute name="totalGrossPaySpouse" type="xsd:decimal"/>
+			<xsd:attribute name="totalDeductionAmtSpouse" type="xsd:decimal"/>
+			<xsd:attribute name="totalRefundedAmtSpouse" type="xsd:decimal"/>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="DSPDetails">
