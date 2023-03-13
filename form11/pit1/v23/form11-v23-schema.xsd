@@ -477,10 +477,10 @@ Allowances > @rentTaxCredits/@AddressList
 				<xsd:element name="PSWT" minOccurs="0">
 					<xsd:complexType>
 						<xsd:attribute name="pswt" type="xsd:decimal" use="optional"/>
-						<!-- <xsd:attribute name="pswtPayment" type="xsd:decimal" use="optional"/>
+						<xsd:attribute name="pswtPayment" type="xsd:decimal" use="optional"/>
 						<xsd:attribute name="pswtDeductions" type="xsd:decimal" use="optional"/>
 						<xsd:attribute name="pswtInterimRefunds" type="xsd:decimal" use="optional"/>
-						<xsd:attribute name="pswtRemainingRefunds" type="xsd:decimal" use="optional"/> -->
+						<xsd:attribute name="pswtRemainingRefunds" type="xsd:decimal" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="PRSIPaid" minOccurs="0">
@@ -3957,7 +3957,7 @@ Allowances > @rentTaxCredits/@AddressList
 				<xsd:element ref="AddressDetails" minOccurs="0"/>
 				<xsd:element ref="RCTDetails" minOccurs="0"/>
 				<xsd:element ref="HRIDetails" minOccurs="0"/>
-				<!-- <xsd:element ref="EPSWTDetails" minOccurs="0"/> -->
+				<xsd:element ref="EPSWTDetails" minOccurs="0"/>
 				<xsd:element ref="DAFMDetails" minOccurs="0"/>
 				<xsd:element ref="RentIncDetails" minOccurs="0"/>
 				<xsd:element ref="RemoteWorking" minOccurs="0"/>
