@@ -1,0 +1,2234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+Document History:
+__________________________________________________________
+
+	i-TradingResults/TradeProfits
+	[add attributes]
+	@farmBuildAllow
+	@farmBuildAllowSlurrySec658A2a
+	@farmBuildAllowSlurrySec658A2b
+	@farmBuildings
+	@slurryStorageA
+	@slurryStorageB
+
+-->
+
+<xsd:schema xmlns="http://www.ros.ie/schemas/formct1/v23/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/formct1/v23/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="FormCt1">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="CompanyDetails" minOccurs="0"/>
+				<xsd:element ref="TradingResults" minOccurs="0"/>
+				<xsd:element ref="ExtractsAccounts" minOccurs="0"/>
+				<xsd:element ref="RentalIncome" minOccurs="0"/>
+				<xsd:element ref="IrishInvestmentIncome" minOccurs="0"/>
+				<xsd:element ref="ForeignIncome" minOccurs="0"/>
+				<xsd:element ref="ExemptIncome" minOccurs="0"/>
+				<xsd:element ref="CapitalGains" minOccurs="0"/>
+				<xsd:element ref="ChargeableAssets" minOccurs="0"/>
+				<xsd:element ref="Deductions" minOccurs="0"/>
+				<xsd:element ref="ResearchAndDevelopmentCredit" minOccurs="0"/>
+				<xsd:element ref="FilmCorporationTaxCredit" minOccurs="0"/>
+				<xsd:element ref="CapitalGainsDevelopmentLand" minOccurs="0"/>
+				<xsd:element ref="CloseCompanySurcharge" minOccurs="0"/>
+				<xsd:element ref="RecoveryOfIncomeTax" minOccurs="0"/>
+				<xsd:element ref="DividendWithholdingTax" minOccurs="0"/>
+				<xsd:element ref="OtherCodes" minOccurs="0"/>
+				<xsd:element ref="PropertyBasedIncentives" minOccurs="0"/>
+				<xsd:element ref="Notes" minOccurs="0"/>
+				<xsd:element ref="SelfAssessmentCt" minOccurs="0"/>
+				<xsd:element ref="SelfAssessmentCgtIt" minOccurs="0"/>
+				<xsd:element ref="Prepopulation" minOccurs="0"/>
+				<xsd:element ref="SummaryCalculation" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="currency" type="currency" use="required" fixed="E"/>
+			<xsd:attribute name="formversion" type="xsd:integer" use="required" fixed="23"/>
+			<xsd:attribute name="language" type="language" use="required"/>
+			<xsd:attribute name="product" type="text20" use="optional"/>
+			<xsd:attribute name="numamendments" type="positive3" use="optional"/>
+		</xsd:complexType>
+	</xsd:element> 
+	<xsd:element name="CompanyDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BeneficialOwner" minOccurs="0" maxOccurs="100">
+					<xsd:complexType> 
+						<xsd:sequence>
+							<xsd:element name="BenOwnerNamePpsn" type="NameAndTaxRefNumber" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="address" type="text140" use="optional"/>
+						<xsd:attribute name="eirCode" type="text8" use="optional"/>
+						<xsd:attribute name="percentageShare" type="percentage3_2" use="optional"/>
+						<xsd:attribute name="percentageLoanStock" type="percentage3_2" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Participator" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ParticipatorNamePpsn" type="NameAndTaxRefNumber" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="address" type="text140" use="optional"/>
+						<xsd:attribute name="eirCode" type="text8" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ForeignCompany" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ForeignCompanyDetails" minOccurs="0" maxOccurs="20">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="LegalOwnerNameAndPpsn" type="NameAndTaxRefNumber" minOccurs="0"/>
+										<xsd:element name="BenefOwnerNameAndPpsn" type="NameAndTaxRefNumber" minOccurs="0"/>
+									</xsd:sequence>
+									<xsd:attribute name="legalOwnerForeignTaxRefNo" type="text20" use="optional"/>
+									<xsd:attribute name="legalOwnerAddress" type="text140" use="optional"/>
+									<xsd:attribute name="percentageShare" type="percentage3_2" use="optional"/>
+									<xsd:attribute name="percentageLoanStock" type="percentage3_2" use="optional"/>
+									<xsd:attribute name="foreignBenefOwnerTaxRefNo" type="text20" use="optional"/>
+									<xsd:attribute name="addressBenefOwn" type="text140" use="optional"/>
+									<xsd:attribute name="percentShareBenefOwn" type="percentage3_2" use="optional"/>
+									<xsd:attribute name="percentLoanStockBenefOwn" type="percentage3_2" use="optional"/>
+									<xsd:attribute name="eirCodeLegalOwn" type="text8" use="optional"/>
+									<xsd:attribute name="eirCodeBenefOwn" type="text8" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="incorporatedCountryName" type="integer12" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AssociatedCompany" minOccurs="0" maxOccurs="200">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Shareholder" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ShareholderNamePpsn" type="NameAndTaxRefNumber" minOccurs="0"/>
+									</xsd:sequence>
+									<xsd:attribute name="percentageShare" type="percentage3_2" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="AssociatedCompanyNamePpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="NonResidentCompany" minOccurs="0" maxOccurs="20">
+					<xsd:complexType>
+						<xsd:attribute name="name" type="text40" use="optional"/>
+						<xsd:attribute name="irishCroNumber" type="text40" use="optional"/>
+						<xsd:attribute name="countryOfResidence" type="integer12" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DirectorEmolument" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="DirectorNameAndPpsn" type="NameAndTaxRefNumber" minOccurs="0"/>
+							<xsd:element name="DirectorEmolCompanyNamePpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="acPeriodStartDate" type="date" use="optional"/>
+						<xsd:attribute name="acPeriodEndDate" type="date" use="optional"/>
+						<xsd:attribute name="salary" type="euros16" use="optional"/>
+						<xsd:attribute name="expenses" type="euros16" use="optional"/>
+						<xsd:attribute name="amountsPaid" type="euros16" use="optional"/>
+						<xsd:attribute name="assetsTransferredToDirector" type="euros16" use="optional"/>
+						<xsd:attribute name="assetsProvidedForDirector" type="euros16" use="optional"/>
+						<xsd:attribute name="valueOfOtherBenefits" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DirectorAccount" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="DirectorAccountNamePpsn" type="NameAndTaxRefNumber" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="openingBalanceDr" type="euros16" use="optional"/>
+						<xsd:attribute name="openingBalanceCr" type="euros16" use="optional"/>
+						<xsd:attribute name="debits" type="euros16" use="optional"/>
+						<xsd:attribute name="credits" type="euros16" use="optional"/>
+						<xsd:attribute name="closingBalanceDr" type="euros16" use="optional"/>
+						<xsd:attribute name="closingBalanceCr" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ExpressionOfDoubt" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="declareExpressionOfDoubt" type="boolean" use="optional"/>
+						<xsd:attribute name="details" type="text1000" use="optional"/>
+						<xsd:attribute name="basis" type="text1000" use="optional"/>
+						<xsd:attribute name="taxAmount" type="euros16" use="optional"/>
+						<xsd:attribute name="documentList" type="text500" use="optional"/>
+						<xsd:attribute name="guidelines" type="text500" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AmendSelfAssessment" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="amendSelfAssessment" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="amendmentDetail" type="text1000" use="optional"/>
+						<xsd:attribute name="amendmentReason1" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="amendmentReason2" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="amendmentReason3" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>		
+				<xsd:element name="ReturnContactDetails" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="agentTain" type="xsd:string" use="optional"/>
+						<xsd:attribute name="clientRefNo" type="text30" use="optional"/>
+						<xsd:attribute name="contactName" type="text40" use="optional"/>
+						<xsd:attribute name="contactTelNo" type="text30" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>	
+				<xsd:element name="qualifyingInvestment" minOccurs="0" >
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="investment" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:attribute name="dtQualifyingInvestment" type="date" use="optional" />
+									<xsd:attribute name="amountQualifyingInvestment" type="euros16" use="optional" />
+									<xsd:attribute name="numberOfSharesIssued" type="euros16" use="optional" />
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="qualifyngInvestmentOnPeriod" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="transferPricing" minOccurs="0" >
+					<xsd:complexType>
+						<xsd:attribute name="smeExemptionUnder835a" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="localFileRequired" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="masterFileRequired" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="multiNatFileRequired" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="jurisdictionTaxParentEntity" type="integer12" use="optional" />
+						<xsd:attribute name="nameParentEntity" type="text40" use="optional" />						
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="controlledForeignCompany" minOccurs="0" >
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="cfc" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:attribute name="foreignCompanyName" type="text40" use="optional" />
+									<xsd:attribute name="foreignTaxNumber" type="text40" use="optional" />
+									<xsd:attribute name="relevantTerritoryCfc" type="text" use="optional" />
+									<xsd:attribute name="accountingPeriodCfcBegin" type="date" use="optional" />
+									<xsd:attribute name="accountingPeriodCfcEnd" type="date" use="optional" />
+									<xsd:attribute name="natureOfBusiness" type="text40" use="optional" />
+									<xsd:attribute name="detailOfCfc" type="text" use="optional" />
+									<xsd:attribute name="exemptionAplly" type="boolean" use="optional" />
+									<xsd:attribute name="section385R5b" type="boolean" use="optional" />
+									<xsd:attribute name="effectiveTaxRateExemption" type="boolean" use="optional" />
+									<xsd:attribute name="exemptPeriodGrantedInPreviousAccounting" type="boolean" use="optional" />
+									<xsd:attribute name="subsequentPeriodConditionNotMet" type="boolean" use="optional" />
+									<xsd:attribute name="amountOfChargeArising25" type="euros16" use="optional" />
+									<xsd:attribute name="amountOfChargeArising125" type="euros16" use="optional" />
+									<xsd:attribute name="creditableTax25" type="euros16" use="optional" />
+									<xsd:attribute name="creditableTax125" type="euros16" use="optional" />
+									<xsd:attribute name="jurisditionsWhereCreditArose25" type="text40" use="optional" />
+									<xsd:attribute name="jurisditionsWhereCreditArose125" type="text40" use="optional" />
+									<xsd:attribute name="natureOfCredit25" type="text5" use="optional" />
+									<xsd:attribute name="natureOfCredit125" type="text5" use="optional" />
+									<xsd:attribute name="amountOfCredit25" type="euros16" use="optional" />
+									<xsd:attribute name="amountOfCredit125" type="euros16" use="optional" />
+									<xsd:attribute name="netCharge25" type="euros16" use="optional" />
+									<xsd:attribute name="netCharge125" type="euros16" use="optional" />
+									<xsd:attribute name="s835RamountOfChargeArising25" type="euros16" use="optional" />
+									<xsd:attribute name="s835RamountOfChargeArising125" type="euros16" use="optional" />
+									<xsd:attribute name="s835RcreditableTax25" type="euros16" use="optional" />
+									<xsd:attribute name="s835RcreditableTax125" type="euros16" use="optional" />
+									<xsd:attribute name="s835RjurisditionsWhereCreditArose25" type="text40" use="optional" />
+									<xsd:attribute name="s835RjurisditionsWhereCreditArose125" type="text40" use="optional" />
+									<xsd:attribute name="s835RnatureOfCredit25" type="text40" use="optional" />
+									<xsd:attribute name="s835RnatureOfCredit125" type="text40" use="optional" />
+									<xsd:attribute name="s835RamountOfCredit25" type="euros16" use="optional" />
+									<xsd:attribute name="s835RamountOfCredit125" type="euros16" use="optional" />
+									<xsd:attribute name="s835RnetCharge25" type="euros16" use="optional" />
+									<xsd:attribute name="s835RnetCharge125" type="euros16" use="optional" />
+									<xsd:attribute name="controllingCompanyName" type="text40" use="optional" />
+									<xsd:attribute name="controllingCompanyTaxNumber" type="text40" use="optional" />
+									<xsd:attribute name="connectedCompanyName" type="text40" use="optional" />
+									<xsd:attribute name="connectedCompanyTaxNumber" type="text40" use="optional" />
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="lowProfitMarginExemption" type="boolean" use="optional" />
+						<xsd:attribute name="lowAccountingProfitExemption" type="boolean" use="optional" />
+						<xsd:attribute name="section385R5aI" type="boolean" use="optional" />
+						<xsd:attribute name="section385R5aII" type="boolean" use="optional" />
+						<xsd:attribute name="isCompanyChargeableUnder35b" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="section835Ya" type="boolean" use="optional" />
+						<xsd:attribute name="doesSection385RApply" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="interestLimitations" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="interestGroupMembers" minOccurs="0" maxOccurs="200">
+								<xsd:complexType>
+									<xsd:attribute name="groupMemberName" type="text40" use="optional" />
+									<xsd:attribute name="taxReferenceNumber" type="text40" use="optional" />
+									<xsd:attribute name="disallowableAmountInterestGroup" type="euros16" use="optional" />
+									<xsd:attribute name="interestSpareCapacityInterestGroup" type="euros16" use="optional" />
+									<xsd:attribute name="limitationSpareCapacityInterestGroup" type="euros16" use="optional" />
+									<xsd:attribute name="deemedBorrowingCostCarriedForward" type="euros16" use="optional" />
+									<xsd:attribute name="deemedBorrowingCostPriorPeriods" type="euros16" use="optional" />
+									<xsd:attribute name="totalSpareCapacityCarriedForward" type="euros16" use="optional" />
+									<xsd:attribute name="totalSpareCapacityReallocatedFromGroupMember" type="euros16" use="optional" />
+									<xsd:attribute name="totalSpareCapacityReallocatedToGroupMember" type="euros16" use="optional" />
+									<xsd:attribute name="totalSpareCapacityReallocatedFromPriorPeriods" type="euros16" use="optional" />
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="isAccountingPeriodBefore2021" type="boolean" use="optional" />
+						<xsd:attribute name="companyStandaloneEntitySec835AY" type="boolean" use="optional" />
+						<xsd:attribute name="companyElectMemberSec835AAK" type="boolean" use="optional" />
+						<xsd:attribute name="companyReportingCompany" type="boolean" use="optional" />
+						<xsd:attribute name="reportingCompanyName" type="text40" use="optional" />
+						<xsd:attribute name="taxReference" type="text40" use="optional" />
+						<xsd:attribute name="companyCarryingLongTermPublicInfraProject" type="boolean" use="optional" />
+						<xsd:attribute name="incomeNetInterest" type="euros16" use="optional" />
+						<xsd:attribute name="expensesNetInterest" type="euros16" use="optional" />
+						<xsd:attribute name="netInterestExpense" type="euros16" use="optional" />
+						<xsd:attribute name="minimisExemptionApply" type="boolean" use="optional" />
+						<xsd:attribute name="companySingleCompanyWorldwideGroup" type="boolean" use="optional" />
+						<xsd:attribute name="companyMakingElectionEquityRatio" type="boolean" use="optional" />
+						<xsd:attribute name="companyEquityAmount" type="euros16" use="optional" />
+						<xsd:attribute name="groupEquityAmount" type="euros16" use="optional" />
+						<xsd:attribute name="companyAssetsAmount" type="euros16" use="optional" />
+						<xsd:attribute name="groupAssetsAmount" type="euros16" use="optional" />
+						<xsd:attribute name="companyMakingElectionGroupRatio" type="boolean" use="optional" />
+						<xsd:attribute name="groupEbitda" type="euros16" use="optional" />
+						<xsd:attribute name="groupExceedingBorrowingCost" type="euros16" use="optional" />
+						<xsd:attribute name="companyEbitda" type="euros16" use="optional" />
+						<xsd:attribute name="allowableAmount" type="euros16" use="optional" />
+						<xsd:attribute name="exceedingBorrowingCosts" type="euros16" use="optional" />
+						<xsd:attribute name="disallowableAmount" type="euros16" use="optional" />
+						<xsd:attribute name="interestSpareCapacity" type="euros16" use="optional" />
+						<xsd:attribute name="deemedBorrowingCostCarriedForward" type="euros16" use="optional" />
+						<xsd:attribute name="deemedBorrowingCostUtilisedAccountingPeriod" type="euros16" use="optional" />
+						<xsd:attribute name="TotalSpareCapacityCarriedForward" type="euros16" use="optional" />
+						<xsd:attribute name="TotalSpareCapacityUtilisedAccountingPeriod" type="euros16" use="optional" />
+						<xsd:attribute name="companyPaymentAmountsAllocatedUnderSec835AAL" type="boolean" use="optional" />
+						<xsd:attribute name="companyNamePaymentWasMade" type="text40" use="optional" />
+						<xsd:attribute name="recipientTaxReference" type="text40" use="optional" />
+						<xsd:attribute name="recipientPaymentAmount" type="euros16" use="optional" />
+						<xsd:attribute name="minimisExemptionApplyInterestGroup" type="boolean" use="optional" />
+						<xsd:attribute name="accountingPeriodInterestGroupFrom" type="date" use="optional" />
+						<xsd:attribute name="accountingPeriodInterestGroupTo" type="date" use="optional" />
+						<xsd:attribute name="interestGroupElectionToEquityAccPeriod" type="boolean" use="optional" />
+						<xsd:attribute name="interestGroupEquityRatio" type="euros16" use="optional" />
+						<xsd:attribute name="worldwideGroupEquityRatio" type="euros16" use="optional" />
+						<xsd:attribute name="interestGroupTotalAssetsEquityRatio" type="euros16" use="optional" />
+						<xsd:attribute name="worldwideGroupTotalAssetsEquityRatio" type="euros16" use="optional" />
+						<xsd:attribute name="interestGroupElectionToGroupAccPeriod" type="boolean" use="optional" />
+						<xsd:attribute name="electionGroupEbitda" type="euros16" use="optional" />
+						<xsd:attribute name="groupExceedingBorrowingCosts" type="euros16" use="optional" />
+						<xsd:attribute name="interestGroupEbitda" type="euros16" use="optional" />
+						<xsd:attribute name="allowableAmountInterestGroup" type="euros16" use="optional" />
+						<xsd:attribute name="exceedingBorrowingCostsInterestGroup" type="euros16" use="optional" />
+						<xsd:attribute name="disallowableAmountInterestGroup" type="euros16" use="optional" />
+						<xsd:attribute name="interestSpareCapacityInterestGroup" type="euros16" use="optional" />
+						<xsd:attribute name="limitationSpareCapacity" type="euros16" use="optional" />
+						<xsd:attribute name="limitationSpareCapacityInterestGroup" type="euros16" use="optional" />
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="stockBorrow" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="stockSellerInCourseOfTrade" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="stockSellerOtherwiseCourseOfTrade" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="stockBuyerInCourseOfTrade" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="stockBuyerOtherwiseCourseOfTrade" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="QualifyingCompanies" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="qualifyingcompany" type="text5" use="required"/>
+						<xsd:attribute name="specifiedmortgages" type="text5" use="optional"/>
+						<xsd:attribute name="specifiedpropertybusiness" type="text5" use="optional"/>
+						<xsd:attribute name="clotransaction" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="cmbsrmbstransaction" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="loanoriginationbusiness" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="subparticipationtransaction" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="valuespecmortgages" type="euros16" use="optional"/>
+						<xsd:attribute name="taxableprofit" type="euros16" use="optional"/>
+						<xsd:attribute name="sectiondiI" type="euros16" use="optional"/>
+						<xsd:attribute name="sectiondiII" type="euros16" use="optional"/>
+						<xsd:attribute name="sectiondiIII" type="euros16" use="optional"/>
+						<xsd:attribute name="sectiondiIV" type="euros16" use="optional"/>
+						<xsd:attribute name="sectiondiV" type="euros16" use="optional"/>
+						<xsd:attribute name="sectiondii" type="euros16" use="optional"/>
+						<xsd:attribute name="sectiondiii" type="euros16" use="optional"/>
+						<xsd:attribute name="amountofinterest" type="euros16" use="optional"/>
+						<xsd:attribute name="assetSpecifiedMortgages" type="text5" use="optional"/>
+						<xsd:attribute name="assetIrefUnit" type="text5" use="optional"/>
+						<xsd:attribute name="assetStateLand" type="text5" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PurchaseOfOwnShares" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="quotedShares" type="euros16" use="optional"/>
+						<xsd:attribute name="quotedSharesNotDistributed" type="euros16" use="optional"/>
+						<xsd:attribute name="unquotedShares" type="euros16" use="optional"/>
+						<xsd:attribute name="unquotedSharesNotDistributed" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>		
+				<xsd:element name="AmendPriorAccountingPeriod" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="endDate" type="date" use="optional"/>
+						<xsd:attribute name="amountOfLoanRepaid" type="euros16" use="optional"/>
+						<xsd:attribute name="amountOfRefundDue" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="GroupForIrishTaxPurposes" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Subsidiary" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="SubsidiaryNameAndPpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+									</xsd:sequence>
+									<xsd:attribute name="countryOfResidence" type="integer12" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="SurrenderOfLosses" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="SurrenderOfLossesNamePpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+									</xsd:sequence>
+									<xsd:attribute name="natureOfRelief" type="text40" use="optional"/>
+									<xsd:attribute name="amountSurrendered" type="euros16" use="optional"/>
+									<xsd:attribute name="qualifingAssets" type="boolean" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ClaimToLosses" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ClaimToLossesNamePpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+									</xsd:sequence>
+									<xsd:attribute name="natureOfRelief" type="text40" use="optional"/>
+									<xsd:attribute name="amountClaimed" type="euros16" use="optional"/>
+									<xsd:attribute name="qualifingAssets" type="boolean" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ParentNameAndPpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="parentCountryOfResidence" type="integer12" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="CompanyNameAndPpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+				<xsd:element name="ExemptionFromTax" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Disposals" minOccurs="0" maxOccurs="5"> 
+								<xsd:complexType>
+									<xsd:attribute name="amountOfDisposal" type="euros16" use="optional"/>
+									<xsd:attribute name="availOfExemptionOfTax" type="text5" use="optional"/>
+									<xsd:attribute name="dateOfdisposal" type="date" use="optional"/>
+									<xsd:attribute name="amountOfGain" type="euros16" use="optional"/>
+								</xsd:complexType>	
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="mandatoryDisclosure" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="transactionsUnderSec817hb" minOccurs="0" maxOccurs="20"> 
+								<xsd:complexType>
+									<xsd:attribute name="numberOfTransactionSec817hb" type="text25" use="optional"/>
+								</xsd:complexType>	
+							</xsd:element>
+							<xsd:element name="crossBorderArrangment" minOccurs="0" maxOccurs="20"> 
+								<xsd:complexType>
+									<xsd:attribute name="referenceNumber" type="text25" use="optional"/>
+								</xsd:complexType>	
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TransactionsWithNonJurisdiction" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="transactionWithNonCooperative" type="boolean" use="optional" default="false" />
+						<xsd:attribute name="byPayingRoyalty" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="byClaimingDeduction" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="byPayingDividend" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="numOfAssociatedCompanies" type="positive3" use="optional"/>
+			<xsd:attribute name="companyRegistrationOfficeNumber" type="text8" use="optional"/>
+			<xsd:attribute name="previousYearStartDate" type="date" use="optional"/>
+			<xsd:attribute name="previousYearEndDate" type="date" use="optional"/>
+			<xsd:attribute name="hasAssociatedCompanies" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="hasNonResidentCompanies" type="text5" use="optional"/>
+			<xsd:attribute name="tradeThroughBranchOrAgency" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="accountPeriodStartDate" type="date" use="required"/>
+			<xsd:attribute name="accountPeriodEndDate" type="date" use="required"/>
+			<xsd:attribute name="additionalComments" type="boolean" use="optional"/>
+			<xsd:attribute name="additionalCommentsDetails" type="text500" use="optional"/>
+     		<xsd:attribute name="countryOfResidenceDetails" type="integer12" use="optional"/>
+			<xsd:attribute name="electionUnderSec629" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="dtMigration" type="date" use="optional"/>
+			<xsd:attribute name="relevantMigratedTerritory" type="integer12" use="optional"/>
+			<xsd:attribute name="amtTax" type="euros16" use="optional"/>
+			<xsd:attribute name="containValuesInExcess" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="partofMultiGrp" type="boolean" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TradingResults">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="TradeProfits" minOccurs="0">
+					<xsd:complexType>
+						<xsd:complexContent>
+					    	<xsd:extension base="TradeProfit">
+								<xsd:attribute name="lossClaimUnderCarryBack" type="euros16" use="optional"/>
+								<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
+					    	</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ExceptedTradeProfits" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="profitsExceptedTrade" type="euros16" use="optional"/>
+						<xsd:attribute name="doProfitsRelateToRelevantTrade" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="amountCapitalAllowancesBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesClaimedNotUsed" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesNotUsedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="companyisMakingElectionUnderTca" type="boolean" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaNotUsed" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaNotUsedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedForCarryBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedForCarryAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedUnderTca" type="euros16" use="optional"/>
+						<xsd:attribute name="jointElectionUnderTca615" type="boolean" use="optional"/>
+						<xsd:attribute name="transferringOrAquiringUnder615" type="text12" use="optional"/>
+						<xsd:attribute name="companyTaxNumberUnder615" type="text12" use="optional"/>
+						<xsd:attribute name="companyNameUnder615" type="text12" use="optional"/>
+						<xsd:attribute name="jointElectionUnderTca617" type="boolean" use="optional"/>
+						<xsd:attribute name="transferringOrAquiringUnder617" type="text12" use="optional"/>
+						<xsd:attribute name="companyTaxNumberUnder617" type="text12" use="optional"/>
+						<xsd:attribute name="companyNameUnder617" type="text12" use="optional"/>
+						<xsd:attribute name="tradingLossesFwd" type="euros16" use="optional"/>
+			      		<xsd:attribute name="amountOfLossesUtilised" type="euros16" use="optional"/>
+						<xsd:attribute name="balTradLossAvailCarryFwd" type="euros16" use="optional"/>
+						<xsd:attribute name="lossesAppropriateToTrade" type="euros16" use="optional"/>
+						<xsd:attribute name="s291aAmountsIncluded" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="lossClaimUnderCarryBack" type="euros12" use="optional"/>
+						<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ProfitResourceRentTax" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="PrrtDetails" minOccurs="0" maxOccurs="20">
+								<xsd:complexType>
+								<xsd:attribute name="licenceNumber" type="text30" use="optional"/>
+								<xsd:attribute name="dateAuthorisationGranted" type="date" use="optional"/>
+								<xsd:attribute name="aggrCumulativeExpenditure" type="euros16" use="optional"/>
+								<xsd:attribute name="amountOfExpenditure" type="euros16" use="optional"/>
+								<xsd:attribute name="amountOfExpenditurePrev" type="euros16" use="optional"/>
+								<xsd:attribute name="aggrCumulativeProfits" type="euros16" use="optional"/>
+								<xsd:attribute name="amountOfProfits" type="euros16" use="optional"/>
+								<xsd:attribute name="amountOfProfitsPrev" type="euros16" use="optional"/>
+								<xsd:attribute name="amountPayable" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="totalPrrtDue" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PetroleumProductionTax" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="PptDetails" minOccurs="0" maxOccurs="10">
+								<xsd:complexType>
+								<xsd:attribute name="licenceNumber" type="text30" use="optional"/>
+								<xsd:attribute name="dateAuthorisationAwarded" type="date" use="optional"/>
+								<xsd:attribute name="aggrCumulativeCosts" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfCostsApplicable" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfCostsApplicablePrevious" type="euros16" use="optional"/>
+								<xsd:attribute name="aggrCumulativeGrossRevenue" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfRevenueApplicable" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfRevenueApplicablePrevious" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfTransportationExpenditure" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfEligibleExpenditure" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfNetIncome" type="euros16" use="optional"/>
+								<xsd:attribute name="amtOfPetroleumTaxPayable" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="totalPptDue" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="QualifyingShippingActivity" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="profits" type="euros16" use="optional"/>
+						<xsd:attribute name="balancingCharges" type="euros16" use="optional"/>
+						<xsd:attribute name="capitalAllowances" type="euros16" use="optional"/>
+						<xsd:attribute name="machineryAndPlant" type="euros16" use="optional"/>
+						<xsd:attribute name="energyEfficient" type="euros16" use="optional"/>
+						<xsd:attribute name="industrialBuildings" type="euros16" use="optional"/>
+						<xsd:attribute name="other" type="euros16" use="optional"/>
+						<xsd:attribute name="lossesBroughtForward" type="euros16" use="optional"/>
+			      		<xsd:attribute name="amountLossesUtilised" type="euros16" use="optional"/>
+						<xsd:attribute name="amountLossesAvailCarryFwd" type="euros16" use="optional"/>
+						<xsd:attribute name="charges" type="euros16" use="optional"/>
+						<xsd:attribute name="groupRelief" type="euros16" use="optional"/>
+						<xsd:attribute name="amtClaimInRespExcessCapAll" type="euros16" use="optional"/>
+						<xsd:attribute name="amtClaimInRespTradeCharges" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="RelevantTradeWithinSection291a" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="profitsCapitalExpenditureBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="profitsCapitalExpenditureAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="balanceCapitalExpenditureBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="balanceCapitalExpenditureAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUsedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUsedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesClaimedNotUsed" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesNotUsedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="companyisMakingElectionUnderTca" type="boolean" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaUsedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaUsedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaNotUsed" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCapitalAllowancesUndetTcaNotUsedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestUsedBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestUsedAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedForCarryBefore" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedForCarryAfter" type="euros16" use="optional"/>
+						<xsd:attribute name="amountInterestClaimedUnderTca" type="euros16" use="optional"/>
+						<xsd:attribute name="jointElectionUnderTca615" type="boolean" use="optional"/>
+						<xsd:attribute name="transferringOrAquiringUnder615" type="text12" use="optional"/>
+						<xsd:attribute name="companyTaxNumberUnder615" type="text12" use="optional"/>
+						<xsd:attribute name="companyNameUnder615" type="text12" use="optional"/>
+						<xsd:attribute name="jointElectionUnderTca617" type="boolean" use="optional"/>
+						<xsd:attribute name="transferringOrAquiringUnder617" type="text12" use="optional"/>
+						<xsd:attribute name="companyTaxNumberUnder617" type="text12" use="optional"/>
+						<xsd:attribute name="companyNameUnder617" type="text12" use="optional"/>
+						<xsd:attribute name="amountMachineryAndPlant" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TonnageTax" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Ship" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:attribute name="name" type="text40" use="optional"/>
+									<xsd:attribute name="imoNumber" type="positive7" use="optional"/>
+									<xsd:attribute name="typeOfInterest" type="typeofinterest" use="optional"/>
+									<xsd:attribute name="netTonnage" type="positive12" use="optional"/>
+									<xsd:attribute name="daysOperated" type="positive5" use="optional"/>
+									<xsd:attribute name="tonnageProfits" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="SingleCompany" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+							<xsd:element name="GroupofCompanies" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="indicatePartyToElection" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="dateFrom" type="date" use="optional"/>
+						<xsd:attribute name="dateTo" type="date" use="optional"/>
+						<xsd:attribute name="metLimit" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="metGroupLimit" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="nameOfGroupRepresentative" type="text40" use="optional"/>
+						<xsd:attribute name="groupDateFrom" type="date" use="optional"/>
+						<xsd:attribute name="groupDateTo" type="date" use="optional"/>
+						<xsd:attribute name="groupArrangement" type="typeofarrangement" use="optional"/>
+						<xsd:attribute name="profitsTonnageTax" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="QualifyingAssetsProfits" minOccurs="0">
+					<xsd:complexType>
+						<xsd:complexContent>
+					    	<xsd:extension base="TradeProfit">
+					    		<xsd:sequence>
+									<xsd:element name="ComputerPrograms" type="QualifyingAssetsClaims" minOccurs="0"/>
+									<xsd:element name="QualifyingPatents" type="QualifyingAssetsClaims" minOccurs="0"/>
+									<xsd:element name="Section769RClaims" type="QualifyingAssetsClaims" minOccurs="0"/>
+									<xsd:element name="FamilyOfAssets" type="QualifyingAssetsClaims" minOccurs="0"/>
+									<xsd:element name="OtherAssets" type="QualifyingAssetsClaims" minOccurs="0"/>
+					    		</xsd:sequence>
+								<xsd:attribute name="numQualifyingAsset" type="positive7" use="optional"/>
+								<xsd:attribute name="qualifyingAsset" type="euros9" use="optional"/>
+					    		<xsd:attribute name="carryBackOfLosses" type="euros16" use="optional"/>
+								<xsd:attribute name="reliefClaimedSec769I" type="euros16" use="optional"/>
+								<xsd:attribute name="QualExpIPAsset" type="euros16" use="optional"/>
+								<xsd:attribute name="OverallExpIPAsset" type="euros16" use="optional"/>
+								<xsd:attribute name="OverallIncomeIPAsset" type="euros16" use="optional"/>
+								<xsd:attribute name="priorYearProtectiveClaim" type="euros16" use="optional"/>
+								<xsd:attribute name="currentYearProtectiveClaim" type="euros16" use="optional"/>
+								<xsd:attribute name="totalProtectiveClaim" type="euros16" use="optional"/>
+								<xsd:attribute name="s291aAmountsIncluded" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
+					    	</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="electUnderSection80a" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="electUnderSection4522" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="electUnderSection4523a" type="boolean" use="optional" default="false"/>						
+			<xsd:attribute name="deductionMadeSports" type="euros16" use="optional"/>
+			<xsd:attribute name="deductionMadeCharities" type="euros16" use="optional"/>
+			<xsd:attribute name="deductionMadeOtherBodies" type="euros16" use="optional"/>
+			<xsd:attribute name="s291aAmountsIncluded" type="boolean" use="optional" default="false"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ExtractsAccounts">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="accountingStandards" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:attribute name="accountingFramework" type="positive2" use="optional"/>
+						<xsd:attribute name="otherFramework" type="text20" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Income" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:attribute name="sales" type="euros16" use="optional"/>
+						<xsd:attribute name="receipts" type="euros16" use="optional"/>
+						<xsd:attribute name="otherIncome" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TradingAccItems" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:attribute name="purchases" type="euros16" use="optional"/>
+						<xsd:attribute name="grossTradingProfit" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Expenses" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ProvForBadDebts" type="PositiveNegativeAmount" minOccurs="0" maxOccurs="1"/>
+						</xsd:sequence>
+						<xsd:attribute name="salaries" type="euros16" use="optional"/>
+						<xsd:attribute name="directorsRemuneration" type="euros16" use="optional"/>
+						<xsd:attribute name="subContractorsRct" type="euros16" use="optional"/>
+						<xsd:attribute name="professionalFees" type="euros16" use="optional"/>
+						<xsd:attribute name="subsistence" type="euros16" use="optional"/>
+						<xsd:attribute name="repairsRenewals" type="euros16" use="optional"/>
+						<xsd:attribute name="interestPayables" type="euros16" use="optional"/>
+						<xsd:attribute name="depreciation" type="euros16" use="optional"/>
+						<xsd:attribute name="otherExpenses" type="euros16" use="optional"/>
+						<xsd:attribute name="staffCosts" type="euros16" use="optional"/>
+						<xsd:attribute name="subContractorsOther" type="euros16" use="optional"/>
+						<xsd:attribute name="rentPaid" type="euros16" use="optional"/>
+						<xsd:attribute name="otherExpensesTotal" type="euros16" use="optional"/>
+						<xsd:attribute name="totalCrssAndBrss" type="euros16" use="optional"/>
+						<xsd:attribute name="otherExpensesComment" type="text500" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="BalanceSheet" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="DirectorsCurrentAC" type="PositiveNegativeAmount" minOccurs="0" maxOccurs="1"/>
+							<xsd:element name="ShareholdersFunds" type="PositiveNegativeAmount" minOccurs="0" maxOccurs="1"/>
+						</xsd:sequence>
+						<xsd:attribute name="stockWIPFinishedGoods" type="euros16" use="optional"/>
+						<xsd:attribute name="debtors" type="euros16" use="optional"/>
+						<xsd:attribute name="cashBank" type="euros16" use="optional"/>
+						<xsd:attribute name="bankLoanOD" type="euros16" use="optional"/>
+						<xsd:attribute name="creditorsAndAccruals" type="euros16" use="optional"/>
+						<xsd:attribute name="clientAccountBalance" type="euros16" use="optional"/>
+						<xsd:attribute name="clientAccountBalanceCR" type="euros16" use="optional"/>
+						<xsd:attribute name="taxCreditors" type="euros16" use="optional"/>
+						<xsd:attribute name="tradeDebtors" type="euros16" use="optional"/>
+						<xsd:attribute name="tradeCreditors" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AdjustedNetProfit" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="OrdActivitiesBeforeTax" type="PositiveNegativeAmount" minOccurs="0" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AdjustmentsMadeToProfit" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="SaleOfAssets" type="PositiveNegativeAmount" minOccurs="0" maxOccurs="1"/>
+						</xsd:sequence>
+						<xsd:attribute name="noAdjustments" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="subscriptions" type="euros16" use="optional"/>
+						<xsd:attribute name="entertainment" type="euros16" use="optional"/>
+						<xsd:attribute name="disallowableLegalExpenses" type="euros16" use="optional"/>
+						<xsd:attribute name="section130Interest" type="euros16" use="optional"/>
+						<xsd:attribute name="depreciation" type="euros16" use="optional"/>
+						<xsd:attribute name="deductionStockReliefU666" type="euros16" use="optional"/>
+						<xsd:attribute name="deductionStockReliefU664A" type="euros16" use="optional"/>
+						<xsd:attribute name="otherDeduction" type="euros16" use="optional"/>
+						<xsd:attribute name="otherAddback" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="NotesToTheAccounts" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:attribute name="indicateEmphasisOfMatter" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateAuditQualifiedOpinion" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateAuditDisclaimer" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateAdverseOpinion" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateChangeInAssets" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateChangeInStock" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateChangeInDevelopment" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateChangeInOther" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicatePriorYearAdjust" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateChangeInNature" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="indicateExceptionalItem" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="additionalInfo" type="text500" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="XbrlOptions" minOccurs="0" maxOccurs="1">
+					<xsd:complexType>
+			            <xsd:sequence>
+			              <xsd:element name="XbrlCompanyCategory" minOccurs="0" maxOccurs="1">
+			                <xsd:complexType>
+								<xsd:attribute name="statementsSubjectToAudit" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="statementsNotSubjectToAudit" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="statementsOtherThanCompAct" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="statementsNotRequired" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="statementsOtherJurisdiction" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="notTaxResident" type="boolean" use="optional" default="false"/>
+								<xsd:attribute name="groupHoldingCompany" type="boolean" use="optional" default="false"/>
+			                </xsd:complexType>
+			              </xsd:element>
+			            </xsd:sequence>
+		         		<xsd:attribute name="submitViaIxbrl" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="largeCaseDivision" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="notMandatedExclusion" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="inactiveCompLargeCaseDiv" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyInLiquidation" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="from" type="date" use="optional"/>
+			<xsd:attribute name="to" type="date" use="optional"/>
+			<xsd:attribute name="s76afield" type="boolean" use="optional"/>
+			<xsd:attribute name="endingDate" type="date" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RentalIncome">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="LivingCityTradeProf" type="LivingCityInitTradeProf" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="NonResidentLandlordTenant" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:attribute name="tenantPpsn" type="text12" use="optional"/>
+						<xsd:attribute name="amtTaxWithheld" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>			
+			<xsd:attribute name="indicateCompliance" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="numPropertiesresidential" type="positive4" use="optional"/>
+			<xsd:attribute name="rentalIncomeValueResidential" type="euros16" use="optional"/>
+			<xsd:attribute name="residentialrepairs" type="euros16" use="optional"/>
+			<xsd:attribute name="residentialinterest" type="euros16" use="optional"/>
+			<xsd:attribute name="preletExpenditure" type="euros16" use="optional"/>
+			<xsd:attribute name="residentalPropertyNote" type="text500" use="optional"/>
+			<xsd:attribute name="totalresidentialrent" type="integer12" use="optional"/>
+			<xsd:attribute name="numpropertiesCommercial" type="positive4" use="optional"/>
+			<xsd:attribute name="rentalIncomeValueCommercial" type="euros16" use="optional"/>
+			<xsd:attribute name="commercialrepairs" type="euros16" use="optional"/>
+			<xsd:attribute name="commercialinterest" type="euros16" use="optional"/>
+			<xsd:attribute name="commercialPropertyNote" type="text500" use="optional"/>
+			<xsd:attribute name="totalcommercialrent" type="integer12" use="optional"/>
+			<xsd:attribute name="totalrent" type="integer12" use="optional"/>
+			<xsd:attribute name="balancingCharges" type="euros16" use="optional"/>
+			<xsd:attribute name="lossesCarriedForward" type="euros16" use="optional"/>
+			<xsd:attribute name="amountOfLossesUtilised" type="euros16" use="optional"/>
+      		<xsd:attribute name="balLossesAvailCarriedForw" type="euros16" use="optional"/>
+			<xsd:attribute name="includesPropIncentives" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="capAllowAgainstRentalInc" type="euros16" use="optional"/>
+			<xsd:attribute name="otherCapitalAllowances" type="euros16" use="optional"/>
+			<xsd:attribute name="livingCityYes" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="livingCityNo" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="aviationYes" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="aviationNo" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="aviationClaimAccRate" type="euros16" use="optional"/>
+			<xsd:attribute name="aviationAddress" type="text140" use="optional"/>
+			<xsd:attribute name="aviationEirCode" type="text8" use="optional"/>
+			<xsd:attribute name="aviationAggExpend" type="euros16" use="optional"/>
+			<xsd:attribute name="totalCapitalAllowances" type="euros16" use="optional"/>
+			<xsd:attribute name="excessRentCapAllowances" type="euros16" use="optional"/>
+			<xsd:attribute name="grpReliefExcessCapAllow" type="euros16" use="optional"/>
+			<xsd:attribute name="totalExcessCapAllowances" type="euros16" use="optional"/>
+			<xsd:attribute name="checkCollectionAgent" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="checkTaxWithheld" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="nonResCompanyResidence" type="integer12" use="optional" />
+			
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="IrishInvestmentIncome">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="OtherIrishIncome" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="InvestmentUndertaking" minOccurs="0" maxOccurs="10">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AddressDetails" type="NameAddress" minOccurs="0"/>
+									</xsd:sequence>
+									<xsd:attribute name="gainTaxableLowRate" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="patentRoyaltyIncome" type="euros16" use="optional"/>
+						<xsd:attribute name="otherIncomeRecWithTax" type="euros16" use="optional"/>
+						<xsd:attribute name="otherIncomeRecWithoutTax" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Clawback" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="FilmClawback" minOccurs="0" maxOccurs="20">
+								<xsd:complexType>
+									<xsd:attribute name="filmCertRef" type="text20" use="optional"/>
+									<xsd:attribute name="unauthAmountChargeable" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="amountTaxableSec766" type="euros16" use="optional"/>
+						<xsd:attribute name="amountTaxableSec766b" type="euros16" use="optional"/>
+						<xsd:attribute name="amountTaxableSec766a" type="euros16" use="optional"/>
+						<xsd:attribute name="totalFilmClawback" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="InterestArisingInState" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="grossIntRecWithTax" type="euros16" use="optional"/>
+						<xsd:attribute name="grossIntRecWithoutTax" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DistributionsResidentComp" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ReitTaxReference" minOccurs="0" maxOccurs="10">
+								<xsd:complexType>
+									<xsd:attribute name="taxReferenceNumber" type="text12" use="optional"/>
+									<xsd:attribute name="itRefersToReit" type="boolean" use="optional" default="false"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="reitDistributionsReceived" type="euros16" use="optional"/>
+						<xsd:attribute name="otherDistributionsReceived" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="HybridMismatches" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="isAdjustmentsRequired" type="boolean" default="false" use="optional"/>
+						<xsd:attribute name="doubleDeductionUnderSec835ADa" type="euros16"  use="optional"/>
+						<xsd:attribute name="doubleDeductionUnderSec835ADb" type="euros16"  use="optional"/>
+						<xsd:attribute name="permeantDeductionUnderSec835AGa" type="euros16"  use="optional"/>
+						<xsd:attribute name="permeantDeductionUnderSec835AGb" type="euros16"  use="optional"/>
+						<xsd:attribute name="permeantDeductionUnderSec835AGbAt33" type="euros16"  use="optional"/>
+						<xsd:attribute name="finInstrumentDeductionUnderSec835AJa" type="euros16"  use="optional"/>
+						<xsd:attribute name="finInstrumentDeductionAmount" type="euros16"  use="optional"/>
+						<xsd:attribute name="finInstrumentDeductionDetails" type="text20"  use="optional"/>
+						<xsd:attribute name="finInstrumentDeductionPayeeCharge" type="euros16"  use="optional"/>
+						<xsd:attribute name="hybridMismatchDeductionSec835AL" type="euros16"  use="optional"/>
+						<xsd:attribute name="hybridMismatchDeductionSec835AMa" type="euros16"  use="optional"/>
+						<xsd:attribute name="hybridMismatchDeductionAmount" type="euros16"  use="optional"/>
+						<xsd:attribute name="hybridMismatchDeductionDetails" type="text20"  use="optional"/>
+						<xsd:attribute name="hybridMismatchDeductionPayeeCharge" type="euros16"  use="optional"/>
+						<xsd:attribute name="withholdingMismatchOutcome" type="euros16"  use="optional"/>
+						<xsd:attribute name="residencyMismatchOutcome" type="euros16"  use="optional"/>
+						<xsd:attribute name="importedMismatchOutcome" type="euros16"  use="optional"/>
+						<xsd:attribute name="structuredMismatchOutcome" type="euros16"  use="optional"/>
+						<xsd:attribute name="amountCarriedFoward" type="euros16"  use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ReverseHybridMismatches" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="MismatchParticipators" minOccurs="0" maxOccurs="100">
+								<xsd:complexType>
+									<xsd:attribute name="name" type="text40" use="optional"/>
+									<xsd:attribute name="countryOfEstablishment" type="integer12" use="optional"/>
+									<xsd:attribute name="percentageHolding" type="positiveDec12" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="coroprateTaxCharge" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="leasingProfits" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="profitsFromNonTradingLeasing" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DigitalGamesRelief" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="DigitalGamesReliefUnderS481A19" minOccurs="0" maxOccurs="40">
+								<xsd:complexType>
+									<xsd:attribute name="gameTitle" type="text20" use="optional"/>
+									<xsd:attribute name="interimCulturalCertNumber" type="text20" use="optional"/>
+									<xsd:attribute name="certDateIssued" type="date" use="optional"/>
+									<xsd:attribute name="accountingPeriodBegin" type="date" use="optional"/>
+									<xsd:attribute name="accountingPeriodEnd" type="date" use="optional"/>
+									<xsd:attribute name="eligibleExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
+									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
+									<xsd:attribute name="isClaimBeingMadeSinceDateSec481A" type="boolean" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="DigitalGamesReliefUnderS481A20" minOccurs="0" maxOccurs="40">
+								<xsd:complexType>
+									<xsd:attribute name="gameTitle" type="text20" use="optional"/>
+									<xsd:attribute name="finalCulturalCertNumber" type="text20" use="optional"/>
+									<xsd:attribute name="certDateIssued" type="date" use="optional"/>
+									<xsd:attribute name="dateOfCompletion" type="date" use="optional"/>
+									<xsd:attribute name="eligibleExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
+									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
+									<xsd:attribute name="isClaimBeingMadeSinceDateSec481A" type="boolean" use="optional"/>
+									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ClawbackGamesReliefS481A26" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ClawbackCert" minOccurs="0" maxOccurs="20">
+											<xsd:complexType>
+												<xsd:attribute name="certNumber" type="text20" use="optional"/>
+												<xsd:attribute name="unauthorisedAmountTax" type="euros16" use="optional"/>
+												<xsd:attribute name="totalClawback" type="euros16" use="optional"/>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ForeignIncome">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ForeignDepositAccount" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="DepositHolderDetails" type="NameAddress" minOccurs="0"/>
+							<xsd:element name="IntermediaryDetails" type="NameAddress" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="dateAccountOpened" type="date" use="optional"/>
+						<xsd:attribute name="amountDepositedOnOpening" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ForeignLifePolicy" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="PolicyCommencerDetails" type="NameAddress" minOccurs="0"/>
+							<xsd:element name="PolicyAcquirerDetails" type="NameAddress" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="paymentTaxable" type="euros16" use="optional"/>
+						<xsd:attribute name="gainTaxable" type="euros16" use="optional"/>
+						<xsd:attribute name="termsOfPolicy" type="text35" use="optional"/>
+						<xsd:attribute name="annualPremiumsPayable" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OffshoreFund" minOccurs="0" maxOccurs="20">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="OffshoreFundDetails" type="NameAddress" minOccurs="0"/>
+							<xsd:element name="IntermediaryDetails" type="NameAddress" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="incomeTaxable" type="euros16" use="optional"/>
+						<xsd:attribute name="gainTaxableLowRate" type="euros16" use="optional"/>
+						<xsd:attribute name="dateMaterialInterestAcq" type="date" use="optional"/>
+						<xsd:attribute name="amountCapitalInvested" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OtherOffshoreProduct" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="OffshoreProductDetails" type="NameAddress" minOccurs="0"/>
+							<xsd:element name="IntermediaryDetails" type="NameAddress" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:attribute name="dateMaterialInterestAcq" type="date" use="optional"/>
+						<xsd:attribute name="amountOfPaymentMade" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="forDivIncomeBeforeTax" type="euros16" use="optional"/>
+			<xsd:attribute name="otherForDivIncomeBeforeTax" type="euros16" use="optional"/>
+			<xsd:attribute name="otherForIncomeBeforeTax" type="euros16" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ExemptIncome">
+		<xsd:complexType>
+			<xsd:attribute name="profitFromWoodlands" type="euros16" use="optional"/>
+			<xsd:attribute name="lossFromWoodlands" type="euros16" use="optional"/>
+			<xsd:attribute name="distribFromWoodlands" type="euros16" use="optional"/>
+			<xsd:attribute name="otherExemptIncome" type="euros16" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CapitalGains">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CapitalGainsConsiderations" minOccurs="0">
+					<xsd:complexType>
+						<xsd:complexContent>
+					    	<xsd:extension base="Considerations">
+					    		<xsd:sequence>
+									<xsd:element name="AgriLandOrBuildings" type="AreaNumDisposAggConsiderations" minOccurs="0"/>
+									<xsd:element name="VentureFundGains" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="aggregateConsideration" type="euros16" use="optional"/>
+										</xsd:complexType>
+									</xsd:element>
+					    		</xsd:sequence>
+					    	</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ChargeableGains" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="amountChargeableGain" type="euros16" use="optional"/>
+						<xsd:attribute name="amountgainrelieved" type="euros16" use="optional"/>
+						<xsd:attribute name="netlossesacountingperiod" type="euros16" use="optional"/>
+						<xsd:attribute name="netchargeablelgainrelief" type="euros16" use="optional"/>
+						<xsd:attribute name="prevGainsRolledOver" type="euros16" use="optional"/>
+						<xsd:attribute name="netLossForOffset" type="euros16" use="optional"/>
+						<xsd:attribute name="netLossesCurrPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="unusedLossesPriorPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="unusedLossesCarryForward" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGain" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGainSection540A" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGainMedium" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGain40" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGainVenture" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGain12" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGain33" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="costOfAcquisition" type="euros16" use="optional"/>
+			<xsd:attribute name="acquisitionNotAtArmslength" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="amtEnhanceExpendClaimed" type="euros16" use="optional"/>
+			<xsd:attribute name="relevantTaxDeferred" type="euros16" use="optional"/>
+			<xsd:attribute name="restrictionOfLosses" type="euros16" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>	
+
+
+	<xsd:element name="ChargeableAssets">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Shares" type="Consideration" minOccurs="0"/>
+				<xsd:element name="ResidentialPremises" type="ConsiderOfAssests" minOccurs="0"/>
+				<xsd:element name="CommercialPremises" type="ConsiderOfAssests" minOccurs="0"/>
+				<xsd:element name="AgriculturalLand" type="ConsiderOfAssests" minOccurs="0"/>
+				<xsd:element name="DevelopmentLand" type="ConsiderOfAssests" minOccurs="0"/>
+				<xsd:element name="BusinessAssets" type="ConsiderOfAssests" minOccurs="0"/>
+				<xsd:element name="Antiques" type="ConsiderOfAssests" minOccurs="0"/>
+				<xsd:element name="Other" type="ConsiderOfAssests" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Deductions">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ValueBasis" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ValueBasisCalculation" minOccurs="0" maxOccurs="10">
+								<xsd:complexType>
+									<xsd:attribute name="excessCapAllow" type="euros16" use="optional"/>
+									<xsd:attribute name="excessTradingLosses" type="euros16" use="optional"/>
+									<xsd:attribute name="excessLossCarriedBack" type="euros16" use="optional"/>
+									<xsd:attribute name="excessTradingCharges" type="euros16" use="optional"/>
+									<xsd:attribute name="excessTradingGroupRelief" type="euros16" use="optional"/>
+									<xsd:attribute name="excessQACapAllow" type="euros16" use="optional"/>
+									<xsd:attribute name="excessQALosses" type="euros16" use="optional"/>
+									<xsd:attribute name="excessQACharges" type="euros16" use="optional"/>
+									<xsd:attribute name="excessQAGroupRelief" type="euros16" use="optional"/>
+								    <xsd:attribute name="periodDate" type="text25" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="totalTradeDeductions" type="euros16" use="optional"/>
+						<xsd:attribute name="valuesMayBeClaimed" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DeductionExpenses" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="manageExpenses" type="euros16" use="optional"/>
+						<xsd:attribute name="groupRelManageExpense" type="euros16" use="optional"/>
+						<xsd:attribute name="reliefUnderSection247" type="euros16" use="optional"/>
+						<xsd:attribute name="holdingCompanyInTieredStructure" type="text5" use="optional"/>
+						<xsd:attribute name="reliefAmount" type="euros16" use="optional"/>
+						<xsd:attribute name="taxRefJoint" type="ppsn" use="optional"/>
+						<xsd:attribute name="indicatereliefunders2474A" type="text5" use="optional" />
+						<xsd:attribute name="groupRelNonTradeCharges" type="euros16" use="optional"/>
+						<xsd:attribute name="otherDeductionsDetails" type="text70" use="optional"/>
+						<xsd:attribute name="amountOtherDeductions" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Reliefs" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="doubleTaxationRelief" type="euros16" use="optional"/>
+						<xsd:attribute name="relClaimedStateCompanies" type="positive5" use="optional"/>
+						<xsd:attribute name="excessTotalContribution" type="positive5" use="optional"/>
+						<xsd:attribute name="otherReliefsDetails" type="text70" use="optional"/>
+						<xsd:attribute name="amountOtherReliefs" type="euros16" use="optional"/>
+						<xsd:attribute name="amtRelClaimedForCredA" type="euros16" use="optional"/>			
+						<xsd:attribute name="amtRelClaimedForCredB" type="euros16" use="optional"/>			
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ReliefOnValueBasis" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="tradingLosses" type="euros16" use="optional"/>
+						<xsd:attribute name="tradingLossesExcessCapital" type="euros16" use="optional"/>
+						<xsd:attribute name="tradingLossesCarriedBack" type="euros16" use="optional"/>
+						<xsd:attribute name="tradingCharges" type="euros16" use="optional"/>
+						<xsd:attribute name="tradingGroupRelief" type="euros16" use="optional"/>
+						<xsd:attribute name="qualAssetsCapitalAllowance" type="euros16" use="optional"/>
+						<xsd:attribute name="qualAssetsLosses" type="euros16" use="optional"/>
+						<xsd:attribute name="qualAssetsCharges" type="euros16" use="optional"/>
+						<xsd:attribute name="qualAssetsGroupRelief" type="euros16" use="optional"/>	
+						<xsd:attribute name="qualAssetsLossesCarriedBack" type="euros16" use="optional"/>
+						<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyInterinClainUnderSec396d" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyFinalClainUnderSec396a" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyCompanyExpectLoss" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="qualyCompanyIsTaxCompliant" type="boolean" use="optional" default="false"/>											
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Credits" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="pswtOnFees" type="euros16" use="optional"/>
+						<xsd:attribute name="amountPswtRefunded" type="euros16" use="optional"/>
+						<xsd:attribute name="amountPswtRetained" type="euros16" use="optional"/>
+						<xsd:attribute name="amountdwtwithheldondistributions" type="euros16" use="optional"/>
+						<xsd:attribute name="otherIncomeTax" type="euros16" use="optional"/>
+						<xsd:attribute name="taxBorneOnExemptProfits" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>			
+	<xsd:element name="ResearchAndDevelopmentCredit">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="RnDCreditAllowances" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="EmployeeDetails" minOccurs="0" maxOccurs="50">
+								<xsd:complexType>
+									<xsd:attribute name="rndCreditSurrendered766Emp" type="euros16" use="optional"/>
+									<xsd:attribute name="employeePpsn" type="ppsn" use="optional"/>		
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="UnusedCredCarriedForward" minOccurs="0">
+								<xsd:complexType>
+									<xsd:attribute name="section766biii" type="euros16" use="optional"/>
+									<xsd:attribute name="section766biiiPpsn" type="ppsn" use="optional"/>		
+									<xsd:attribute name="section766biiiPpsn2" type="ppsn" use="optional"/>
+									<xsd:attribute name="section766biiiPpsn3" type="ppsn" use="optional"/>
+									<xsd:attribute name="section766a3a" type="euros16" use="optional"/>	
+									<xsd:attribute name="isSection766a3a" type="boolean" use="optional" default="false"/>
+									<xsd:attribute name="section766a" type="euros16" use="optional"/>
+									<xsd:attribute name="section766aiii" type="euros16" use="optional"/>
+									<xsd:attribute name="section766" type="euros16" use="optional"/>
+									<xsd:attribute name="section766iii" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="creditClaimed766" type="euros16" use="optional"/>
+						<xsd:attribute name="plantMachClaimed766" type="euros16" use="optional"/>
+						<xsd:attribute name="creditSurrenderedUnder766" type="euros16" use="optional"/>
+						<xsd:attribute name="creditClaimedUnused766" type="euros16" use="optional"/>
+						<xsd:attribute name="constructCredClaimed766" type="euros16" use="optional"/>
+						<xsd:attribute name="unusedConstCredClaimed766" type="euros16" use="optional"/>
+						<xsd:attribute name="groupRelClaimed766" type="euros16" use="optional"/>
+						<xsd:attribute name="groupRelSurrender766" type="euros16" use="optional"/>
+						<xsd:attribute name="groupRelClaimExcess766" type="euros16" use="optional"/>
+						<xsd:attribute name="groupRelClaimExcess766a" type="euros16" use="optional"/>
+						<xsd:attribute name="totalCreditClaimed" type="euros16" use="optional"/>
+						<xsd:attribute name="amountCreditClawedBack" type="euros16" use="optional"/>
+						<xsd:attribute name="totalCreditDue" type="euros16" use="optional"/>
+						<xsd:attribute name="relevantMicroOrSmallCompany" type="boolean" use="optional"/>
+						<xsd:attribute name="creditClaimed766at30" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ExcessRnDCredit" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="credit7663ba" type="euros16" use="optional"/>
+						<xsd:attribute name="credit7663bb" type="euros16" use="optional"/>
+						<xsd:attribute name="credit7663bc" type="euros16" use="optional"/>
+						<xsd:attribute name="amountRepayableSec766" type="euros16" use="optional"/>
+						<xsd:attribute name="amountRepayableSec766a" type="euros16" use="optional"/>
+						<xsd:attribute name="amountClaimedSec766" type="euros16" use="optional"/>
+						<xsd:attribute name="amountClaimedSec766a" type="euros16" use="optional"/>
+						<xsd:attribute name="amountClaimedSec766iii" type="euros16" use="optional"/>
+						<xsd:attribute name="amountClaimedSec766aiii" type="euros16" use="optional"/>
+						<xsd:attribute name="subContractExpendUniv" type="euros16" use="optional"/>
+						<xsd:attribute name="baseYearExpenditure" type="euros16" use="optional"/>
+						<xsd:attribute name="baseYearExpendPlantMach" type="euros16" use="optional"/>
+						<xsd:attribute name="allowanceClaimedCapExp" type="euros16" use="optional"/>
+						<xsd:attribute name="subContractExpendNotif" type="boolean" use="optional" default="false"/>
+						<xsd:attribute name="subContractExpendPerson" type="euros16" use="optional"/>
+						<xsd:attribute name="amountforwardcurrent766B" type="euros16" use="optional"/>
+						<xsd:attribute name="amountforwardprior766B" type="euros16" use="optional"/>
+						<xsd:attribute name="rndgrants" type="euros16" use="optional"/>
+						<xsd:attribute name="rndeigrant" type="boolean" use="optional"/>
+						<xsd:attribute name="rndidagrant" type="boolean" use="optional"/>
+						<xsd:attribute name="rndleovoucher" type="boolean" use="optional"/>
+						<xsd:attribute name="rndhighereducation" type="boolean" use="optional"/>
+						<xsd:attribute name="rndothergrantsandpublicresearch" type="boolean" use="optional"/>
+						<xsd:attribute name="rndirishprivategrants" type="boolean" use="optional"/>
+						<xsd:attribute name="rndeuropeangrants" type="boolean" use="optional"/>
+						<xsd:attribute name="rndotherpublicgrants" type="boolean" use="optional"/>
+						<xsd:attribute name="rndotherprivatenonprofitgrantsA" type="boolean" use="optional"/>
+						<xsd:attribute name="rndothergrants" type="boolean" use="optional"/>
+						<xsd:attribute name="rndothergrantsspecify" type="text140" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="RnDForSmallerCompany" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="relevantMicroOrSmallCompany" type="boolean" use="optional"/>
+						<xsd:attribute name="tradingAccountPeriod" type="boolean" use="optional"/>
+						<xsd:attribute name="credit7663" type="euros16" use="optional"/>
+						<xsd:attribute name="credit7664" type="euros16" use="optional"/>
+						<xsd:attribute name="creditOffsetCorporationTax" type="euros16" use="optional"/>
+						<xsd:attribute name="creditOffsetPayRoll" type="euros16" use="optional"/>
+						<xsd:attribute name="creditOffsetVat" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FilmCorporationTaxCredit">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="FilmDetails" minOccurs="0" maxOccurs="40">
+					<xsd:complexType>
+						<xsd:attribute name="filmCertNumber" type="text20" use="optional"/>
+						<xsd:attribute name="filmCertDate" type="date" use="optional"/>
+						<xsd:attribute name="filmType" type="text20" use="optional"/>
+						<xsd:attribute name="filmDateDelivered" type="date" use="optional"/>
+						<xsd:attribute name="qualifyingCompanyName" type="text40" use="optional"/>
+						<xsd:attribute name="qualifyingCompanyTaxNumber" type="text20" use="optional"/>
+						<xsd:attribute name="totalCost" type="euros16" use="optional"/>
+						<xsd:attribute name="expenditureOnEmployment" type="euros16" use="optional"/>
+						<xsd:attribute name="expenditureOnGoods" type="euros16" use="optional"/>
+						<xsd:attribute name="filmLocation" type="text40" use="optional"/>
+						<xsd:attribute name="rateOfTaxCredit" type="text8" use="optional"/>
+						<xsd:attribute name="taxCreditUnder481bI" type="euros16" use="optional"/>
+						<xsd:attribute name="taxCreditUnder481bII" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="totalClaimed" type="euros16" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="CapitalGainsDevelopmentLand">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CapGainsDevLandConsiderations" minOccurs="0">
+					<xsd:complexType>
+						<xsd:complexContent>
+					    	<xsd:extension base="Considerations">
+					    		<xsd:sequence>
+									<xsd:element name="DevLandOrBuildings" type="AreaNumDisposAggConsiderations" minOccurs="0"/>
+					    		</xsd:sequence>
+					    	</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="CapGainsDevLandChargeGains" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="amountgainrelievedland" type="euros16" use="optional"/>
+						<xsd:attribute name="netchargeablelgainreliefland" type="euros16" use="optional"/>
+						<xsd:attribute name="netlossesacountingperiodland" type="euros16" use="optional"/>
+						<xsd:attribute name="chargeGainsDev" type="euros16" use="optional"/>
+						<xsd:attribute name="netLossesDev" type="euros16" use="optional"/>
+						<xsd:attribute name="unusedLossesPriorYear" type="euros16" use="optional"/>
+						<xsd:attribute name="netChargeGainDev" type="euros16" use="optional"/>
+						<xsd:attribute name="unusedLossCarriedForward" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGainInitPrevPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGainLatePrevPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGainInitThisPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="netCharGainLateThisPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="cpoNetChargeGain" type="euros16" use="optional"/>
+						<xsd:attribute name="cpoDateDisposal" type="date" use="optional"/>
+						<xsd:attribute name="cpoDatePaymentReceived" type="date" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="costOfAcquisition" type="euros16" use="optional"/>
+			<xsd:attribute name="acquisitionNotAtArmslength" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="currentUseValue" type="euros16" use="optional"/>
+			<xsd:attribute name="costLessCurrentUseValue" type="euros16" use="optional"/>
+			<xsd:attribute name="amtEnhanceExpendClaimed" type="euros16" use="optional"/>
+			<xsd:attribute name="totalCapGainTaxDue" type="euros16" use="optional"/>
+			<xsd:attribute name="taxDeferDisposalDevLand" type="euros16" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>		
+	<xsd:element name="CloseCompanySurcharge">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="closeCompanyDetails" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:attribute name="taxReferencePaid" type="text12" use="optional"/>
+						<xsd:attribute name="taxReferenceReceived" type="text12" use="optional"/>
+						<xsd:attribute name="amountPaid" type="euros16" use="optional"/>
+						<xsd:attribute name="distributionDate" type="date" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="electUnderSec440441" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="section440" type="euros16" use="optional"/>
+			<xsd:attribute name="section441" type="euros16" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RecoveryOfIncomeTax">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="countryDeduction" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:attribute name="dtaReliedOnCountryDeduction" type="integer12" use="optional"/>
+						<xsd:attribute name="interestPaid" type="euros16" use="optional"/>
+						<xsd:attribute name="interestDeductedIncluded" type="boolean" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="countryNonDeduction" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:attribute name="dtaReliedOnCountryNoDeduction" type="integer12" use="optional"/>
+						<xsd:attribute name="interestPaidNoDeduction" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="dtaReliedOnCountryDeduction" type="integer12" use="optional"/>
+			<xsd:attribute name="interestPaid" type="euros16" use="optional"/>
+			<xsd:attribute name="dtaReliedOnCountryNoDeduction" type="integer12" use="optional"/>
+			<xsd:attribute name="interestPaidNoDeduction" type="euros16" use="optional"/>
+			<xsd:attribute name="totalAmountDue" type="euros16" use="optional"/>
+			<xsd:attribute name="amountTaxReliefAtSource" type="euros16" use="optional"/>
+			<xsd:attribute name="royaltyPayment" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="interestDeductedIncluded" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="royaltyPaymentReduced" type="boolean" use="optional" default="false"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DividendWithholdingTax">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DistributionDetails" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="dwtCompanyDetails" minOccurs="0" maxOccurs="10">
+								<xsd:complexType>
+									<xsd:attribute name="taxReference" type="text12" use="optional"/>
+									<xsd:attribute name="nonResidentTaxReference" type="text64" use="optional"/>
+									<xsd:attribute name="amountPaid" type="euros16" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="dateOfDistribution" type="date" use="optional"/>
+						<xsd:attribute name="grossValue" type="euros16" use="optional"/>
+						<xsd:attribute name="valueOfDwt" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="StockArrangement" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:attribute name="nameOfNonResCompany" type="text40" use="optional"/>
+						<xsd:attribute name="nameAndAddressOfRecipient" type="text170" use="optional"/>
+						<xsd:attribute name="dateOfDistribution" type="date" use="optional"/>
+						<xsd:attribute name="amountOfDistribution" type="euros16" use="optional"/>
+						<xsd:attribute name="eirCode" type="text8" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OtherCodes">
+		<xsd:complexType>
+			<xsd:attribute name="imposeZeroSurcharge" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="imposeFiveSurcharge" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="imposeTenSurcharge" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="miscChargeableAmount" type="euros16" use="optional"/>
+			<xsd:attribute name="miscChargeableDesc" type="text64" use="optional"/>
+			<xsd:attribute name="returnReceivedDate" type="date" use="optional"/>
+			<xsd:attribute name="financialsReceivedDate" type="date" use="optional"/>
+			<xsd:attribute name="returnType" type="subformtype" use="optional"/>
+			<xsd:attribute name="section960QAmount" type="euros16" use="optional"/>
+			<xsd:attribute name="section960QDate" type="date" use="optional"/>
+			<xsd:attribute name="agentidinternalros" type="xsd:integer" use="optional"/>
+			<xsd:attribute name="lptSurcharge" type="xsd:decimal" use="optional"/>
+			<xsd:attribute name="returnProduct" type="text" use="optional"/>
+			<xsd:attribute name="miscIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="miscIncomeDesc" type="text64" use="optional"/>
+			<xsd:attribute name="miscIncomeRepay" type="euros16" use="optional"/>
+			<xsd:attribute name="miscIncomeRepayDesc" type="text64" use="optional"/>
+			<xsd:attribute name="miscIncomeNonRepay" type="euros16" use="optional"/>
+			<xsd:attribute name="miscIncomeNonRepayDesc" type="text64" use="optional"/>
+			<xsd:attribute name="rateOfCharge125" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="canBeOffset" type="boolean" use="optional" default="false"/>
+			
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SummaryCalculation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="TaxableIncomeAtRate" minOccurs="0" maxOccurs="100">
+					<xsd:complexType>
+						<xsd:attribute name="amountChargeableAtRate" type="euros16" use="optional"/>
+						<xsd:attribute name="percentageRate" type="percentage3_2" use="optional"/>
+						<xsd:attribute name="amountPayableAtRate" type="positiveDec12" use="optional"/>
+						<xsd:attribute name="taxIdentifier" type="text5" use="optional"/>
+						<xsd:attribute name="taxPeriod" type="text25" use="optional"/>
+						<xsd:attribute name="taxOrder" type="positive2" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="tradingIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="shippingIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="tonnageIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="tonnageTaxAmount" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="tonnageTaxRate" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="rentalIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="interestIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="foreignIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="foreignLifePolicyPayment" type="euros16" use="optional"/>
+			<xsd:attribute name="foreignLifePolicyGain" type="euros16" use="optional"/>
+			<xsd:attribute name="offshoreFundIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="offshoreFundGain" type="euros16" use="optional"/>
+			<xsd:attribute name="otherIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="rdClawback" type="euros16" use="optional"/>
+			<xsd:attribute name="filmClawback" type="euros16" use="optional"/>
+			<xsd:attribute name="capitalGains" type="euros16" use="optional"/>
+			<xsd:attribute name="totalIncome" type="euros13" use="optional"/>
+			<xsd:attribute name="losses" type="euros16" use="optional"/>
+			<xsd:attribute name="charges" type="euros16" use="optional"/>
+			<xsd:attribute name="groupRelief" type="euros16" use="optional"/>
+			<xsd:attribute name="managementExpenses" type="euros16" use="optional"/>
+			<xsd:attribute name="otherDeductions" type="euros16" use="optional"/>
+			<xsd:attribute name="excessCapitalAllowances" type="euros16" use="optional"/>
+			<xsd:attribute name="exceptedTradeLosses" type="euros16" use="optional"/>
+			<xsd:attribute name="totalDeductions" type="euros13" use="optional"/>
+			<xsd:attribute name="taxableIncome" type="euros13" use="optional"/>
+			<xsd:attribute name="chargeableGain" type="euros16" use="optional"/>
+			<xsd:attribute name="total" type="positiveDec13" use="optional"/>
+			<xsd:attribute name="otherTradeDeductions" type="euros16" use="optional"/>
+			<xsd:attribute name="doubleTaxationRelief" type="euros16" use="optional"/>
+			<xsd:attribute name="additionalFtxRelief" type="euros16" use="optional"/>
+			<xsd:attribute name="sec486cRelief" type="euros16" use="optional"/>
+			<xsd:attribute name="otherReliefs" type="euros16" use="optional"/>
+			<xsd:attribute name="totalReliefs" type="euros13" use="optional"/>
+			<xsd:attribute name="totalReliefsIds" type="positiveDec13" use="optional"/>
+			<xsd:attribute name="surchargesSection440" type="euros16" use="optional"/>
+			<xsd:attribute name="surchargesSection441" type="euros16" use="optional"/>
+			<xsd:attribute name="totalSurcharges" type="euros13" use="optional"/>
+			<xsd:attribute name="grossWithholdingTax" type="euros16" use="optional"/>
+			<xsd:attribute name="otherIncTaxBorneIncRec" type="euros16" use="optional"/>
+			<xsd:attribute name="rAndDCredit" type="euros16" use="optional"/>
+			<xsd:attribute name="totalFilmCredit" type="euros16" use="optional"/>
+			<xsd:attribute name="totalCredits" type="euros13" use="optional"/>
+			<xsd:attribute name="totalCreditsIds" type="positiveDec13" use="optional"/>
+			<xsd:attribute name="amtPayUnderDeductOfTax" type="euros16" use="optional"/>
+			<xsd:attribute name="taxReliefAtSource" type="euros16" use="optional"/>
+			<xsd:attribute name="totalTax" type="euros13" use="optional"/>
+			<xsd:attribute name="totalAmountPayable" type="positiveDec13" use="optional"/>
+			<xsd:attribute name="totalAmountRepayable" type="positiveDec13" use="optional"/>
+			<xsd:attribute name="exceptedTradeIncome" type="euros13" use="optional"/>
+			<xsd:attribute name="surcharge" type="positiveDec13" use="optional"/>
+			<xsd:attribute name="otherForeignIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="rAndDRepayableCredits" type="euros16" use="optional"/>
+			<xsd:attribute name="repaidCreditAmount" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="reliefUnderSection247" type="euros16" use="optional"/>
+			<xsd:attribute name="miscIncomeAm" type="euros16" use="optional"/>
+			<xsd:attribute name="miscIncomeDesc" type="text64" use="optional"/>
+			<xsd:attribute name="section960QTotal" type="euros16" use="optional"/>
+			<xsd:attribute name="totalPrrtDue" type="euros16" use="optional"/>
+			<xsd:attribute name="totalPptDue" type="euros16" use="optional"/>
+			<xsd:attribute name="reitDistributionAmount" type="euros16" use="optional"/>
+			<xsd:attribute name="dwtAmountWithheldCredit" type="euros16" use="optional"/>
+			<xsd:attribute name="relevantTradeIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="controlledForeignCompany" type="euros16" use="optional"/>
+			<xsd:attribute name="leasingProfits" type="euros16" use="optional"/>
+			<xsd:attribute name="miscIncome" type="euros16" use="optional"/>
+			<xsd:attribute name="miscellaneousIncomeDesc" type="text64" use="optional"/>
+			<xsd:attribute name="miscNonRepay" type="euros16" use="optional"/>
+			<xsd:attribute name="miscNonRepayDesc" type="text64" use="optional"/>
+			<xsd:attribute name="miscRepay" type="euros16" use="optional"/>
+			<xsd:attribute name="miscRepayDesc" type="text64" use="optional"/>
+			<xsd:attribute name="permeantDeductionUnderSec835AGb" type="euros16"  use="optional"/>
+			<xsd:attribute name="permeantDeductionUnderSec835AGbAt33" type="euros16"  use="optional"/>
+			<xsd:attribute name="finInstrumentDeductionPayeeCharge" type="euros16"  use="optional"/>
+			<xsd:attribute name="hybridMismatchDeductionPayeeCharge" type="euros16"  use="optional"/>
+			<xsd:attribute name="totalNonResTenantTax" type="euros16"  use="optional"/>
+			<xsd:attribute name="digitalGamesRelief" type="euros16" use="optional"/>
+			<xsd:attribute name="patentRights" type="euros16" use="optional"/>
+			
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="PropertyBasedIncentives">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ResidentialProperty" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="urbanRenewal" type="InvestorLessor" use="optional"/>
+						<xsd:attribute name="townRenewal" type="InvestorLessor" use="optional"/>
+						<xsd:attribute name="seasideResort" type="InvestorLessor" use="optional"/>
+						<xsd:attribute name="ruralResort" type="InvestorLessor" use="optional"/>
+						<xsd:attribute name="livingOverShop" type="InvestorLessor" use="optional"/>
+						<xsd:attribute name="parkAndRide" type="InvestorLessor" use="optional"/>
+						<xsd:attribute name="studentAccom" type="InvestorLessor" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="IndustBuildAllowance" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="UrbanRenewal" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="TownRenewal" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="SeasideResort" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="RuralRenewal" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="CarPark" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="LivingOverShop" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="EnterpriseAreas" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="ParkAndRide" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="Hotels" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="HolidayCottages" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="HolidayHostels" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="GuestHouses" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="NursingHomes" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="ElderlyHousing" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="ConvalescentHomes" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="ChildCare" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="ChildCareOfFitnessCenter" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="CaravanPark" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="ShannonCorridor" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="LivingCityInitiative" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="LivingCityInitiativeSection372AAD" type="OccupierInvestor" minOccurs="0"/>
+							<xsd:element name="AviationServicesFacilities" type="OccupierInvestor" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OtherIncentiveScheme" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="nameIncentiveScheme" type="text40" use="optional"/>
+						<xsd:attribute name="amtReliefClaimed" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Notes">
+		<xsd:complexType>
+			<xsd:attribute name="existingNotes" type="text1000" use="optional"/>
+			<xsd:attribute name="appendNotes" type="text1000" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SelfAssessmentCt">
+		<xsd:complexType>
+			<xsd:attribute name="cceProfitChargeTax" type="euros16" use="optional"/>
+			<xsd:attribute name="cceTaxCharge" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="cceTaxPayableBeforePswt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="ccePswtInterimRefunds" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="cceTaxPayable" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="cceAmtSurchargedue" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="cceAmtLptSurchargeDue" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="cceAmtTaxPaidDirect" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="cceBalanceTaxPayable" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="cceBalanceTaxOverpaid" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfProfitChargeTax" type="euros16" use="optional"/>
+			<xsd:attribute name="selfTaxCharge" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="selfTaxPayableBeforePswt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfPswtInterimRefunds" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="selfTaxPayable" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfAmtSurchargeDue" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="selfAmtLptSurchargeDue" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="selfAmtTaxPaidDirect" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfBalanceTaxPayable" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfBalanceTaxOverpaid" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="agreeWithFigures" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="declareSelfAssessment" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="section1085Confirmation" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="reasonForDisagreeing" type="text500" use="optional"/>
+			<xsd:attribute name="repaidcredits" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="amttaxpaiddirect" type="itpsigneddecimal12" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SelfAssessmentCgtIt">
+		<xsd:complexType>
+			<xsd:attribute name="cceProfitChargeTaxCgt" type="euros16" use="optional"/>
+			<xsd:attribute name="cceTaxChargeCgt" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="cceTaxPayableCgt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="cceBalanceTaxPayableCgt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="cceBalanceTaxOverpaidCgt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfProfitChargeTaxCgt" type="euros16" use="optional"/>
+			<xsd:attribute name="selfTaxChargeCgt" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="selfTaxPayableCgt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfAmtSurchargeDueCgt" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="selfAmtLptSurchargeDueCgt" type="positiveDec12" use="optional"/>
+			<xsd:attribute name="selfAmtTaxPaidDirectCgt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfBalanceTaxPayableCgt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="selfBalanceTaxOverpaidCgt" type="itpsigneddecimal12" use="optional"/>
+			<xsd:attribute name="agreeWithFiguresCgt" type="boolean" use="optional" default="false"/>
+			<xsd:attribute name="declareSelfAssessmentCgt" type="boolean" use="optional" default="false"/>
+		</xsd:complexType>
+	</xsd:element>	
+	<xsd:element name="Prepopulation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Prepopulated" minOccurs="0"/>
+				<xsd:element ref="RCTDetails" minOccurs="0"/>
+				<xsd:element ref="EPSWTDetails" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Prepopulated">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="PrepopulatedPanel" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:attribute name="panelname" type="xsd:string" use="required"/>
+						<xsd:attribute name="populated" type="xsd:boolean" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RCTDetails">
+		<xsd:complexType>
+            <xsd:attribute name="grossPayment" type="xsd:decimal"/>
+            <xsd:attribute name="deductionAmount" type="xsd:decimal"/>
+            <xsd:attribute name="periodStart" type="text20"/>
+            <xsd:attribute name="periodEnd" type="text20"/>
+		</xsd:complexType>
+    </xsd:element>
+	<xsd:element name="EPSWTDetails">
+		<xsd:complexType>
+			<xsd:attribute name="timeStamp" type="text25"/>
+			<xsd:attribute name="totalGrossPay" type="xsd:decimal"/>
+			<xsd:attribute name="totalDeductionAmt" type="xsd:decimal"/>
+			<xsd:attribute name="totalRefundedAmt" type="xsd:decimal"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Acknowledgement">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AcknowledgementType">
+					<xsd:sequence maxOccurs="unbounded">
+						<xsd:choice>
+							<xsd:element ref="SummaryCalculation" minOccurs="0"/>
+						</xsd:choice>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="boolean">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="true"/>
+			<xsd:enumeration value="false"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="date">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-3]?[0-9]/[0-3]?[0-9]/[1-9][0-9]{3}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="currency">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="E"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="language">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="E"/>
+			<xsd:enumeration value="G"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="euros9">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="euros12">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="999999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="euros13">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="euros16">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999999999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+	<xsd:simpleType name="euros10">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="integer12">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="-999999999999"/>
+			<xsd:maxInclusive value="999999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positive2">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positive3">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positive4">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positive5">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="99999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positive7">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positive12">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="999999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positiveDec12">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="999999999999.99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positiveDec13">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999999999999.99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="text5">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text8">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text12">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text500">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="500"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text1000">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="1000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text20">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text25">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text30">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text35">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text40">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text64">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="64"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text70">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="70"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text140">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="140"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="text170">
+		<xsd:restriction base="text">
+			<xsd:maxLength value="170"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="hectares6_2">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="8"/>
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="0.00"/>
+			<xsd:pattern value="[0-9]{1,6}\.[0-9]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ctregistration">
+		<xsd:restriction base="xsd:string">
+		    <xsd:maxLength value="10"/>
+			<xsd:pattern value="[0-9]{1,8}[A-Wa-w][A-Ia-i ]?"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ppsn">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+			<xsd:pattern value="[0-9]{1,8}[A-Wa-w][A-Ia-iTWXZtwxz ]?"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="itpmaxdecimal">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="13"/>
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="0.00"/>
+			<xsd:pattern value="[0-9]{1,13}\.[0-9]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="itpsigneddecimal">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="13"/>
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="-9999999999.99"/>
+			<xsd:maxInclusive value="9999999999.99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="itpsigneddecimal12">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="15"/>
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="-999999999999.99"/>
+			<xsd:maxInclusive value="999999999999.99"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+	<xsd:simpleType name="percentage3_2">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="5"/>
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="0.00"/>
+			<xsd:maxInclusive value="100.00"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="subformtype">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RA"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeofinterest">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="e"/>
+			<xsd:enumeration value="o"/>
+			<xsd:enumeration value="c"/>
+			<xsd:enumeration value="g"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typeofarrangement">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="e"/>
+			<xsd:enumeration value="y"/>
+			<xsd:enumeration value="n"/>
+			<xsd:enumeration value="na"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="PositiveNegativeAmount">
+		<xsd:attribute name="positiveAmount" type="euros16" use="optional"/>
+		<xsd:attribute name="negativeAmount" type="euros16" use="optional"/>
+	</xsd:complexType >
+	
+	<xsd:complexType name="OccupierInvestor">
+		<xsd:attribute name="investorLessor" type="InvestorLessor" use="optional"/>
+		<xsd:attribute name="ownerOccupier" type="OwnerOccupier" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:simpleType name="InvestorLessor">
+		<xsd:restriction base="euros16"/>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="OwnerOccupier">
+		<xsd:restriction base="euros16"/>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Address">
+		<xsd:attribute name="line1" type="text35" use="optional"/>
+		<xsd:attribute name="line2" type="text35" use="optional"/>
+		<xsd:attribute name="line3" type="text35" use="optional"/>
+		<xsd:attribute name="eirCode" type="text8" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="NameAddress">
+		<xsd:complexContent>
+		     <xsd:extension base="Address">
+		     	<xsd:attribute name="name" type="text40" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="Considerations">
+		<xsd:sequence>
+			<xsd:element name="QuotedSharesSecurities" type="DisposAggConsiderations" minOccurs="0"/>
+			<xsd:element name="UnquotedSharesSecurities" type="DisposAggConsiderations" minOccurs="0"/>
+			<xsd:element name="CommercialPremises" type="NumDisposAggConsiderations" minOccurs="0"/>
+			<xsd:element name="ResidentialPremises" type="NumDisposAggConsiderations" minOccurs="0"/>
+			<xsd:element name="OtherAssets" type="NumDisposAggConsiderations" minOccurs="0"/>
+			<xsd:element name="capitalGainsS627a" type="NumDisposAggConsiderations" minOccurs="0"/>
+			<xsd:element name="capitalGainsS627b" type="NumDisposAggConsiderations" minOccurs="0"/>
+			<xsd:element name="capitalGainsS627c" type="NumDisposAggConsiderations" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="totalConsiderOnDisposal" type="euros16" use="optional"/>
+		<xsd:attribute name="incidentalCostOfDisposal" type="euros16" use="optional"/>
+		<xsd:attribute name="aggNetConsiderOnDisposal" type="euros16" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="LivingCityInit">
+		<xsd:attribute name="amountOfClaim" type="euros16" use="optional"/>
+		<xsd:attribute name="addressQualPremises" type="text140" use="optional"/>
+		<xsd:attribute name="lciEirCode" type="text8" use="optional"/>
+		<xsd:attribute name="aggQualExpendDetails" type="text1000" use="optional"/>
+		<xsd:attribute name="serviceDescription" type="positive2" use="optional"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="LivingCityInitTradeProf">
+		<xsd:attribute name="claim372AAC" type="euros16" use="optional"/>
+		<xsd:attribute name="claim372AAD" type="euros16" use="optional"/>
+		<xsd:attribute name="addrqualifying" type="text140" use="optional"/>
+		<xsd:attribute name="eircodequalifying" type="text8" use="optional"/>
+		<xsd:attribute name="addrspecial" type="text140" use="optional"/>
+		<xsd:attribute name="eircodespecial" type="text8" use="optional"/>
+		<xsd:attribute name="qualifyingexpenditure" type="text1000" use="optional"/>
+		<xsd:attribute name="eligibleexpenditure" type="text1000" use="optional"/>
+		<xsd:attribute name="qualpremisesdescription" type="positive2" use="optional"/>
+		<xsd:attribute name="identificationnumber" type="text20" use="optional"/>
+		<xsd:attribute name="referencenumber" type="text20" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="DisposAggConsiderations">
+		<xsd:attribute name="disposalsConnectedPersons" type="boolean" use="optional" default="false"/>
+		<xsd:attribute name="aggregateConsideration" type="euros16" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="NumDisposAggConsiderations">
+		<xsd:complexContent>
+		     <xsd:extension base="DisposAggConsiderations">
+		     	<xsd:attribute name="numberOfDisposals" type="positive3" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AreaNumDisposAggConsiderations">
+		<xsd:complexContent>
+		     <xsd:extension base="NumDisposAggConsiderations">
+		     	<xsd:attribute name="aggregateArea" type="hectares6_2" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsiderOfAssests">
+		<xsd:attribute name="consideration" type="Consideration" use="optional"/>
+		<xsd:attribute name="numberOfAssets" type="NumberOfAssets" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="NameAndTaxRefNumber">
+		<xsd:attribute name="name" type="text40" use="optional"/>
+		<xsd:attribute name="taxRefNumber" type="ppsn" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="NameAndCTTaxRefNumber">
+		<xsd:attribute name="name" type="text40" use="optional"/>
+		<xsd:attribute name="taxRefNumber" type="ctregistration" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:simpleType name="Consideration">
+		<xsd:restriction base="euros16"/>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NumberOfAssets">
+		<xsd:restriction base="positive5"/>
+	</xsd:simpleType>
+
+	<xsd:complexType name="TradeProfit">
+		<xsd:sequence>
+			<xsd:element name="IntangibleAssets" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="JntSection615NamePpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+						<xsd:element name="JntSection617NamePpsn" type="NameAndCTTaxRefNumber" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="companyElectionSec291A4" type="boolean" use="optional" default="false"/>
+					<xsd:attribute name="capAllowClaimedAccounts" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedFixed" type="euros16" use="optional"/>
+					<xsd:attribute name="interestClaimedTradeDed" type="euros16" use="optional"/>
+					<xsd:attribute name="interestClaimedAsCharge" type="euros16" use="optional"/>
+					<xsd:attribute name="jntSection615ElectTrans" type="boolean" use="optional" default="false"/>
+					<xsd:attribute name="jntSection615ElectAcq" type="boolean" use="optional" default="false"/>
+					<xsd:attribute name="jntSection617ElectTrans" type="boolean" use="optional" default="false"/>
+					<xsd:attribute name="jntSection617ElectAcq" type="boolean" use="optional" default="false"/>
+					<xsd:attribute name="intangAssetCapAllowanceAmount" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedAccountsBefore" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedAccountsAfter" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedAccountsNotUsed" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedAcountsNotUsedOnOrAfter" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedFixedBefore" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedFixedAfter" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedFixedNotUsed" type="euros16" use="optional"/>
+					<xsd:attribute name="capAllowClaimedFixedNotUsedOnOrAfter" type="euros16" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LivingCity" type="LivingCityInit" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="qualifyingCertNumbers"  minOccurs="0" maxOccurs="5">
+				<xsd:complexType>
+					<xsd:attribute name="certNumber" type="text12" use="optional"/>
+					<xsd:attribute name="capAllowClaimedAccounts" type="euros16" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="profitsBeforeCapAllow" type="euros16" use="optional"/>
+		<xsd:attribute name="balancingCharges" type="euros16" use="optional"/>
+		<xsd:attribute name="capAllPropWithIncentives" type="boolean" use="optional" default="false"/>
+		<xsd:attribute name="machineryAndPlant" type="euros16" use="optional"/>
+		<xsd:attribute name="energyEfficient" type="euros16" use="optional"/>
+		<xsd:attribute name="childcareFitnessCentreEquipment" type="euros16" use="optional"/>
+		<xsd:attribute name="farmBuildings" type="euros16" use="optional"/>
+		<xsd:attribute name="slurryStorageA" type="euros16" use="optional"/>
+		<xsd:attribute name="slurryStorageB" type="euros16" use="optional"/>
+		<xsd:attribute name="gasVehiclesRefuellingEquipment" type="euros16" use="optional"/>
+		<xsd:attribute name="plantAndMachineryExcessNotClaimed" type="euros16" use="optional"/>
+		<xsd:attribute name="plantAndMachineryFarmEquipment" type="euros16" use="optional"/>
+		<xsd:attribute name="industrialBuildings" type="euros16" use="optional"/>
+		<xsd:attribute name="other" type="euros16" use="optional"/>
+		<xsd:attribute name="expendPatentRights" type="euros16" use="optional"/>
+		<xsd:attribute name="capAllowPatentRights" type="euros16" use="optional"/>
+		<xsd:attribute name="expendKnowHow" type="euros16" use="optional"/>
+		<xsd:attribute name="expendKnowHowAllowance" type="euros16" use="optional"/>
+		<xsd:attribute name="tradingLossesBroughtFwd" type="euros16" use="optional"/>
+		<xsd:attribute name="amountOfLossesUtilised" type="euros16" use="optional"/>
+		<xsd:attribute name="balTradeLossAvailCarryFwd" type="euros16" use="optional"/>
+		<xsd:attribute name="section400LossesObtained" type="euros16" use="optional"/>
+		<xsd:attribute name="lossOffsetTradingIncome" type="euros16" use="optional"/>
+		<xsd:attribute name="charges" type="euros16" use="optional"/>
+		<xsd:attribute name="groupRelief" type="euros16" use="optional"/>
+		<xsd:attribute name="amtGrpReliefExcessCapAllow" type="euros16" use="optional"/>
+		<xsd:attribute name="amtGrpReliefTradeCharges" type="euros16" use="optional"/>
+		<xsd:attribute name="livingCityYes" type="boolean" use="optional" default="false"/>
+		<xsd:attribute name="livingCityNo" type="boolean" use="optional" default="false"/>
+		<xsd:attribute name="ibaAviationYes" type="boolean" use="optional" default="false"/>
+		<xsd:attribute name="ibaAviationNo" type="boolean" use="optional" default="false"/>
+		<xsd:attribute name="ibaAddress" type="text140" use="optional"/>
+		<xsd:attribute name="ibaEirCode" type="text8" use="optional"/>
+		<xsd:attribute name="aggAmountExpenditure" type="euros16" use="optional"/>
+		<xsd:attribute name="ibaClaimAccRate" type="euros16" use="optional"/>
+		<xsd:attribute name="indBuildAllowForChildOrFitness" type="euros16" use="optional"/>
+		<xsd:attribute name="farmBuildAllow" type="euros16" use="optional"/>
+		<xsd:attribute name="farmBuildAllowSlurrySec658A2a" type="euros16" use="optional"/>
+		<xsd:attribute name="farmBuildAllowSlurrySec658A2b" type="euros16" use="optional"/>
+		<xsd:attribute name="totalCrssAndBrss" type="euros16" use="optional"/>
+		<xsd:attribute name="totalCreditClaimed" type="euros16" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="QualifyingAssetsClaims">
+		<xsd:attribute name="numPriorClaims" type="positive7" use="optional"/>
+		<xsd:attribute name="priorClaims" type="euros9" use="optional"/>
+		<xsd:attribute name="numNewClaims" type="positive7" use="optional"/>
+		<xsd:attribute name="newClaims" type="euros9" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="AcknowledgementType">
+		<xsd:choice minOccurs="0">
+			<xsd:element ref="ErrorList"/>
+			<xsd:element name="NoticeNumber">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="success" type="boolean" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="ErrorList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ErrorList" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="target" type="xsd:string" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Error">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="target" type="xsd:string" use="required"/>
+					<xsd:attribute name="code" type="xsd:integer" use="required"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
