@@ -5,13 +5,30 @@ Document History:
 __________________________________________________________
 
 	i-TradingResults/TradeProfits
-	[add attributes]
+	[added attributes]
 	@farmBuildAllow
 	@farmBuildAllowSlurrySec658A2a
 	@farmBuildAllowSlurrySec658A2b
 	@farmBuildings
 	@slurryStorageA
 	@slurryStorageB
+	
+	ii-CompanyDetails/CompanyNameAndPpsn
+	[added attribute]
+	@partofMultiGrp
+	
+	iii-Prepopulation
+	[added element]
+	EPSWTDetails
+	[added attributes]
+	@timestamp
+	@totalGrossPay
+	@totalDeductionAmt
+	@totalRefundedAmt
+	
+	iv-SummaryCalculation
+	[added attribute]
+	@patentRights
 
 -->
 

@@ -9,6 +9,7 @@ CompanyDetails/transferPricing
 	jurisdictionTaxParentEntity
 	nameParentEntity
 
+
 CompanyDetails/controlledForeignCompany
 [added attribute]	
 	section835Ya
@@ -36,20 +37,21 @@ ReverseHybridMismatches
 		attr:percentageHolding
 [added attribute]
 	coroprateTaxCharge
-
+	
 IrishInvestmentIncome/DigitalGamesRelief	
 [added element]
 DigitalGamesReliefUnderS481A19
 [added attribute]
+	accountingPeriodBegin
+	accountingPeriodEnd
 	gameTitle
 	interimCulturalCertNumber
 	certDateIssued
-	accountingPeriod
 	eligibleExpenditure
 	qualiffyingExpenditure
 	interimTaxCreditClaimedPreviousYears
-	isClaimBeingMadeIncurredSinceDateSec481A
 	interimTaxClaimedAt32
+	isClaimBeingMadeSinceDateSec481A
 
 [added element]
 DigitalGamesReliefUnderS481A20
@@ -61,12 +63,12 @@ DigitalGamesReliefUnderS481A20
 	eligibleExpenditure
 	qualiffyingExpenditure
 	interimTaxCreditClaimedPreviousYears
-	isClaimBeingMadeIncurredSinceDateSec481A
+	isClaimBeingMadeSinceDateSec481A
 	interimTaxClaimedAt32
 
-[added element]
+[removed element]
 ClawbackGamesReliefS481A26
-[added attribute]
+[removed attributes]
 	gameName
 	croNumber
 	naceCode
@@ -98,7 +100,6 @@ dtaReliedOnCountryNoDeduction
 interestPaidNoDeduction
 royaltyPaymentReduced
 
-
 CloseCompanySurcharge/DividendWithholdingTax/DistributionDetails
 [added attribute]
 nonResidentTaxReference
@@ -107,6 +108,11 @@ nonResidentTaxReference
 SummaryCalculation
 [added attribute]
 totalNonResTenantTax
+digitalGamesRelief
+[removed attributes]
+interimDigitalGamesRelief
+finalDigitalGamesRelief
+digitalGamesReliefClawback
 
 
 TradeProfit
@@ -123,11 +129,20 @@ CompanyDetail/interestLimitations
 incomeNetInterest
 expensesNetInterest
 netInterestExpense
-isAccountingPeriodBefore2021
 
 ExtractsAccounts/Expenses
 [added attribute]
 totalCrssAndBrss
+
+
+Prepopulation
+	[added element]
+	EPSWTDetails
+	[added attributes]
+	@timestamp
+	@totalGrossPay
+	@totalDeductionAmt
+	@totalRefundedAmt
 
 <xsd:attribute name="incomeNetInterest" type="euros16" use="optional" />
 						<xsd:attribute name="expensesNetInterest" type="euros16" use="optional" />
@@ -1101,12 +1116,13 @@ totalCrssAndBrss
 									<xsd:attribute name="gameTitle" type="text20" use="optional"/>
 									<xsd:attribute name="interimCulturalCertNumber" type="text20" use="optional"/>
 									<xsd:attribute name="certDateIssued" type="date" use="optional"/>
-									<xsd:attribute name="accountingPeriod" type="date" use="optional"/>
+									<xsd:attribute name="accountingPeriodBegin" type="date" use="optional"/>
+									<xsd:attribute name="accountingPeriodEnd" type="date" use="optional"/>
 									<xsd:attribute name="eligibleExpenditure" type="euros16" use="optional"/>
 									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
 									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
-									<xsd:attribute name="isClaimBeingMadeIncurredSinceDateSec481A" type="boolean" use="optional"/>
 									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
+									<xsd:attribute name="isClaimBeingMadeSinceDateSec481A" type="boolean" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
 							<xsd:element name="DigitalGamesReliefUnderS481A20" minOccurs="0" maxOccurs="40">
@@ -1118,7 +1134,7 @@ totalCrssAndBrss
 									<xsd:attribute name="eligibleExpenditure" type="euros16" use="optional"/>
 									<xsd:attribute name="qualiffyingExpenditure" type="euros16" use="optional"/>
 									<xsd:attribute name="interimTaxCreditClaimedPreviousYears" type="euros16" use="optional"/>
-									<xsd:attribute name="isClaimBeingMadeIncurredSinceDateSec481A" type="boolean" use="optional"/>
+									<xsd:attribute name="isClaimBeingMadeSinceDateSec481A" type="boolean" use="optional"/>
 									<xsd:attribute name="interimTaxClaimedAt32" type="euros16" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
@@ -1133,14 +1149,6 @@ totalCrssAndBrss
 											</xsd:complexType>
 										</xsd:element>
 									</xsd:sequence>
-									<xsd:attribute name="companyName" type="text20" use="optional"/>
-									<xsd:attribute name="gameName" type="text20" use="optional"/>
-									<xsd:attribute name="croNumber" type="text20" use="optional"/>
-									<xsd:attribute name="naceCode" type="text20" use="optional"/>
-									<xsd:attribute name="totalAmountIntereim" type="euros16" use="optional"/>
-									<xsd:attribute name="isCompanySmeOrLargeEnterprise" type="boolean" use="optional"/>
-									<xsd:attribute name="territorialUnit" type="text20" use="optional"/>
-									<xsd:attribute name="dateCreditClaimed" type="date" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
 						</xsd:sequence>
@@ -1674,6 +1682,7 @@ totalCrssAndBrss
 			<xsd:attribute name="grossWithholdingTax" type="euros16" use="optional"/>
 			<xsd:attribute name="otherIncTaxBorneIncRec" type="euros16" use="optional"/>
 			<xsd:attribute name="rAndDCredit" type="euros16" use="optional"/>
+			<xsd:attribute name="digitalGamesRelief" type="euros16" use="optional"/>
 			<xsd:attribute name="totalFilmCredit" type="euros16" use="optional"/>
 			<xsd:attribute name="totalCredits" type="euros13" use="optional"/>
 			<xsd:attribute name="totalCreditsIds" type="positiveDec13" use="optional"/>
@@ -1709,9 +1718,6 @@ totalCrssAndBrss
 			<xsd:attribute name="finInstrumentDeductionPayeeCharge" type="euros16"  use="optional"/>
 			<xsd:attribute name="hybridMismatchDeductionPayeeCharge" type="euros16"  use="optional"/>
 			<xsd:attribute name="totalNonResTenantTax" type="euros16"  use="optional"/>
-			<xsd:attribute name="interimDigitalGamesRelief" type="euros16"  use="optional"/>
-			<xsd:attribute name="finalDigitalGamesRelief" type="euros16"  use="optional"/>
-			<xsd:attribute name="digitalGamesReliefClawback" type="euros16"  use="optional"/>
 		</xsd:complexType>
 	</xsd:element>
 
@@ -1827,6 +1833,7 @@ totalCrssAndBrss
 			<xsd:sequence>
 				<xsd:element ref="Prepopulated" minOccurs="0"/>
 				<xsd:element ref="RCTDetails" minOccurs="0"/>
+				<xsd:element ref="EPSWTDetails" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1850,6 +1857,14 @@ totalCrssAndBrss
             <xsd:attribute name="periodEnd" type="text20"/>
 		</xsd:complexType>
     </xsd:element>
+	<xsd:element name="EPSWTDetails">
+		<xsd:complexType>
+			<xsd:attribute name="timeStamp" type="text25"/>
+			<xsd:attribute name="totalGrossPay" type="xsd:decimal"/>
+			<xsd:attribute name="totalDeductionAmt" type="xsd:decimal"/>
+			<xsd:attribute name="totalRefundedAmt" type="xsd:decimal"/>
+		</xsd:complexType>
+	</xsd:element>
 	<xsd:element name="Acknowledgement">
 		<xsd:complexType>
 			<xsd:complexContent>

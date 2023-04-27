@@ -10,7 +10,7 @@
 				"anchor": "CT1_Schema_v23",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2023",
-				"dateLastUpdated": "23/03/2023",
+				"dateLastUpdated": "27/04/2023",
 				"category": "download"
 			},
 			{
@@ -19,7 +19,7 @@
 				"anchor": "CT1_Notes_v23",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2023",
-				"dateLastUpdated": "23/03/2023",
+				"dateLastUpdated": "27/04/2023",
 				"category": "download"
 			},
 			{
@@ -28,7 +28,7 @@
 				"anchor": "CT1_Schema_v22",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "13/08/2022",
+				"dateLastUpdated": "26/04/2023",
 				"category": "download"
 			},
 			{
@@ -37,7 +37,7 @@
 				"anchor": "CT1_Notes_v22",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "13/08/2022",
+				"dateLastUpdated": "26/04/2023",
 				"category": "download"
 			},
 			{
