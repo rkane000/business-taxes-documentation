@@ -17,7 +17,25 @@ __________________________________________________________
 	[added attribute]
 	@partofMultiGrp
 	
-	iii-Prepopulation
+	iii-IrishInvestmentIncome
+	[added element]
+	PatentRights
+	[added attributes]
+	@residentCompany
+	@nonResidentCompany
+	@patentRightsPurchased
+	@prPurchasedNameOfOtherCompany
+	@prPurchasedTaxRefOtherCompany
+	@jointElectionUnderSection6174
+	@prSoldNameOfOtherCompany
+	@prSoldTaxRefOtherCompany
+	@jointElectionUnderSection61742
+	@deemedSaleOfPatentRights
+	@amountChargeableThisAccPeriod
+	@amountChargeablePrevAccPeriod
+	@totalChargeable
+	
+	iv-Prepopulation
 	[added element]
 	EPSWTDetails
 	[added attributes]
@@ -26,10 +44,10 @@ __________________________________________________________
 	@totalDeductionAmt
 	@totalRefundedAmt
 	
-	iv-SummaryCalculation
+	v-SummaryCalculation
 	[added attribute]
 	@patentRights
-
+	
 -->
 
 <xsd:schema xmlns="http://www.ros.ie/schemas/formct1/v23/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/formct1/v23/" elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -988,6 +1006,23 @@ __________________________________________________________
 				<xsd:element name="leasingProfits" minOccurs="0">
 					<xsd:complexType>
 						<xsd:attribute name="profitsFromNonTradingLeasing" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PatentRights" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="residentCompany" type="euros16" use="optional"/>
+						<xsd:attribute name="nonResidentCompany" type="euros16" use="optional"/>
+						<xsd:attribute name="patentRightsPurchased" type="euros16" use="optional"/>
+						<xsd:attribute name="prPurchasedNameOfOtherCompany" type="text25" use="optional"/>
+						<xsd:attribute name="prPurchasedTaxRefOtherCompany" type="text25" use="optional"/>
+						<xsd:attribute name="jointElectionUnderSection6174" type="boolean" use="optional"/>
+						<xsd:attribute name="prSoldNameOfOtherCompany" type="text25" use="optional"/>
+						<xsd:attribute name="prSoldTaxRefOtherCompany" type="text25" use="optional"/>
+						<xsd:attribute name="jointElectionUnderSection61742" type="boolean" use="optional"/>
+						<xsd:attribute name="deemedSaleOfPatentRights" type="euros16" use="optional"/>
+						<xsd:attribute name="amountChargeableThisAccPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="amountChargeablePrevAccPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="totalChargeable" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="DigitalGamesRelief" minOccurs="0">
