@@ -18,7 +18,25 @@ Paye > Pensions/Expenses
 Allowances > MedicalExpenses/MedicalExpensesDtls/MedExpenses
 @realtimeclaimed 
 
+Allowances > SureAllowance
+@amtinvestedprevself
+@amtinvestedprevspouse
 
+Allowances > EIIAllowance/@Sharesissuedincurrentyearafterbudget
+@amtinvestedprevself
+@amtinvestedprevspouse
+
+Allowances > EIIAllowance/@Sharesissuedincurrentyearsheldminsevenyears
+@amtinvestedprevself
+@amtinvestedprevspouse
+
+Allowances > SCIAllowance/SCIinvestments
+@amtinvestedprevself
+@amtinvestedprevspouse
+
+Allowances > SCIAllowance/SCIinvestmentssevenyears
+@amtinvestedprevself
+@amtinvestedprevspouse
 
 ChargesDeductions > @InterestPaidTaxDeduction 
 @taxdeductioncountryself
@@ -111,6 +129,14 @@ Allowances > @rentTaxCredits/@AddressList
 @landlordPPSSpouse*
 @rtbRegistrationNumSelf*
 @rtbRegistrationNumSpouse*
+
+	remove elements
+
+Allowances > EIIAllowance
+@amtclaimedcarryfwdself
+@amtclaimedcarryfwdspouse
+@amtclaimedcarryfwdnotusedself
+@amtclaimedcarryfwdnotusedspouse
 	
 -->	
 
@@ -1774,6 +1800,8 @@ Allowances > @rentTaxCredits/@AddressList
 						<xsd:attribute name="amtsixyearsbeforespouse" type="ros:positive8" use="optional" />
 						<xsd:attribute name="amttobecarriedfwself" type="ros:positive8" use="optional" />
 						<xsd:attribute name="amttobecarriedfwspouse" type="ros:positive8" use="optional" />
+						<xsd:attribute name="amtinvestedprevself" type="ros:positive8" use="optional" />
+						<xsd:attribute name="amtinvestedprevspouse" type="ros:positive8" use="optional" />
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="EiiAllowance" minOccurs="0">
@@ -1821,6 +1849,8 @@ Allowances > @rentTaxCredits/@AddressList
 									<xsd:attribute name="amtdeductionunder502aspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdspouse" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevself" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amteligiblesharesself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amteligiblesharesspouse" type="ros:positive8" use="optional" />
 								</xsd:complexType>
@@ -1841,6 +1871,8 @@ Allowances > @rentTaxCredits/@AddressList
 									<xsd:attribute name="amtdeductionunder502aspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdspouse" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevself" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amteligiblesharesself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amteligiblesharesspouse" type="ros:positive8" use="optional" />
 								</xsd:complexType>
@@ -1848,10 +1880,6 @@ Allowances > @rentTaxCredits/@AddressList
 						</xsd:sequence>
 						<xsd:attribute name="amtsharesthreeyearsbeforeself" type="ros:positive8" use="optional" />
 						<xsd:attribute name="amtsharesthreeyearsbeforespouse" type="ros:positive8" use="optional" />
-						<xsd:attribute name="amtclaimedcarryfwdself" type="ros:positive8" use="optional" />
-						<xsd:attribute name="amtclaimedcarryfwdspouse" type="ros:positive8" use="optional" />
-						<xsd:attribute name="amtclaimedcarryfwdnotusedself" type="ros:positive8" use="optional" />
-						<xsd:attribute name="amtclaimedcarryfwdnotusedspouse" type="ros:positive8" use="optional" />
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="SCIAllowance" minOccurs="0">
@@ -1871,6 +1899,8 @@ Allowances > @rentTaxCredits/@AddressList
 									<xsd:attribute name="amtinvestunder502aspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amtdeductionunder502aself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amtdeductionunder502aspouse" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevself" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdspouse" type="ros:positive8" use="optional" />
 								</xsd:complexType>
@@ -1889,6 +1919,8 @@ Allowances > @rentTaxCredits/@AddressList
 									<xsd:attribute name="amtinvestunder502aspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amtdeductionunder502aself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amtdeductionunder502aspouse" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevself" type="ros:positive8" use="optional" />
+									<xsd:attribute name="amtinvestedprevspouse" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdself" type="ros:positive8" use="optional" />
 									<xsd:attribute name="amttobecarriedfwdspouse" type="ros:positive8" use="optional" />
 								</xsd:complexType>
