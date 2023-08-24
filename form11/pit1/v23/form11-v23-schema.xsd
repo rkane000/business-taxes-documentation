@@ -22,6 +22,12 @@ Allowances > SureAllowance
 @amtinvestedprevself
 @amtinvestedprevspouse
 
+Allowances > EIIAllowance
+@amtclaimedcarryfwdself
+@amtclaimedcarryfwdspouse
+@amtclaimedcarryfwdnotusedself
+@amtclaimedcarryfwdnotusedspouse
+
 Allowances > EIIAllowance/@Sharesissuedincurrentyearafterbudget
 @amtinvestedprevself
 @amtinvestedprevspouse
@@ -129,14 +135,6 @@ Allowances > @rentTaxCredits/@AddressList
 @landlordPPSSpouse*
 @rtbRegistrationNumSelf*
 @rtbRegistrationNumSpouse*
-
-	remove elements
-
-Allowances > EIIAllowance
-@amtclaimedcarryfwdself
-@amtclaimedcarryfwdspouse
-@amtclaimedcarryfwdnotusedself
-@amtclaimedcarryfwdnotusedspouse
 	
 -->	
 
@@ -1880,6 +1878,10 @@ Allowances > EIIAllowance
 						</xsd:sequence>
 						<xsd:attribute name="amtsharesthreeyearsbeforeself" type="ros:positive8" use="optional" />
 						<xsd:attribute name="amtsharesthreeyearsbeforespouse" type="ros:positive8" use="optional" />
+						<xsd:attribute name="amtclaimedcarryfwdself" type="ros:positive8" use="optional" />
+						<xsd:attribute name="amtclaimedcarryfwdspouse" type="ros:positive8" use="optional" />
+						<xsd:attribute name="amtclaimedcarryfwdnotusedself" type="ros:positive8" use="optional" />
+						<xsd:attribute name="amtclaimedcarryfwdnotusedspouse" type="ros:positive8" use="optional" />
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="SCIAllowance" minOccurs="0">
