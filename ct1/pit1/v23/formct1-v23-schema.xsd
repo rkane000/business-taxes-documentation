@@ -10,11 +10,8 @@ __________________________________________________________
 	@farmBuildAllowSlurrySec658A2a
 	@farmBuildAllowSlurrySec658A2b
 	
-	[removed attributes]
-	@farmBuildings
-	@slurryStorageA
-	@slurryStorageB
 	
+
 	ii-CompanyDetails/CompanyNameAndPpsn
 	[added attribute]
 	@partofMultiGrp
@@ -73,6 +70,7 @@ __________________________________________________________
 	@isSec766A
 	@isSec766C
 	@isSec766D
+	@allowanceClaimedSection765
 	
 	[added element]
 	sec766
@@ -1658,6 +1656,7 @@ __________________________________________________________
 			<xsd:attribute name="otherPublicRndGrants" type="euros16" use="optional"/>
 			<xsd:attribute name="otherPrivateRndGrants" type="euros16" use="optional"/>
 			<xsd:attribute name="otherRndGrants" type="euros16" use="optional"/>
+			<xsd:attribute name="allowanceClaimedSection765" type="euros16" use="optional"/>
 			<xsd:attribute name="otherDesc" type="text40" use="optional"/>
 			<xsd:attribute name="isSec766" type="boolean" use="optional"/>
 			<xsd:attribute name="isSec766A" type="boolean" use="optional"/>
