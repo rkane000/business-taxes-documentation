@@ -6,25 +6,16 @@
 		"cards": [
 			{
 				"link": "ct1/pit1/v23/formct1-v23-schema.xsd",
-				"description": "CT1 Schema v23",
-				"anchor": "CT1_Schema_v23",
+				"description": "CT1 Schema v27",
+				"anchor": "CT1_Schema_v27",
 				"type": "Schema",
-				"environment": "Tax periods ending in 2023",
-				"dateLastUpdated": "05/09/2023",
+				"environment": "test2",
+				"dateLastUpdated": "04/04/2020",
 				"category": "download"
 			},
 			{
-				"link": "ct1/pit1/v23/ct1v23notes.pdf",
-				"description": "CT1 Notes v23",
-				"anchor": "CT1_Notes_v23",
-				"type": "PDF",
-				"environment": "Tax periods ending in 2023",
-				"dateLastUpdated": "05/09/2023",
-				"category": "download"
-			},
-			{
-				"link": "ct1/pit1/v23/formct1-v23-schemaOld.xsd",
-				"description": "CT1 Schema v23 (Previous version before R&D changes)",
+				"link": "ct1/pit1/v23/formct1-v23-schema.xsd",
+				"description": "CT1 Schema v23",
 				"anchor": "CT1_Schema_v23",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2023",
@@ -32,8 +23,8 @@
 				"category": "download"
 			},
 			{
-				"link": "ct1/pit1/v23/ct1v23notesOld.pdf",
-				"description": "CT1 Notes v23 (Previous version before R&D changes)",
+				"link": "ct1/pit1/v23/ct1v23notes.pdf",
+				"description": "CT1 Notes v23",
 				"anchor": "CT1_Notes_v23",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2023",
@@ -46,7 +37,7 @@
 				"anchor": "CT1_Schema_v22",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "10/07/2023",
+				"dateLastUpdated": "26/04/2023",
 				"category": "download"
 			},
 			{
@@ -55,7 +46,7 @@
 				"anchor": "CT1_Notes_v22",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "21/07/2023",
+				"dateLastUpdated": "26/04/2023",
 				"category": "download"
 			},
 			{
@@ -412,7 +403,7 @@
 				"anchor": "Form11_Schema_v23",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "24/08/2023",
+				"dateLastUpdated": "28/06/2023",
 				"category": "download"
 			},
 			{
@@ -421,7 +412,7 @@
 				"anchor": "Form11_Notes_v23",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "24/08/2023",
+				"dateLastUpdated": "28/06/2023",
 				"category": "download"
 			},
 			{

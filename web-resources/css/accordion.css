@@ -1,0 +1,61 @@
+.accordion {
+
+  max-width: 400px;
+
+  margin: 0;
+
+ <!-- padding-left: 3em; -->
+
+  list-style: none;
+
+  color: white;
+
+  position: static;
+
+}
+
+
+
+.accordion-header {
+
+  padding: 10px;
+
+  background-color: #025e63;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+.accordion-header::before {
+
+    content: '\25BC';
+
+    margin-right: 8px;
+
+  }
+
+.accordion-content {
+
+  padding: 10px;
+
+  display: none;
+
+  color: #f1f1f1;
+
+}
+
+
+
+/* Styling to show/hide accordion content when active */
+
+.active .accordion-content {
+
+  display: block;
+
+}

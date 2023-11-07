@@ -1,0 +1,79 @@
+        .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dropdown {
+            flex: 1;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            background: #025e63;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align text to the left */
+            border-radius: 20px;
+            font-family: "Fira Sans", sans-serif;
+            font-weight: 600;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            margin-right: 10px; /* Add spacing between dropdowns */
+            margin-bottom: 10px; /* Add margin at the bottom */
+            z-index: 5000;
+        }
+
+        .dropdown:last-child {
+            margin-right: 0;
+        }
+
+        /* Initial state */
+        .dropdown .dropdown-icon::before {
+            font-family: FontAwesome;
+            content: "\f107";
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+
+        /* Active state */
+        .dropdown.active .dropdown-icon::before {
+            content: none; /* Hide ::before icon in active state */
+        }
+
+        .dropdown.active .dropdown-icon::after {
+            font-family: FontAwesome;
+            content: "\f106";
+            font-size: 0.8em;
+            margin-right: 5px; /* Add margin between text and ::after icon */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: auto;
+            min-width: 100%;
+            left: 0;
+            top: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 4000; /* Higher z-index for the dropdown menu */
+        }
+
+
+        .dropdown.active .dropdown-content {
+            display: block;
+            z-index:4000;
+        }
+
+        /*Adjusted the z-index for the parent containers to create stacking context */
+
+        .dropdown-container {
+            z-index: 3; /* Lower stacking context */
+
+        }
+

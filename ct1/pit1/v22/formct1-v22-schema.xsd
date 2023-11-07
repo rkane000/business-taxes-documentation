@@ -3,12 +3,6 @@
 Document History:
 ======== Version 1.0 ====================================
 
-
-ResearchAndDevelopment/RnDCreditAllowances
-[added attribute]
-isClaimUnderSec766orA
-isClaimUnderSec766CorD
-
 CompanyDetails/transferPricing
 [added attribute]	
 	multiNatFileRequired
@@ -44,6 +38,52 @@ ReverseHybridMismatches
 [added attribute]
 	coroprateTaxCharge
 	
+IrishInvestmentIncome/DigitalGamesRelief	
+[added element]
+DigitalGamesReliefUnderS481A19
+[added attribute]
+	accountingPeriodBegin
+	accountingPeriodEnd
+	gameTitle
+	interimCulturalCertNumber
+	certDateIssued
+	eligibleExpenditure
+	qualiffyingExpenditure
+	interimTaxCreditClaimedPreviousYears
+	interimTaxClaimedAt32
+	isClaimBeingMadeSinceDateSec481A
+
+[added element]
+DigitalGamesReliefUnderS481A20
+[added attribute]
+	gameTitle
+	finalCulturalCertNumber
+	certDateIssued
+	dateOfCompletion
+	eligibleExpenditure
+	qualiffyingExpenditure
+	interimTaxCreditClaimedPreviousYears
+	isClaimBeingMadeSinceDateSec481A
+	interimTaxClaimedAt32
+
+[removed element]
+ClawbackGamesReliefS481A26
+[removed attributes]
+	gameName
+	croNumber
+	naceCode
+	totalAmountIntereim
+	isCompanySmeOrLargeEnterprise
+	territorialUnit
+	dateCreditClaimed
+
+[added element]
+ClawbackGamesReliefS481A26/ClawbackCert
+[added attribute]
+	certNumber
+	unauthorisedAmountTax
+	totalClawback
+	
 CloseCompanySurcharge/closeCompanyDetails
 [added attribute]
 taxReferencePaid
@@ -68,6 +108,11 @@ nonResidentTaxReference
 SummaryCalculation
 [added attribute]
 totalNonResTenantTax
+digitalGamesRelief
+[removed attributes]
+interimDigitalGamesRelief
+finalDigitalGamesRelief
+digitalGamesReliefClawback
 
 
 TradeProfit
@@ -88,6 +133,16 @@ netInterestExpense
 ExtractsAccounts/Expenses
 [added attribute]
 totalCrssAndBrss
+
+
+Prepopulation
+	[added element]
+	EPSWTDetails
+	[added attributes]
+	@timestamp
+	@totalGrossPay
+	@totalDeductionAmt
+	@totalRefundedAmt
 
 <xsd:attribute name="incomeNetInterest" type="euros16" use="optional" />
 						<xsd:attribute name="expensesNetInterest" type="euros16" use="optional" />
@@ -1353,8 +1408,6 @@ totalCrssAndBrss
 						<xsd:attribute name="totalCreditDue" type="euros16" use="optional"/>
 						<xsd:attribute name="relevantMicroOrSmallCompany" type="boolean" use="optional"/>
 						<xsd:attribute name="creditClaimed766at30" type="euros16" use="optional"/>
-						<xsd:attribute name="isClaimUnderSec766orA" type="boolean" use="optional"/>
-						<xsd:attribute name="isClaimUnderSec766CorD" type="boolean" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="ExcessRnDCredit" minOccurs="0">
