@@ -105,6 +105,8 @@ __________________________________________________________
 	@groupReliefUnder766A4b
 	@taxReferenceCreditAllocated
 	@totalRandDCreditClaimed
+	@rAndDCreditClawback
+	@totalRandDCreditClaimedAccPeriod
 	@fisrtInstalment
 	@secondInstalment
 	@thirdInstalment
@@ -1466,8 +1468,10 @@ __________________________________________________________
 						<xsd:attribute name="groupReliefUnder766A" type="euros16" use="optional"/>
 						<xsd:attribute name="taxReferenceNumberSurrended" type="text20" use="optional"/>
 						<xsd:attribute name="groupReliefUnder766A4b" type="euros16" use="optional"/>
-						<xsd:attribute name="taxReferenceCreditAllocated" type="euros16" use="optional"/>
+						<xsd:attribute name="taxReferenceCreditAllocated" type="text20" use="optional"/>
 						<xsd:attribute name="totalRandDCreditClaimed" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDCreditClawback" type="euros16" use="optional"/>
+						<xsd:attribute name="totalRandDCreditClaimedAccPeriod" type="euros16" use="optional"/>
 						<xsd:attribute name="fisrtInstalment" type="euros16" use="optional"/>
 						<xsd:attribute name="secondInstalment" type="euros16" use="optional"/>
 						<xsd:attribute name="thirdInstalment" type="euros16" use="optional"/>
