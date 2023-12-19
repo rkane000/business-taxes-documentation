@@ -407,6 +407,24 @@
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form11",
 		"cards": [
 			{
+				"link": "form11/pit1/v24/form11-v24-schema.xsd",
+				"description": "Form11 Schema v24",
+				"anchor": "Form11_Schema_v24",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2023",
+				"dateLastUpdated": "19/12/2023",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v24/form11v24notes.pdf",
+				"description": "Form11 Notes v24",
+				"anchor": "Form11_Notes_v24",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2023",
+				"dateLastUpdated": "19/12/2023",
+				"category": "download"
+			},
+			{
 				"link": "form11/pit1/v23/form11-v23-schema.xsd",
 				"description": "Form11 Schema v23",
 				"anchor": "Form11_Schema_v23",
@@ -792,6 +810,24 @@
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Firms",
 		"cards": [
 			{
+				"link": "form1firms/pit1/v24/form1firms-v24-schema.xsd",
+				"description": "Form1-Firms Schema v24",
+				"anchor": "Form1-Firms_Schema_v24",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2023",
+				"dateLastUpdated": "19/12/2023",
+				"category": "download"
+			},
+			{
+				"link": "form1firms/pit1/v24/form1firmsv24notes.pdf",
+				"description": "Form1-Firms Notes v24",
+				"anchor": "Form1-Firms_Notes_v24",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2023",
+				"dateLastUpdated": "19/12/2023",
+				"category": "download"
+			},
+			{
 				"link": "form1firms/pit1/v23/form1firms-v23-schema.xsd",
 				"description": "Form1-Firms Schema v23",
 				"anchor": "Form1-Firms_Schema_v23",
@@ -1104,6 +1140,24 @@
 		"anchor": "PIT",
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Trusts & Estates",
 		"cards": [
+			{
+				"link": "form1/pit1/v17/form1-v17-schema.xsd",
+				"description": "Form1 Schema v17",
+				"anchor": "Form1_Schema_v17",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2023",
+				"dateLastUpdated": "19/12/2023",
+				"category": "download"
+			},
+			{
+				"link": "form1/pit1/v17/form1v17notes.pdf",
+				"description": "Form1 Notes v17",
+				"anchor": "Form1_Notes_v17",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2023",
+				"dateLastUpdated": "19/12/2023",
+				"category": "download"
+			},
 			{
 				"link": "form1/pit1/v16/form1-v16-schema.xsd",
 				"description": "Form1 Schema v16",
