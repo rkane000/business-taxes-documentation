@@ -4,8 +4,8 @@
 Document History:
 __________________________________________________________
 
-	new elements
-
+new elements
+	
 Prepopulation > NLWTDetails
 @grossPay
 @deductionAmount
@@ -20,24 +20,6 @@ Paye > Employments
 @nonrefundableforeigntaxcountry
 @amtofnonrefundabletaxwithheld
 
-UkForeign > LumpSumsPensionArrangements
-@nameOfFPArrangeSelf
-@nameOfFPArrangeSpouse
-@nameAddressOfFPArrangeSelf
-@nameAddressOfFPArrangeSpouse
-@dateOfFPArrangeSelf
-@dateOfFPArrangeSpouse
-@amLump23Self
-@amLump23Spouse
-@taxFreeSelf
-@taxFreeSpouse
-@amLumpExcessSelf
-@amLumpExcessSpouse
-@chargeCaseIIIStandardSelf
-@chargeCaseIIIStandardSpouse
-@chargeCaseIIIHigherSelf
-@chargeCaseIIIHigherSpouse
-
 Paye > Pension/EmploymentPen
 @nameofemployerself
 @nameofemployerspouse
@@ -51,20 +33,12 @@ removed elements
 Rental > RentalReliefSectionS97
 @previousyearsrelevantinterestclaimedsf
 @previousyearsrelevantinterestclaimedsp
-
-/SummaryCalculation/Income/
-[Added]
-	+ForPensionLumpSumStd element
-	+ForPensionLumpSumHigher element
-
-Form11/Allowances/
-[Added]
-	+MortgageInterestTaxCredit element and its attributes
--->
+	
+-->	
 
 <xsd:schema xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns="http://www.ros.ie/schemas/form11/v24/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/form11/v24/" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<!--<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="schema.xsd"/>-->
-	<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="../../rostypes/schema.xsd"/>
+<!-- <xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="schema.xsd"/>-->
+<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="../../rostypes/schema.xsd"/>
 	<xsd:element name="Form11">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -104,13 +78,13 @@ Form11/Allowances/
 				<xsd:element name="Details">
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element name="MandatoryDisclosure" minOccurs="0" maxOccurs="9">
+							<xsd:element name="MandatoryDisclosure" minOccurs="0" maxOccurs="9"> 
 								<xsd:complexType>
 									<xsd:attribute name="numberoftransactionsec817hbsf" type="ros:alpha12" use="optional"/>
 									<xsd:attribute name="numberoftransactionsec817hbsp" type="ros:alpha12" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
-							<xsd:element name="MandatoryDisclosure2" minOccurs="0" maxOccurs="9">
+							<xsd:element name="MandatoryDisclosure2" minOccurs="0" maxOccurs="9"> 
 								<xsd:complexType>
 									<xsd:attribute name="crossborderrefnumbersf" type="ros:alpha12" use="optional"/>
 									<xsd:attribute name="crossborderrefnumbersp" type="ros:alpha12" use="optional"/>
@@ -142,7 +116,7 @@ Form11/Allowances/
 						<xsd:attribute name="otherreason" type="ros:string170" use="optional"/>
 						<xsd:attribute name="checknoneabove" type="ros:boolean" default="false"/>
 					</xsd:complexType>
-				</xsd:element>
+				</xsd:element>		
 				<xsd:element name="Marital">
 					<xsd:complexType>
 						<xsd:attribute name="status" use="required">
@@ -269,11 +243,11 @@ Form11/Allowances/
 				<xsd:element name="Residence" minOccurs="0">
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element name="CountryOfNationality" minOccurs="0" maxOccurs="5">
+							<xsd:element name="CountryOfNationality" minOccurs="0" maxOccurs="5"> 
 								<xsd:complexType>
 									<xsd:attribute name="countrynationalself" type="ros:positive3" use="optional"/>
 									<xsd:attribute name="countrynationalspouse" type="ros:positive3" use="optional"/>
-								</xsd:complexType>
+								</xsd:complexType>	
 							</xsd:element>
 						</xsd:sequence>
 						<xsd:attribute name="residentself" type="ros:boolean" use="optional"/>
@@ -359,7 +333,7 @@ Form11/Allowances/
 						<!-- First two elements are moved back from AccountChoices element to here -->
 						<xsd:attribute name="regFarmPartner" type="ros:boolean" default="false"/>
 						<xsd:attribute name="shareofstockrelief667B" type="ros:positive10" use="optional"/>
-						<xsd:attribute name="shareofstockrelief667C" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="shareofstockrelief667C" type="ros:positive10" use="optional"/>						
 						<xsd:attribute name="wholeOrPartShareFarm" type="ros:boolean" default="false"/>
 						<xsd:attribute name="electToIncomeAvg" type="ros:boolean" default="false"/>
 						<xsd:attribute name="assessableProfitForYear" type="ros:boolean" default="false"/>
@@ -374,8 +348,8 @@ Form11/Allowances/
 						<xsd:attribute name="profitsharepercentage" type="xsd:decimal" use="optional"/>
 						<xsd:attribute name="successiontaxcredit" type="xsd:decimal" use="optional"/>
 						<xsd:attribute name="successiontaxcreditprioryears" type="xsd:decimal" use="optional"/>
-						<xsd:attribute name="registeredFarmPartnerReliefPriorOneYear" type="ros:positive10" use="optional"/>
-						<xsd:attribute name="registeredFarmPartnerReliefPriorTwoYears" type="ros:positive10" use="optional"/>
+						<xsd:attribute name="registeredFarmPartnerReliefPriorOneYear" type="ros:positive10" use="optional"/>	
+						<xsd:attribute name="registeredFarmPartnerReliefPriorTwoYears" type="ros:positive10" use="optional"/>	
 						<xsd:attribute name="qualifyFarmerReliefPriorYears" type="ros:positive10" use="optional"/>
 						<xsd:attribute name="shareofsuccessiontax667DpriorYears" type="xsd:decimal" use="optional"/>
 					</xsd:complexType>
@@ -384,11 +358,11 @@ Form11/Allowances/
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="SpecReliefCapitalAllow" type="SpecReliefCapitalAllow" minOccurs="0" maxOccurs="1"/>
-							<xsd:element name="FoodMarineAgricultureQualyCert" minOccurs="0" maxOccurs="5">
+							<xsd:element name="FoodMarineAgricultureQualyCert" minOccurs="0" maxOccurs="5"> 
 								<xsd:complexType>
 									<xsd:attribute name="certnumber" type="ros:string25" use="optional"/>
 									<xsd:attribute name="amountclaimed" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
+								</xsd:complexType>	
 							</xsd:element>
 						</xsd:sequence>
 						<xsd:attribute name="machinery" type="ros:positive8" use="optional"/>
@@ -406,7 +380,7 @@ Form11/Allowances/
 						<xsd:attribute name="aviationservicesfacility" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="otherspecreliefcap" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="farmsafetyequip" type="ros:positive8" use="optional"/>
-
+						
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="Losses" minOccurs="0">
@@ -550,7 +524,7 @@ Form11/Allowances/
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="RentalReliefSectionS97" type="RentalReliefSectionS97" minOccurs="0" maxOccurs="1"/>
-						</xsd:sequence>
+						</xsd:sequence>	
 						<xsd:attribute name="restenanciesactself" type="ros:boolean" default="false"/>
 						<xsd:attribute name="restenanciesactspouse" type="ros:boolean" default="false"/>
 						<xsd:attribute name="rentself" type="ros:positive8" use="optional"/>
@@ -568,7 +542,7 @@ Form11/Allowances/
 						<xsd:attribute name="otherexpensesself" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="otherexpensesspouse" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="properties" type="ros:positive5" use="optional"/>
-						<xsd:attribute name="propertiesspouse" type="ros:positive5" use="optional"/>
+						<xsd:attribute name="propertiesspouse" type="ros:positive5" use="optional"/>				
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="Land" minOccurs="0">
@@ -594,7 +568,7 @@ Form11/Allowances/
 						<xsd:attribute name="propertiesspouse" type="ros:positive5" use="optional"/>
 						<xsd:attribute name="noaceragespouse" type="ros:positiveDec5" use="optional"/>
 					</xsd:complexType>
-				</xsd:element>
+				</xsd:element>	
 				<xsd:element name="RentalCapital" minOccurs="0">
 					<xsd:complexType>
 						<xsd:sequence>
@@ -640,15 +614,15 @@ Form11/Allowances/
 					</xsd:complexType>
 				</xsd:element>
 			</xsd:sequence>
-			<xsd:attribute name="nettotalrentself" type="ros:positive8" use="optional"/>
-			<xsd:attribute name="nettotalrentspouse" type="ros:positive8" use="optional"/>
-			<xsd:attribute name="formcompbycollagent" type="ros:boolean" default="false"/>
-			<xsd:attribute name="taxwithheldbytenant" type="ros:boolean" default="false"/>
-			<xsd:attribute name="formcompbycollagentspouse" type="ros:boolean" default="false"/>
-			<xsd:attribute name="taxwithheldbytenantspouse" type="ros:boolean" default="false"/>
+					<xsd:attribute name="nettotalrentself" type="ros:positive8" use="optional"/>
+					<xsd:attribute name="nettotalrentspouse" type="ros:positive8" use="optional"/>
+					<xsd:attribute name="formcompbycollagent" type="ros:boolean" default="false"/>
+					<xsd:attribute name="taxwithheldbytenant" type="ros:boolean" default="false"/>
+					<xsd:attribute name="formcompbycollagentspouse" type="ros:boolean" default="false"/>
+					<xsd:attribute name="taxwithheldbytenantspouse" type="ros:boolean" default="false"/>
 		</xsd:complexType>
-
-
+		
+		
 	</xsd:element>
 	<xsd:element name="Invest">
 		<xsd:complexType>
@@ -685,22 +659,22 @@ Form11/Allowances/
 	<xsd:element name="Paye">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="DSPDetails" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="DSPPensionSelf" type="DSPPensionSet" minOccurs="0"/>
-							<xsd:element name="DSPPensionSpouse" type="DSPPensionSet" minOccurs="0"/>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
+			<xsd:element name="DSPDetails" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="DSPPensionSelf" type="DSPPensionSet" minOccurs="0"/>
+						<xsd:element name="DSPPensionSpouse" type="DSPPensionSet" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
 				<xsd:element name="Employments" minOccurs="0" maxOccurs="20">
 					<xsd:complexType>
 						<xsd:attribute name="employername" type="ros:string70" use="optional"/>
 						<xsd:attribute name="indicatorselforspouse" type="ros:boolean"/>
 						<xsd:attribute name="empp1number" type="ros:string25" use="optional"/>
-						<xsd:attribute name="amtit" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="amtit" type="ros:positive8" use="optional"/>		
 						<xsd:attribute name="typeincome" type="ros:string25" use="optional"/>
-						<xsd:attribute name="s825cincome" type="ros:positive8" use="optional"/>
+						<xsd:attribute name="s825cincome" type="ros:positive8" use="optional"/>					
 						<xsd:attribute name="s825crelief" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="s825cafterded" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="s825cindicatoryes" type="ros:boolean" default="false"/>
@@ -713,7 +687,7 @@ Form11/Allowances/
 						<xsd:attribute name="bankbonusreceived" type="ros:boolean" default="false"/>
 						<xsd:attribute name="totalpayededisrefund" type="ros:boolean" default="false"/>
 						<xsd:attribute name="uscdedisrefund" type="ros:boolean" default="false"/>
-						<xsd:attribute name="totalpayededucted" type="xsd:decimal" use="optional"/>
+						<xsd:attribute name="totalpayededucted" type="xsd:decimal" use="optional"/> 
 						<xsd:attribute name="twss" type="xsd:decimal" use="optional"/>
 						<xsd:attribute name="dtwss" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="paymentfrequency" type="ros:positive8" use="optional"/>
@@ -737,147 +711,147 @@ Form11/Allowances/
 				<xsd:element name="Pensions" minOccurs="0"  maxOccurs="1">
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element name="Expenses" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="natureofemploymentself" type="ros:string40" use="optional"/>
-									<xsd:attribute name="natureofemploymentspouse" type="ros:string40" use="optional"/>
-									<xsd:attribute name="flatexpensesself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="flatexpensesspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="eworkingexpensesself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="eworkingexpensesspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="expensesself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="expensesspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="allowancesself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="allowancesspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="contributionsself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="contributionsspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="maxamreliefself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="maxamreliefspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="contriballowableself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="contriballowablespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="totalself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="totalspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="totalempself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="totalempspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="totaldirself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="totaldirspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="utilityallowableself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="broadbandallowableself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="daysworkedremoteself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="utilityallowablespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="broadbandallowablespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="realtimeclaimedself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="realtimeclaimedspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="daysworkedremotespouse" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="ForeignEarningsDeductionClaimedAmount" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="fedClaimedSelf" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="fedClaimedSpouse" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="BenefitInKind" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="retirementsavingsamtself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="retirementsavingsamtspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="otheramtself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="otheramtspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="otherbiktype" type="ros:string500" use="optional"/>
-									<xsd:attribute name="otherbiktypespouse" type="ros:string500" use="optional"/>
-
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="SocialWelfarePen" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="welfareincomeself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="welfareincomespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="jobseekerself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="jobseekerspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amtcarersallowanceself" type="ros:positive5" use="optional"/>
-									<xsd:attribute name="amtcarersallowancespouse" type="ros:positive5" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="EmploymentPen" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="foreignnotpayeself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="foreignnotpayespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="nameofemployerself" type="ros:string140" use="optional"/>
-									<xsd:attribute name="nameofemployerspouse" type="ros:string140" use="optional"/>
-									<xsd:attribute name="taxrefemployerself" type="ros:string140" use="optional"/>
-									<xsd:attribute name="taxrefemployerspouse" type="ros:string140" use="optional"/>
-									<xsd:attribute name="addressofemployerself" type="ros:string1000" use="optional"/>
-									<xsd:attribute name="addressofemployerspouse" type="ros:string1000" use="optional"/>
-									<xsd:attribute name="amtchargeabletaxself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amtchargeabletaxspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="natureofpaymentself" type="ros:string25" use="optional"/>
-									<xsd:attribute name="natureofpaymentspouse" type="ros:string25" use="optional"/>
-									<xsd:attribute name="nonpayepensionincomeself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="nonpayepensionincomespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="uscrefundedself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="uscrefundedspouse" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="LumpSumRelevantPension" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="amountpaidinclusiveself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountpaidself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountpaidqoppself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="taxfreeamountself" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="amountexcessself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="portioncaseivself" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="portionscheduleeself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountdcaseivstandardself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountdcaseivratesself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountpaidinclusivespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountpaidspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountpaidqoppspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="taxfreeamountspouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="amountexcessspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="portioncaseivspouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="portionscheduleespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountdcaseivstandardspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amountdcaseivratesspouse" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="PayeTaxPen" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="repaidself" type="xsd:decimal" use="optional"/>
-									<xsd:attribute name="repaidspouse" type="xsd:decimal" use="optional"/>
-									<xsd:attribute name="underpaidself" type="xsd:decimal" use="optional"/>
-									<xsd:attribute name="underpaidspouse" type="xsd:decimal" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="ConvertibleSecurities" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="amtchargedself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="amtchargedspouse" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="ShareOptions" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="chargeableself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="chargeablespouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="rateoftaxself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="rateoftaxspouse" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="ElectionUnderSection128A" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="aggnetgainsself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="aggnetgainsspouse" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="sharetaxbalanceself" type="ros:positive8" use="optional"/>
-									<xsd:attribute name="sharetaxbalancespouse" type="ros:positive8" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="ForeignEarningsDeductionDetails" type="ForeignEarningsDeductionSet" minOccurs="0" maxOccurs="1"/>
-							<xsd:element name="Directorship" minOccurs="0" maxOccurs="30">
-								<xsd:complexType>
-									<xsd:attribute name="directorshipregistration" type="ros:string25" use="optional"/>
-									<xsd:attribute name="directorshippercent" type="itpmaxdecimal" use="optional"/>
-									<xsd:attribute name="directorshipspouse" type="ros:boolean" default="false"/>
-								</xsd:complexType>
-							</xsd:element>
+						<xsd:element name="Expenses" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="natureofemploymentself" type="ros:string40" use="optional"/>
+								<xsd:attribute name="natureofemploymentspouse" type="ros:string40" use="optional"/>
+								<xsd:attribute name="flatexpensesself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="flatexpensesspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="eworkingexpensesself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="eworkingexpensesspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="expensesself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="expensesspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="allowancesself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="allowancesspouse" type="ros:positive8" use="optional"/> 
+								<xsd:attribute name="contributionsself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="contributionsspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="maxamreliefself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="maxamreliefspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="contriballowableself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="contriballowablespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="totalself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="totalspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="totalempself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="totalempspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="totaldirself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="totaldirspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="utilityallowableself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="broadbandallowableself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="daysworkedremoteself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="utilityallowablespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="broadbandallowablespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="realtimeclaimedself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="realtimeclaimedspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="daysworkedremotespouse" type="ros:positive8" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ForeignEarningsDeductionClaimedAmount" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="fedClaimedSelf" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="fedClaimedSpouse" type="ros:positive8" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="BenefitInKind" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="retirementsavingsamtself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="retirementsavingsamtspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="otheramtself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="otheramtspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="otherbiktype" type="ros:string500" use="optional"/>
+								<xsd:attribute name="otherbiktypespouse" type="ros:string500" use="optional"/>
+								
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="SocialWelfarePen" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="welfareincomeself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="welfareincomespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="jobseekerself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="jobseekerspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amtcarersallowanceself" type="ros:positive5" use="optional"/>
+								<xsd:attribute name="amtcarersallowancespouse" type="ros:positive5" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="EmploymentPen" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="foreignnotpayeself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="foreignnotpayespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="nameofemployerself" type="ros:string140" use="optional"/>
+								<xsd:attribute name="nameofemployerspouse" type="ros:string140" use="optional"/>
+								<xsd:attribute name="taxrefemployerself" type="ros:string140" use="optional"/>
+								<xsd:attribute name="taxrefemployerspouse" type="ros:string140" use="optional"/>
+								<xsd:attribute name="addressofemployerself" type="ros:string1000" use="optional"/>
+								<xsd:attribute name="addressofemployerspouse" type="ros:string1000" use="optional"/>
+								<xsd:attribute name="amtchargeabletaxself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amtchargeabletaxspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="natureofpaymentself" type="ros:string25" use="optional"/>
+								<xsd:attribute name="natureofpaymentspouse" type="ros:string25" use="optional"/>
+								<xsd:attribute name="nonpayepensionincomeself" type="ros:positive8" use="optional"/> 
+								<xsd:attribute name="nonpayepensionincomespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="uscrefundedself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="uscrefundedspouse" type="ros:positive8" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="LumpSumRelevantPension" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="amountpaidinclusiveself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountpaidself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountpaidqoppself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="taxfreeamountself" type="ros:positive6" use="optional"/>
+								<xsd:attribute name="amountexcessself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="portioncaseivself" type="ros:positive6" use="optional"/>
+								<xsd:attribute name="portionscheduleeself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountdcaseivstandardself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountdcaseivratesself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountpaidinclusivespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountpaidspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountpaidqoppspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="taxfreeamountspouse" type="ros:positive6" use="optional"/>
+								<xsd:attribute name="amountexcessspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="portioncaseivspouse" type="ros:positive6" use="optional"/>
+								<xsd:attribute name="portionscheduleespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountdcaseivstandardspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amountdcaseivratesspouse" type="ros:positive8" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="PayeTaxPen" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="repaidself" type="xsd:decimal" use="optional"/>
+								<xsd:attribute name="repaidspouse" type="xsd:decimal" use="optional"/>
+								<xsd:attribute name="underpaidself" type="xsd:decimal" use="optional"/>	
+								<xsd:attribute name="underpaidspouse" type="xsd:decimal" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ConvertibleSecurities" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="amtchargedself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="amtchargedspouse" type="ros:positive8" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ShareOptions" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="chargeableself" type="ros:positive8" use="optional"/> 
+								<xsd:attribute name="chargeablespouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="rateoftaxself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="rateoftaxspouse" type="ros:positive8" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ElectionUnderSection128A" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="aggnetgainsself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="aggnetgainsspouse" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="sharetaxbalanceself" type="ros:positive8" use="optional"/>
+								<xsd:attribute name="sharetaxbalancespouse" type="ros:positive8" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ForeignEarningsDeductionDetails" type="ForeignEarningsDeductionSet" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="Directorship" minOccurs="0" maxOccurs="30">
+							<xsd:complexType>
+								<xsd:attribute name="directorshipregistration" type="ros:string25" use="optional"/>
+								<xsd:attribute name="directorshippercent" type="itpmaxdecimal" use="optional"/>
+								<xsd:attribute name="directorshipspouse" type="ros:boolean" default="false"/>
+							</xsd:complexType>
+						</xsd:element>
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
@@ -891,7 +865,7 @@ Form11/Allowances/
 						<xsd:attribute name="reliefyearspouse" type="ros:positive4" use="optional"/>
 						<xsd:attribute name="resnondom825bself" type="ros:boolean" default="false"/>
 						<xsd:attribute name="resnondom825bspouse" type="ros:boolean" default="false"/>
-						<xsd:attribute name="publicofficeprsiself" type="ros:positive8" use="optional"/>
+ 						<xsd:attribute name="publicofficeprsiself" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="publicofficeprsispouse" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="publicofficeself" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="publicofficespouse" type="ros:positive8" use="optional"/>
@@ -1008,7 +982,7 @@ Form11/Allowances/
 						<xsd:attribute name="doubletaxreliefself" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="othertaxreliefself" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="reasontaxreliefself" type="ros:string170" use="optional"/>
-
+						
 						<xsd:attribute name="amountireftaxablespouse" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="taxsufferedunder739pspouse" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="taxsufferedunder739tspouse" type="ros:positive8" use="optional"/>
@@ -1045,16 +1019,7 @@ Form11/Allowances/
 						<xsd:attribute name="week53uscspouse" type="ros:boolean" default="false"/>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="SuspiciousReasons" minOccurs="0" maxOccurs="5">
-					<xsd:complexType>
-						<xsd:attribute name="reasoncode" type="ros:string40" use="optional"/>
-						<xsd:attribute name="amount1" type="ros:positive8" use="optional"/>
-						<xsd:attribute name="amount2" type="ros:positive8" use="optional"/>
-					</xsd:complexType>
-				</xsd:element>
 			</xsd:sequence>
-			<xsd:attribute name="suspicioussuspend" type="ros:boolean" default="false"/>
-			<xsd:attribute name="nlwtDeductionAmount" type="xsd:decimal" use="optional"/>
 			<xsd:attribute name="income" type="ros:positive8" use="optional"/>
 			<xsd:attribute name="allowances" type="ros:positive8" use="optional"/>
 			<xsd:attribute name="deductions" type="ros:positive8" use="optional"/>
@@ -1103,7 +1068,7 @@ Form11/Allowances/
 			<xsd:attribute name="serviceHRIAmount" type="xsd:decimal" use="optional"/>
 			<xsd:attribute name="unusedHRICarryForward" type="xsd:decimal" use="optional"/>
 			<xsd:attribute name="htbrefundedsself" type="xsd:decimal" use="optional"/>
-			<xsd:attribute name="htbrefundedsspouse" type="xsd:decimal" use="optional"/>
+       		<xsd:attribute name="htbrefundedsspouse" type="xsd:decimal" use="optional"/>
 			<xsd:attribute name="exempthealthcontrself" type="ros:boolean" default="false"/>
 			<xsd:attribute name="exempthealthcontrspouse" type="ros:boolean" default="false"/>
 			<xsd:attribute name="healthexemptreasonself" type="ros:string40" use="optional"/>
@@ -1133,26 +1098,6 @@ Form11/Allowances/
 						<xsd:attribute name="reliefclaimedspouse" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="pensionpaidcountryself" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="pensionpaidcountryspouse" type="ros:positive8" use="optional"/>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="LumpSumsPensionArrangements" minOccurs="0">
-					<xsd:complexType>
-						<xsd:attribute name="nameOfFPArrangeself" type="ros:string1000" use="optional"/>
-						<xsd:attribute name="nameOfFPArrangespouse" type="ros:string1000" use="optional"/>
-						<xsd:attribute name="nameAddressOfFPArrangeself" type="ros:string1000" use="optional"/>
-						<xsd:attribute name="nameAddressOfFPArrangespouse" type="ros:string1000" use="optional"/>
-						<xsd:attribute name="dateOfFPArrangeself" type="ros:date" use="optional"/>
-						<xsd:attribute name="dateOfFPArrangespouse" type="ros:date" use="optional"/>
-						<xsd:attribute name="amLump23self" type="ros:positive9" use="optional"/>
-						<xsd:attribute name="amLump23spouse" type="ros:positive9" use="optional"/>
-						<xsd:attribute name="taxFreeself" type="ros:positive8" use="optional"/>
-						<xsd:attribute name="taxFreespouse" type="ros:positive8" use="optional"/>
-						<xsd:attribute name="amLumpExcessself" type="ros:positive9" use="optional"/>
-						<xsd:attribute name="amLumpExcessspouse" type="ros:positive9" use="optional"/>
-						<xsd:attribute name="chargeCaseIIIStandardself" type="ros:positive8" use="optional"/>
-						<xsd:attribute name="chargeCaseIIIStandardspouse" type="ros:positive8" use="optional"/>
-						<xsd:attribute name="chargeCaseIIIHigherself" type="ros:positive9" use="optional"/>
-						<xsd:attribute name="chargeCaseIIIHigherspouse" type="ros:positive9" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="UKDepositInterest" minOccurs="0">
@@ -1342,7 +1287,7 @@ Form11/Allowances/
 									<xsd:attribute name="nameintermediary" type="ros:string170" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
-						</xsd:sequence>
+						</xsd:sequence>	
 						<xsd:attribute name="fba20self" type="ros:positive8" use = "optional"/>
 						<xsd:attribute name="fba20spouse" type="ros:positive8" use = "optional"/>
 						<xsd:attribute name="lprelevanttax20self" type="ros:positive8" use="optional"/>
@@ -1363,7 +1308,7 @@ Form11/Allowances/
 						<xsd:attribute name="ofnonrelevanttaxgain20spouse" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="oopamountacquired20self" type="ros:positive8" use="optional"/>
 						<xsd:attribute name="oopamountacquired20spouse" type="ros:positive8" use="optional"/>
-
+						
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="AdditionalDTR" minOccurs="0">
@@ -1499,54 +1444,6 @@ Form11/Allowances/
 			<xsd:sequence>
 				<xsd:element name="MedicalInsuranceSelf" type="MedicalInsuranceSet" minOccurs="0" maxOccurs="1"/>
 				<xsd:element name="MedicalInsuranceSpouse" type="MedicalInsuranceSet" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="MortgageInterestTaxCredit" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="PropertyList" minOccurs="0" maxOccurs="3">
-								<xsd:complexType>
-									<xsd:attribute name="soleresidenceself" type="ros:boolean" default="false"/>
-									<xsd:attribute name="soleresidencespouse" type="ros:boolean" default="false"/>
-									<xsd:attribute name="formerseparatedself" type="ros:boolean" default="false"/>
-									<xsd:attribute name="formerseparatedspouse" type="ros:boolean" default="false"/>
-									<xsd:attribute name="dependentrelativeself" type="ros:boolean" default="false"/>
-									<xsd:attribute name="dependentrelativespouse" type="ros:boolean" default="false"/>
-									<xsd:attribute name="lptid" type="ros:string25" use="optional"/>
-									<xsd:attribute name="qualifyingproperty" type="ros:boolean" default="false"/>
-									<xsd:attribute name="loanvalueprevyearself" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="loanvalueprevyearspouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="interestpaidcurrentyearself" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="interestpaidcurrentyearspouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="interestyoucurrentyearself" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="interestyoucurrentyearspouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="daysintpaidcurrentyearself" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="daysintpaidcurrentyearspouse" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="intpaidcurrentyearother2self" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="intpaidcurrentyearother2spouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="daysintpaidcurrentyearother2self" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="daysintpaidcurrentyearother2spouse" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="intpaidcurrentyearother3self" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="intpaidcurrentyearother3spouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="daysintpaidcurrentyearother3self" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="daysintpaidcurrentyearother3spouse" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="interestpaidprevyearself" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="interestpaidprevyearspouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="interestyouprevyearself" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="interestyouprevyearspouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="daysintpaidprevyearself" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="daysintpaidprevyearspouse" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="intpaidprevyearother2self" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="intpaidprevyearother2spouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="daysintpaidprevyearother2self" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="daysintpaidprevyearother2spouse" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="intpaidprevyearother3self" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="intpaidprevyearother3spouse" type="ros:positive6" use="optional"/>
-									<xsd:attribute name="daysintpaidprevyearother3self" type="ros:positive3" use="optional"/>
-									<xsd:attribute name="daysintpaidprevyearother3spouse" type="ros:positive3" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
 				<xsd:element name="SinglePersonChildCarerCreditSelf" type="SinglePersonChildCarerCreditSet" minOccurs="0" maxOccurs="1"/>
 				<xsd:element name="PayeAllowance" minOccurs="0">
 					<xsd:complexType>
@@ -2887,18 +2784,6 @@ Form11/Allowances/
 									<xsd:attribute name="spouse" type="xsd:integer" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
-							<xsd:element name="ForPensionLumpSumStd" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="amount" type="xsd:integer" use="optional"/>
-									<xsd:attribute name="spouse" type="xsd:integer" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
-							<xsd:element name="ForPensionLumpSumHigher" minOccurs="0">
-								<xsd:complexType>
-									<xsd:attribute name="amount" type="xsd:integer" use="optional"/>
-									<xsd:attribute name="spouse" type="xsd:integer" use="optional"/>
-								</xsd:complexType>
-							</xsd:element>
 							<xsd:element name="OtherIrish" minOccurs="0">
 								<xsd:complexType>
 									<xsd:attribute name="description" type="xsd:string" use="optional"/>
@@ -3064,7 +2949,7 @@ Form11/Allowances/
 									<xsd:attribute name="amount" type="xsd:integer" use="optional"/>
 									<xsd:attribute name="spouse" type="xsd:integer" use="optional"/>
 								</xsd:complexType>
-							</xsd:element>
+							</xsd:element>							
 							<xsd:element name="EarlyFarmRetirePension" minOccurs="0">
 								<xsd:complexType>
 									<xsd:attribute name="amount" type="xsd:integer" use="optional"/>
@@ -3782,16 +3667,16 @@ Form11/Allowances/
 										<xsd:extension base="displayItem"/>
 									</xsd:complexContent>
 								</xsd:complexType>
-							</xsd:element>
+							</xsd:element>							
 							<xsd:element name="FinalDeduction" minOccurs="0" maxOccurs="10">
 								<xsd:complexType>
 									<xsd:complexContent>
 										<xsd:extension base="displayItem1"/>
 									</xsd:complexContent>
 								</xsd:complexType>
-							</xsd:element>
+							</xsd:element>																					
 						</xsd:sequence>
-					</xsd:complexType>
+					</xsd:complexType>					
 				</xsd:element>
 				<xsd:element name="PRSI" minOccurs="0">
 					<xsd:complexType>
@@ -3823,16 +3708,16 @@ Form11/Allowances/
 										<xsd:extension base="displayItem"/>
 									</xsd:complexContent>
 								</xsd:complexType>
-							</xsd:element>
+							</xsd:element>							
 							<xsd:element name="FinalDeduction" minOccurs="0" maxOccurs="10">
 								<xsd:complexType>
 									<xsd:complexContent>
 										<xsd:extension base="displayItem1"/>
 									</xsd:complexContent>
 								</xsd:complexType>
-							</xsd:element>
+							</xsd:element>																					
 						</xsd:sequence>
-					</xsd:complexType>
+					</xsd:complexType>					
 				</xsd:element>
 				<xsd:element name="Other" minOccurs="0">
 					<xsd:complexType>
@@ -4028,45 +3913,45 @@ Form11/Allowances/
 			<xsd:attribute name="flatRateExpensesPrepopSpouse" type="xsd:decimal" use="optional"/>
 		</xsd:complexType>
 	</xsd:element>
-	<xsd:element name="AddressDetails">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="primarybusinessaddress" type="Address" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="mainresidence" type="Address" minOccurs="0" maxOccurs="1"/>
-			</xsd:sequence>
-			<xsd:attribute name="primarytrade" type="ros:string40"/>
-			<xsd:attribute name="telephonenumber" type="ros:string25"/>
-			<xsd:attribute name="surname" type="ros:string25"/>
-			<xsd:attribute name="firstname" type="ros:string25"/>
-			<xsd:attribute name="ppsn" type="ros:string25"/>
-			<xsd:attribute name="dob" type="ros:date"/>
-		</xsd:complexType>
-	</xsd:element>
+    <xsd:element name="AddressDetails">
+          <xsd:complexType>
+              <xsd:sequence>
+	             <xsd:element name="primarybusinessaddress" type="Address" minOccurs="0" maxOccurs="1"/>
+	             <xsd:element name="mainresidence" type="Address" minOccurs="0" maxOccurs="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="primarytrade" type="ros:string40"/>
+              <xsd:attribute name="telephonenumber" type="ros:string25"/>
+              <xsd:attribute name="surname" type="ros:string25"/>
+              <xsd:attribute name="firstname" type="ros:string25"/>
+              <xsd:attribute name="ppsn" type="ros:string25"/>
+              <xsd:attribute name="dob" type="ros:date"/>
+          </xsd:complexType>
+    </xsd:element>
 	<xsd:element name="RCTDetails">
 		<xsd:complexType>
-			<xsd:attribute name="grossPayment" type="xsd:decimal"/>
-			<xsd:attribute name="deductionAmount" type="xsd:decimal"/>
-			<xsd:attribute name="grossPaymentSpouse" type="xsd:decimal"/>
-			<xsd:attribute name="deductionAmountSpouse" type="xsd:decimal"/>
-			<xsd:attribute name="periodStart" type="ros:string25"/>
-			<xsd:attribute name="periodEnd" type="ros:string25"/>
+            <xsd:attribute name="grossPayment" type="xsd:decimal"/>
+            <xsd:attribute name="deductionAmount" type="xsd:decimal"/>
+            <xsd:attribute name="grossPaymentSpouse" type="xsd:decimal"/>
+            <xsd:attribute name="deductionAmountSpouse" type="xsd:decimal"/>
+            <xsd:attribute name="periodStart" type="ros:string25"/>
+            <xsd:attribute name="periodEnd" type="ros:string25"/>
 		</xsd:complexType>
-	</xsd:element>
-	<xsd:element name="DAFMDetails">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="DAFMDetailSelf" type="DAFMDetailList" minOccurs="0"/>
-				<xsd:element name="DAFMDetailSpouse" type="DAFMDetailList" minOccurs="0"/>
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	<xsd:element name="RemoteWorking">
-		<xsd:complexType>
-			<xsd:sequence>
+    </xsd:element>
+    <xsd:element name="DAFMDetails">
+	    <xsd:complexType>
+	    	<xsd:sequence>
+	    		<xsd:element name="DAFMDetailSelf" type="DAFMDetailList" minOccurs="0"/>
+	    		<xsd:element name="DAFMDetailSpouse" type="DAFMDetailList" minOccurs="0"/>
+	    	</xsd:sequence>
+	    </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RemoteWorking">
+	    <xsd:complexType>
+	   		<xsd:sequence>
 				<xsd:element name="eWork" type="eWork" minOccurs="0" maxOccurs="unbounded" />
 			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
+   		</xsd:complexType>
+    </xsd:element>
 	<xsd:element name="HRIDetails">
 		<xsd:complexType>
 			<xsd:attribute name="claimAmount" type="xsd:decimal"/>
@@ -4149,7 +4034,7 @@ Form11/Allowances/
 	</xsd:simpleType>
 	<xsd:complexType name="Employment">
 		<xsd:attribute name="employerName" type="xsd:string"/>
-
+		
 		<xsd:attribute name="directorshipType" type="xsd:int"/>
 		<xsd:attribute name="payeSalary" type="xsd:decimal"/>
 		<xsd:attribute name="incomeLevyPay" type="xsd:decimal"/>
@@ -4166,23 +4051,23 @@ Form11/Allowances/
 			<xsd:element name="Employment" type="Employment" minOccurs="0" maxOccurs="99"/>
 		</xsd:sequence>
 	</xsd:complexType>
-	<xsd:complexType name="DAFMDetail">
-		<xsd:attribute name="vendornumber" type="ros:string10"/>
-		<xsd:attribute name="year" type="ros:positive4"/>
-		<xsd:attribute name="paymentamount" type="xsd:decimal"/>
-		<xsd:attribute name="schemename" type="xsd:string"/>
-	</xsd:complexType>
-	<xsd:complexType name="eWork">
-		<xsd:attribute name="category" type="ros:string25"/>
-		<xsd:attribute name="value" type="xsd:decimal"/>
-		<xsd:attribute name="allowable" type="xsd:decimal"/>
-	</xsd:complexType>
-	<xsd:complexType name="DAFMDetailList">
-		<xsd:sequence>
+   	<xsd:complexType name="DAFMDetail">
+    	<xsd:attribute name="vendornumber" type="ros:string10"/>
+    	<xsd:attribute name="year" type="ros:positive4"/>
+    	<xsd:attribute name="paymentamount" type="xsd:decimal"/>
+    	<xsd:attribute name="schemename" type="xsd:string"/>
+   	</xsd:complexType>
+   	<xsd:complexType name="eWork">
+    	<xsd:attribute name="category" type="ros:string25"/>
+    	<xsd:attribute name="value" type="xsd:decimal"/>
+    	<xsd:attribute name="allowable" type="xsd:decimal"/>
+   	</xsd:complexType>
+   	<xsd:complexType name="DAFMDetailList">
+   		<xsd:sequence>
 			<xsd:element name="DAFMDetail" type="DAFMDetail" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
-	</xsd:complexType>
-
+   	</xsd:complexType>
+   	
 	<xsd:complexType name="DSPPension">
 		<xsd:attribute name="typePension" type="xsd:string"/>
 		<xsd:attribute name="amPensionWeekly" type="xsd:decimal"/>
@@ -4283,14 +4168,14 @@ Form11/Allowances/
 		<xsd:attribute name="amount" type="xsd:integer" use="optional"/>
 		<xsd:attribute name="rate" type="ros:rate" use="optional"/>
 		<xsd:attribute name="tax" type="xsd:decimal" use="optional"/>
-		<xsd:attribute name="self" type="ros:boolean" use="optional"/>
+		<xsd:attribute name="self" type="ros:boolean" use="optional"/>		
 	</xsd:complexType>
 
 	<xsd:complexType name="ForeignEarningsDeduction">
 		<xsd:attribute name="country" type="ros:string25" use="optional"/>
 		<xsd:attribute name="daysSelf" type="ros:positive3" use="optional"/>
 		<xsd:attribute name="daysSpouse" type="ros:positive3" use="optional"/>
-	</xsd:complexType>
+ 	</xsd:complexType>
 	<xsd:complexType name="ForeignEarningsDeductionSet">
 		<xsd:sequence>
 			<xsd:element name="ForeignEarningsDeduction" type="ForeignEarningsDeduction" minOccurs="0" maxOccurs="40"/>
@@ -4319,9 +4204,9 @@ Form11/Allowances/
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="RentIncDetailsSelf"
-							 type="RentIncDetail" minOccurs="0" maxOccurs="unbounded" />
+					type="RentIncDetail" minOccurs="0" maxOccurs="unbounded" />
 				<xsd:element name="RentIncDetailsSpouse"
-							 type="RentIncDetail" minOccurs="0" maxOccurs="unbounded" />
+					type="RentIncDetail" minOccurs="0" maxOccurs="unbounded" />
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -4332,18 +4217,18 @@ Form11/Allowances/
 		<xsd:attribute name="schemename" type="xsd:string" />
 		<xsd:attribute name="s97Submitted" type="xsd:boolean" />
 	</xsd:complexType>
-
+	
 	<xsd:complexType name="RentalReliefSectionS97">
 		<xsd:sequence>
 			<xsd:element name="ResidentTenancyDetails" type="ResidentTenancyDetails" minOccurs="0" maxOccurs="20"/>
 		</xsd:sequence>
 		<xsd:attribute name="s97Confirmation" type="ros:boolean" />
 	</xsd:complexType>
-
-	<xsd:complexType name="ResidentTenancyDetails">
-		<xsd:attribute name="residenttenancynumber" type="ros:string25" use="optional"/>
+	
+	<xsd:complexType name="ResidentTenancyDetails">	
+			<xsd:attribute name="residenttenancynumber" type="ros:string25" use="optional"/>
 	</xsd:complexType>
-
+	
 	<xsd:complexType name="StaySpend">
 		<xsd:attribute name="businessName" type="ros:string40" use="optional"/>
 		<xsd:attribute name="dateOfExpense" type="ros:date" use="optional"/>
@@ -4354,5 +4239,5 @@ Form11/Allowances/
 			<xsd:element name="StaySpend" type="StaySpend" minOccurs="0" maxOccurs="50"/>
 		</xsd:sequence>
 	</xsd:complexType>
-
+	
 </xsd:schema>
