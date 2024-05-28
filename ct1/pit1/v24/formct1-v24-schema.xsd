@@ -1509,7 +1509,7 @@ iv-OtherCodes
 						<xsd:attribute name="isExcessPartSurrToEmpThird" type="boolean" use="optional"/>
 						<xsd:attribute name="excessPartSurrdToEmpThird" type="euros16" use="optional"/>
 						<xsd:attribute name="employeePPSNThird" type="text20" use="optional"/>
-						<xsd:attribute name="employeePPSNThirdAmt" type="text20" use="optional"/>
+						<xsd:attribute name="employeePPSNThirdAmt" type="euros16" use="optional"/>
 						<xsd:attribute name="sucessorClaimAmt" type="euros16" use="optional"/>
 						<xsd:attribute name="sucessorClaimCompany1" type="text20" use="optional"/>
 						<xsd:attribute name="sucessorClaimCompany2" type="text20" use="optional"/>
@@ -1630,8 +1630,6 @@ iv-OtherCodes
 						<xsd:attribute name="totalCreditDue" type="euros16" use="optional"/>
 						<xsd:attribute name="relevantMicroOrSmallCompany" type="boolean" use="optional"/>
 						<xsd:attribute name="creditClaimed766at30" type="euros16" use="optional"/>
-						<xsd:attribute name="amtCarriedFwrdUnder766" type="euros16" use="optional"/>
-						<xsd:attribute name="amtCarriedFwrdUnder766A" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="ExcessRnDCredit" minOccurs="0">
@@ -1700,6 +1698,8 @@ iv-OtherCodes
 			<xsd:attribute name="isSec766A" type="boolean" use="optional"/>
 			<xsd:attribute name="isSec766C" type="boolean" use="optional"/>
 			<xsd:attribute name="isSec766D" type="boolean" use="optional"/>
+			<xsd:attribute name="amtCarriedFwrdUnder766" type="euros16" use="optional"/>
+			<xsd:attribute name="amtCarriedFwrdUnder766A" type="euros16" use="optional"/>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="FilmCorporationTaxCredit">
@@ -1803,7 +1803,7 @@ iv-OtherCodes
 						<xsd:attribute name="interestPaidNoDeduction" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="countryWithoutDeduction" minOccurs="0" maxOccurs="10">
+				<xsd:element name="countryWithoutDeduction" minOccurs="0" maxOccurs="50">
 					<xsd:complexType>
 						<xsd:attribute name="interestPaidCountryWithoutDeduction" type="integer12" use="optional"/>
 						<xsd:attribute name="interestPaidWithoutDeduction" type="euros16" use="optional"/>
