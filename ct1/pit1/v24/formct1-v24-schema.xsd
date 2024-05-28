@@ -4,197 +4,182 @@
 Document History:
 __________________________________________________________
 
-	i-TradingResults/TradeProfits
+	
+i-RecoveryOfIncomeTax
+	[added Element]
+	countryWithoutDeduction
 	[added attributes]
-	@farmBuildAllow
-	@farmBuildAllowSlurrySec658A2a
-	@farmBuildAllowSlurrySec658A2b
-	
-	
+	@interestPaidCountryWithoutDeduction
+	@interestPaidWithoutDeduction
 
-	ii-CompanyDetails/CompanyNameAndPpsn
-	[added attribute]
-	@partofMultiGrp
-	
-	iii-IrishInvestmentIncome
-	[added element]
-	PatentRights
+ii-ResearchAndDevelopment
 	[added attributes]
-	@residentCompany
-	@nonResidentCompany
-	@patentRightsPurchased
-	@prPurchasedNameOfOtherCompany
-	@prPurchasedTaxRefOtherCompany
-	@jointElectionUnderSection6174
-	@prSoldNameOfOtherCompany
-	@prSoldTaxRefOtherCompany
-	@jointElectionUnderSection61742
-	@deemedSaleOfPatentRights
-	@amountChargeableThisAccPeriod
-	@amountChargeablePrevAccPeriod
-	@totalChargeable
+	@amtCarriedFwrdUnder766
+	@amtCarriedFwrdUnder766A
 	
-	iv-Prepopulation
-	[added element]
-	EPSWTDetails
+iii-ResearchAndDevelopment/sec766C
 	[added attributes]
-	@timestamp
-	@totalGrossPay
-	@totalDeductionAmt
-	@totalRefundedAmt
+	@amtRDcorpTaxAt30
+	@isPreFillingRevenue
+	@rAndDtaxTwoAcctPeriod
+	@rAndDtaxTwoAcctPeriodFirst
+	@rAndDtaxTwoAcctPeriodScnd
+	@rAndDtaxTwoAcctPeriodBalance
+	@firstInstalmentCreditClaimed
+	@thirdInstalmentCreditClaimed
+	@isTreatedAsOverpaymentThird
+	@treatedAsOverpaymentThird
+	@isAmtPaidByRevenueThird
+	@amtPaidByRevenueThird
+	@isExcessPartSurrToEmpThird
+	@excessPartSurrdToEmpThird
+	@employeePPSNThird
+	@employeePPSNThirdAmt
+	@sucessorClaimAmt
+	@sucessorClaimCompany1
+	@sucessorClaimCompany2
+	@sucessorClaimCompany3
+	@sucessorClaimFirst
+	@sucessorClaimScnd
+	@sucessorClaimThird
+	@isClaimOverpayment
+	@isClaimOverpaymentAmt
+	@isClaimPaidByRev
+	@isClaimPaidByRevAmt
 	
-	v-SummaryCalculation
-	[added attribute]
-	@patentRights
 	
-	vi - ResearchAndDevelopmentCredit
-	
+iv-ResearchAndDevelopment/sec766D
 	[added attributes]
-	@unusedCarriedForward
-	@rndExpenditureSubContractedUni
-	@rndExpenditureSubContractedPerson
-	@isOtherPersonNotified
-	@amtGrantRndActivities
-	@eiRndGrants
-	@idaRndGrants
-	@leoRndGrants
-	@higherRndGrants
-	@otherIrishRndGrants
-	@irishPrivateRndGrants
-	@euRndGrants
-	@otherPublicRndGrants
-	@otherPrivateRndGrants
-	@otherRndGrants
-	@otherDesc
-	@isSec766
-	@isSec766A
-	@isSec766C
-	@isSec766D
-	@allowanceClaimedSection765
+	@amtRDcorpTaxAt30
+	@isPreFillingRevenue
+	@rAndDtaxPrior
+	@rAndDtaxPriorFirst
+	@rAndDtaxPriorBalance
+	@rAndDtaxTwoAcctPeriod
+	@rAndDtaxTwoAcctPeriodFirst
+	@rAndDtaxTwoAcctPeriodScnd
+	@rAndDtaxTwoAcctPeriodBalance
+	@thirdInstalmentAmount
+	@isTreatedAsOverpay3rdInstal
+	@treatedAsOverpay3rdInstal
+	@isExcessFromOtherGroup3rdInstal
+	@excessFromOtherGroup3rdInstal
+	@employee1PPSN3rdInstalment
+	@employee1Amount3rdInstalment
+	@isExcessFromOtherGroupSurr3rdInstal
+	@excessFromOtherGroupSurr3rdInstal
+	@employee2PPSN3rdInstalment
+	@employee2Amount3rdInstalment
+	@isPaidByRevenue3rdInstalment
+	@paidByRevenue3rdInstalment
+	@sucessorClaimAmt
+	@sucessorClaimCompany1
+	@sucessorClaimCompany2
+	@sucessorClaimCompany3
+	@sucessorClaimFirst
+	@sucessorClaimScnd
+	@sucessorClaimThird
+	@isClaimOverpayment
+	@isClaimOverpaymentAmt
+	@isClaimPaidByRev
+	@isClaimPaidByRevAmt
+
+v-TradingResults/ExceptedTradeProfits
+	[removed attributes]
+	@interinClainUnderSec396d
+	@finalClainUnderSec396a
+	@companyExpectLoss
+	@companyIsTaxCompliant
 	
-	[added element]
-	sec766
+vi-TradingResults/QualifyingAssetsProfits
+	[removed attributes]
+	@interinClainUnderSec396d
+	@finalClainUnderSec396a
+	@companyExpectLoss
+	@companyIsTaxCompliant
+	
+vi-Deductions/ReliefOnValueBasis
+	[removed attributes]
+	@qualAssetsCapitalAllowance
+	@qualAssetsLosses
+	@qualAssetsCharges
+	@qualAssetsGroupRelief
+	@companyExpectLoss
+	@companyIsTaxCompliant
+	@qualyCompanyExpectLoss
+	@qualyCompanyIsTaxCompliant
+	@qualAssetsLossesCarriedBack
+	@interinClainUnderSec396d
+	@qualyInterinClainUnderSec396d
+
+vii-CompanyDetails
+	[removed attributes]
+	@companyNamePaymentWasMade
+	@recipientTaxReference
+	@recipientPaymentAmount
+	
+	[new element]
+	additionalCompaniesMembers
 	[added attributes]
+	@companyNamePaymentWasMade
+	@recipientTaxReference
+	@recipientPaymentAmount
+	
+	[new element]
+	OutboundPayments
+	[added attributes]
+	@paymentdate
+	@paymenttype
+	@grosspayment
+	@withheldamount
+	@country
+	@explanation
+	@explanationdetails
+
+vii-ResearchAndDevelopment/sec766
+	[removed element]
+	EmployeeDetails
+	[removed attributes]
+	@rndCreditSurrendered766Emp
+	@employeePpsn
 	@amountCreditForThisPeriodAt25
 	@expenditureMachineryPlant
 	@amountSurrendedInAccSec7662A
-	@unusedCreditCarriedFwdExcSec7664B
-	@unusedCreditCarriedFwdSec7664BII
-	@unusedCreditCarriedFwdSec7664BIII
-	@unusedCreditCarriedFwdSec7664C
 	@fisrtInstClaim766
-	@secondInstClaim766
-	@thirdInstClaim766
 	@isClaimingToHaveExcessPaid
 	@amtClaimed2ndSec7664b
 	@amtClaimed3rdSec7664b
-	@company1
-	@company2
-	@company3
+
 	
-	[added element]
-	sec766A
-	[added attributes]
+	
+viii-ResearchAndDevelopment/sec766A
+	[removed attributes]
 	@amountCreditClaimedConstruction
-	@amountUnusedCreditConstruction
-	@amountUnusedCarriedFwrdSec766A4BII
-	@amountUnusedCarriedFwrdSec766A4BIII
-	@amountUnusedCarriedFwrdSec766A3A
 	@groupReliefUnder766A
 	@taxReferenceNumberSurrended
 	@groupReliefUnder766A4b
 	@taxReferenceCreditAllocated
-	@totalRandDCreditClaimed
-	@rAndDCreditClawback
-	@totalRandDCreditClaimedAccPeriod
 	@fisrtInstalment
-	@secondInstalment
-	@thirdInstalment
 	@isClaimingExcess2nd3rdInstalment
-	@isTransferredToCompanySec766A
 	@secondInstalmentClaimed
 	@thirdInstalmentClaimed
+
+iv-RentalIncome
+	[new attributes]
+	@grosspaynlwt
+	@deductionamountnlwt
 	
-	[added element]
-	sec766C
-	[added attributes]
-	@researchAndDCreditClaimedUnder766Cat25
-	@machineryOrPlantSec7661A
-	@emolumentsOfEmpRandDAct
-	@sumRemainingQualExpAccPeriod
-	@rAndDCreditClaimedPriorPeriod
-	@amtRandDCreditClaimed1stInstal
-	@balanceRandDCredit
-	@amtQualGroupExpsec766C
-	@amtRandDCreditExcessClaimed
-	@company1TRN
-	@company1Amount
-	@company2TRN
-	@company2Amount
-	@amtQualGroupExpToOtherGroup
-	@amtQualGroupExpToOtherGroupExcess
-	@company1TRNSurrended
-	@company1AmountSurrended
-	@company2TRNSurrended
-	@company2AmountSurrended
-	@firstInstalmentCredit
-	@isTreatedAsOverpayment
-	@treatedAsOverpayment
-	@amtOverpaymentToBeOffset
-	@IsAmtPaidByRevenue
-	@amtPaidByRevenue
-	@isExcessPartSurrendedToEmployee
-	@excessPartSurrendedToEmployee
-	@employeePPSN
-	@employeeAmount
-	@scndInstalmentAmount
-	@isTreatedAsOverpay2ndInstal
-	@isExcessPaidToEmployee2ndInstal
-	@treatedAsOverpay2ndInstal
-	@excessPaidToEmployee2ndInstal
-	@employeePPSN2ndInstalment
-	@employeeAmount2ndInstalment
-	@isPaidByRevenue2ndInstalment
-	@paidByRevenue2NdInstalment
+iv-OtherCodes
+	[new attributes]
+	@suspicioussuspend
 	
-	[added element]
-	sec766D
-	[added attributes]
-	@researchAndDCreditClaimedUnder766Dat25
-	@rAndDCreditPriorPeriod
-	@amtRandD1stInstalmentPriorPeriod
-	@balanceRnDCreditClaimPriorPeriod
-	@firstInstalmentCredit
-	@isTreatedAsOverpayment
-	@treatedAsOverpayment
-	@amtOverpaymentToBeOffset
-	@isExcessFromOtherGroup
-	@excessFromOtherGroup
-	@company1PPSN
-	@company1Amount
-	@company2PPSN
-	@company2Amount
-	@isExcessFromOtherGroupSurrended
-	@excessFromOtherGroupSurrended
-	@isPaidByRevenue
-	@paidByRevenue
-	@scndInstalmentAmount
-	@isTreatedAsOverpay2ndInstal
-	@treatedAsOverpay2ndInstal
-	@isExcessFromOtherGroup2ndInstal
-	@excessFromOtherGroup2ndInstal
-	@employee1PPSN2ndInstalment
-	@employee1Amount2ndInstalment
-	@isExcessFromOtherGroupSurr2ndInstal
-	@excessFromOtherGroupSurr2ndInstal
-	@employee2PPSN2ndInstalment
-	@employee2Amount2ndInstalment
-	@isPaidByRevenue2ndInstalment
-	@paidByRevenue2ndInstalment
+
+
+	
 	
 -->
 
-<xsd:schema xmlns="http://www.ros.ie/schemas/formct1/v23/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/formct1/v23/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xsd:schema xmlns="http://www.ros.ie/schemas/formct1/v24/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/formct1/v24/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xsd:element name="FormCt1">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -223,7 +208,7 @@ __________________________________________________________
 				<xsd:element ref="SummaryCalculation" minOccurs="0"/>
 			</xsd:sequence>
 			<xsd:attribute name="currency" type="currency" use="required" fixed="E"/>
-			<xsd:attribute name="formversion" type="xsd:integer" use="required" fixed="23"/>
+			<xsd:attribute name="formversion" type="xsd:integer" use="required" fixed="24"/>
 			<xsd:attribute name="language" type="language" use="required"/>
 			<xsd:attribute name="product" type="text20" use="optional"/>
 			<xsd:attribute name="numamendments" type="positive3" use="optional"/>
@@ -454,6 +439,13 @@ __________________________________________________________
 									<xsd:attribute name="totalSpareCapacityReallocatedFromPriorPeriods" type="euros16" use="optional" />
 								</xsd:complexType>
 							</xsd:element>
+							<xsd:element name="additionalCompaniesMembers" minOccurs="0" maxOccurs="200">
+								<xsd:complexType>
+									<xsd:attribute name="companyNamePaymentWasMade" type="text40" use="optional" />
+									<xsd:attribute name="recipientTaxReference" type="text40" use="optional" />
+									<xsd:attribute name="recipientPaymentAmount" type="euros16" use="optional" />
+								</xsd:complexType>
+							</xsd:element>
 						</xsd:sequence>
 						<xsd:attribute name="isAccountingPeriodBefore2021" type="boolean" use="optional" />
 						<xsd:attribute name="companyStandaloneEntitySec835AY" type="boolean" use="optional" />
@@ -485,17 +477,14 @@ __________________________________________________________
 						<xsd:attribute name="TotalSpareCapacityCarriedForward" type="euros16" use="optional" />
 						<xsd:attribute name="TotalSpareCapacityUtilisedAccountingPeriod" type="euros16" use="optional" />
 						<xsd:attribute name="companyPaymentAmountsAllocatedUnderSec835AAL" type="boolean" use="optional" />
-						<xsd:attribute name="companyNamePaymentWasMade" type="text40" use="optional" />
-						<xsd:attribute name="recipientTaxReference" type="text40" use="optional" />
-						<xsd:attribute name="recipientPaymentAmount" type="euros16" use="optional" />
 						<xsd:attribute name="minimisExemptionApplyInterestGroup" type="boolean" use="optional" />
 						<xsd:attribute name="accountingPeriodInterestGroupFrom" type="date" use="optional" />
 						<xsd:attribute name="accountingPeriodInterestGroupTo" type="date" use="optional" />
 						<xsd:attribute name="interestGroupElectionToEquityAccPeriod" type="boolean" use="optional" />
-						<xsd:attribute name="interestGroupEquityRatio" type="euros16" use="optional" />
-						<xsd:attribute name="worldwideGroupEquityRatio" type="euros16" use="optional" />
-						<xsd:attribute name="interestGroupTotalAssetsEquityRatio" type="euros16" use="optional" />
-						<xsd:attribute name="worldwideGroupTotalAssetsEquityRatio" type="euros16" use="optional" />
+						<xsd:attribute name="interestGroupEquityRatio" type="integer12" use="optional" />
+						<xsd:attribute name="worldwideGroupEquityRatio" type="integer12" use="optional" />
+						<xsd:attribute name="interestGroupTotalAssetsEquityRatio" type="integer12" use="optional" />
+						<xsd:attribute name="worldwideGroupTotalAssetsEquityRatio" type="integer12" use="optional" />
 						<xsd:attribute name="interestGroupElectionToGroupAccPeriod" type="boolean" use="optional" />
 						<xsd:attribute name="electionGroupEbitda" type="euros16" use="optional" />
 						<xsd:attribute name="groupExceedingBorrowingCosts" type="euros16" use="optional" />
@@ -630,6 +619,28 @@ __________________________________________________________
 						<xsd:attribute name="byPayingDividend" type="boolean" use="optional" default="false"/>
 					</xsd:complexType>
 				</xsd:element>
+				<xsd:element name="OutboundPaymentsDetails" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="paymentdate" type="date" use="optional" />
+						<xsd:attribute name="paymenttype" type="positive2" use="optional" />
+						<xsd:attribute name="grosspayment" type="positiveDec8" use="optional"/>
+						<xsd:attribute name="withheldamount" type="positiveDec8" use="optional"/>
+						<xsd:attribute name="country" type="integer12" use="optional" />
+						<xsd:attribute name="explanation" type="integer12" use="optional" />
+						<xsd:attribute name="explanationdetails" type="text20" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OutboundPayments" minOccurs="0" maxOccurs="200">
+					<xsd:complexType>
+						<xsd:attribute name="paymentdate" type="date" use="optional" />
+						<xsd:attribute name="paymenttype" type="positive2" use="optional" />
+						<xsd:attribute name="grosspayment" type="positiveDec8" use="optional"/>
+						<xsd:attribute name="withheldamount" type="positiveDec8" use="optional"/>
+						<xsd:attribute name="country" type="integer12" use="optional" />
+						<xsd:attribute name="explanation" type="integer12" use="optional" />
+						<xsd:attribute name="explanationdetails" type="text20" use="optional" default="false"/>
+					</xsd:complexType>
+				</xsd:element>
 			</xsd:sequence>
 			<xsd:attribute name="numOfAssociatedCompanies" type="positive3" use="optional"/>
 			<xsd:attribute name="companyRegistrationOfficeNumber" type="text8" use="optional"/>
@@ -699,10 +710,6 @@ __________________________________________________________
 						<xsd:attribute name="lossesAppropriateToTrade" type="euros16" use="optional"/>
 						<xsd:attribute name="s291aAmountsIncluded" type="boolean" use="optional" default="false"/>
 						<xsd:attribute name="lossClaimUnderCarryBack" type="euros12" use="optional"/>
-						<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="ProfitResourceRentTax" minOccurs="0" maxOccurs="1">
@@ -853,10 +860,10 @@ __________________________________________________________
 								<xsd:attribute name="currentYearProtectiveClaim" type="euros16" use="optional"/>
 								<xsd:attribute name="totalProtectiveClaim" type="euros16" use="optional"/>
 								<xsd:attribute name="s291aAmountsIncluded" type="boolean" use="optional" default="false"/>
-								<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
-								<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
-								<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
-								<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
+								
+								
+								
+								
 					    	</xsd:extension>
 						</xsd:complexContent>
 					</xsd:complexType>
@@ -1050,7 +1057,8 @@ __________________________________________________________
 			<xsd:attribute name="checkCollectionAgent" type="boolean" use="optional" default="false"/>
 			<xsd:attribute name="checkTaxWithheld" type="boolean" use="optional" default="false"/>
 			<xsd:attribute name="nonResCompanyResidence" type="integer12" use="optional" />
-			
+			<xsd:attribute name="grosspaynlwt" type="positiveDec8" use="optional"/>
+			<xsd:attribute name="deductionamountnlwt" type="positiveDec8" use="optional"/>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="IrishInvestmentIncome">
@@ -1399,19 +1407,7 @@ __________________________________________________________
 						<xsd:attribute name="tradingLossesCarriedBack" type="euros16" use="optional"/>
 						<xsd:attribute name="tradingCharges" type="euros16" use="optional"/>
 						<xsd:attribute name="tradingGroupRelief" type="euros16" use="optional"/>
-						<xsd:attribute name="qualAssetsCapitalAllowance" type="euros16" use="optional"/>
-						<xsd:attribute name="qualAssetsLosses" type="euros16" use="optional"/>
-						<xsd:attribute name="qualAssetsCharges" type="euros16" use="optional"/>
-						<xsd:attribute name="qualAssetsGroupRelief" type="euros16" use="optional"/>	
 						<xsd:attribute name="qualAssetsLossesCarriedBack" type="euros16" use="optional"/>
-						<xsd:attribute name="interinClainUnderSec396d" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="finalClainUnderSec396a" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="companyExpectLoss" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="companyIsTaxCompliant" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="qualyInterinClainUnderSec396d" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="qualyFinalClainUnderSec396a" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="qualyCompanyExpectLoss" type="boolean" use="optional" default="false"/>
-						<xsd:attribute name="qualyCompanyIsTaxCompliant" type="boolean" use="optional" default="false"/>											
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="Credits" minOccurs="0">
@@ -1432,27 +1428,12 @@ __________________________________________________________
 			<xsd:sequence>
 				<xsd:element name="sec766" minOccurs="0">
 					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="EmployeeDetails" minOccurs="0" maxOccurs="50">
-								<xsd:complexType>
-									<xsd:attribute name="rndCreditSurrendered766Emp" type="euros16" use="optional"/>
-									<xsd:attribute name="employeePpsn" type="ppsn" use="optional"/>		
-								</xsd:complexType>
-							</xsd:element>
-						</xsd:sequence>
-						<xsd:attribute name="amountCreditForThisPeriodAt25" type="euros16" use="optional"/>
-						<xsd:attribute name="expenditureMachineryPlant" type="euros16" use="optional"/>
-						<xsd:attribute name="amountSurrendedInAccSec7662A" type="euros16" use="optional"/>
 						<xsd:attribute name="unusedCreditCarriedFwdExcSec7664B" type="euros16" use="optional"/>
 						<xsd:attribute name="unusedCreditCarriedFwdSec7664BII" type="euros16" use="optional"/>
 						<xsd:attribute name="unusedCreditCarriedFwdSec7664BIII" type="euros16" use="optional"/>
 						<xsd:attribute name="unusedCreditCarriedFwdSec7664C" type="euros16" use="optional"/>
-						<xsd:attribute name="fisrtInstClaim766" type="euros16" use="optional"/>
 						<xsd:attribute name="secondInstClaim766" type="euros16" use="optional"/>
 						<xsd:attribute name="thirdInstClaim766" type="euros16" use="optional"/>
-						<xsd:attribute name="isClaimingToHaveExcessPaid" type="boolean" use="optional"/>
-						<xsd:attribute name="amtClaimed2ndSec7664b" type="euros16" use="optional"/>
-						<xsd:attribute name="amtClaimed3rdSec7664b" type="euros16" use="optional"/>
 						<xsd:attribute name="company1" type="text20" use="optional"/>
 						<xsd:attribute name="company2" type="text20" use="optional"/>
 						<xsd:attribute name="company3" type="text20" use="optional"/>
@@ -1460,25 +1441,16 @@ __________________________________________________________
 				</xsd:element>
 				<xsd:element name="sec766A" minOccurs="0">
 					<xsd:complexType>
-						<xsd:attribute name="amountCreditClaimedConstruction" type="euros16" use="optional"/>
 						<xsd:attribute name="amountUnusedCreditConstruction" type="euros16" use="optional"/>
 						<xsd:attribute name="amountUnusedCarriedFwrdSec766A4BII" type="euros16" use="optional"/>
 						<xsd:attribute name="amountUnusedCarriedFwrdSec766A4BIII" type="euros16" use="optional"/>
 						<xsd:attribute name="amountUnusedCarriedFwrdSec766A3A" type="euros16" use="optional"/>
-						<xsd:attribute name="groupReliefUnder766A" type="euros16" use="optional"/>
-						<xsd:attribute name="taxReferenceNumberSurrended" type="text20" use="optional"/>
-						<xsd:attribute name="groupReliefUnder766A4b" type="euros16" use="optional"/>
-						<xsd:attribute name="taxReferenceCreditAllocated" type="text20" use="optional"/>
 						<xsd:attribute name="totalRandDCreditClaimed" type="euros16" use="optional"/>
 						<xsd:attribute name="rAndDCreditClawback" type="euros16" use="optional"/>
 						<xsd:attribute name="totalRandDCreditClaimedAccPeriod" type="euros16" use="optional"/>
-						<xsd:attribute name="fisrtInstalment" type="euros16" use="optional"/>
 						<xsd:attribute name="secondInstalment" type="euros16" use="optional"/>
 						<xsd:attribute name="thirdInstalment" type="euros16" use="optional"/>
-						<xsd:attribute name="isClaimingExcess2nd3rdInstalment" type="boolean" use="optional"/>
 						<xsd:attribute name="isTransferredToCompanySec766A" type="boolean" use="optional"/>
-						<xsd:attribute name="secondInstalmentClaimed" type="euros16" use="optional"/>
-						<xsd:attribute name="thirdInstalmentClaimed" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="sec766C" minOccurs="0">
@@ -1522,6 +1494,33 @@ __________________________________________________________
 						<xsd:attribute name="totalRandDCreditAccPeriod" type="euros16" use="optional"/>
 						<xsd:attribute name="isPaidByRevenue2ndInstalment" type="boolean" use="optional"/>
 						<xsd:attribute name="paidByRevenue2NdInstalment" type="euros16" use="optional"/>
+						<xsd:attribute name="amtRDcorpTaxAt30" type="euros16" use="optional"/>
+						<xsd:attribute name="isPreFillingRevenue" type="boolean" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriodFirst" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriodScnd" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriodBalance" type="euros16" use="optional"/>
+						<xsd:attribute name="firstInstalmentCreditClaimed" type="euros16" use="optional"/>
+						<xsd:attribute name="thirdInstalmentCreditClaimed" type="euros16" use="optional"/>
+						<xsd:attribute name="isTreatedAsOverpaymentThird" type="boolean" use="optional"/>
+						<xsd:attribute name="treatedAsOverpaymentThird" type="euros16" use="optional"/>
+						<xsd:attribute name="isAmtPaidByRevenueThird" type="boolean" use="optional"/>
+						<xsd:attribute name="amtPaidByRevenueThird" type="euros16" use="optional"/>
+						<xsd:attribute name="isExcessPartSurrToEmpThird" type="boolean" use="optional"/>
+						<xsd:attribute name="excessPartSurrdToEmpThird" type="euros16" use="optional"/>
+						<xsd:attribute name="employeePPSNThird" type="text20" use="optional"/>
+						<xsd:attribute name="employeePPSNThirdAmt" type="text20" use="optional"/>
+						<xsd:attribute name="sucessorClaimAmt" type="euros16" use="optional"/>
+						<xsd:attribute name="sucessorClaimCompany1" type="text20" use="optional"/>
+						<xsd:attribute name="sucessorClaimCompany2" type="text20" use="optional"/>
+						<xsd:attribute name="sucessorClaimCompany3" type="text20" use="optional"/>
+						<xsd:attribute name="sucessorClaimFirst" type="euros16" use="optional"/>
+						<xsd:attribute name="sucessorClaimScnd" type="euros16" use="optional"/>
+						<xsd:attribute name="sucessorClaimThird" type="euros16" use="optional"/>
+						<xsd:attribute name="isClaimOverpayment" type="boolean" use="optional"/>
+						<xsd:attribute name="isClaimOverpaymentAmt" type="euros16" use="optional"/>
+						<xsd:attribute name="isClaimPaidByRev" type="boolean" use="optional"/>
+						<xsd:attribute name="isClaimPaidByRevAmt" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="sec766D" minOccurs="0">
@@ -1557,6 +1556,39 @@ __________________________________________________________
 						<xsd:attribute name="employee2Amount2ndInstalment" type="euros16" use="optional"/>
 						<xsd:attribute name="isPaidByRevenue2ndInstalment" type="boolean" use="optional"/>
 						<xsd:attribute name="paidByRevenue2ndInstalment" type="euros16" use="optional"/>
+						<xsd:attribute name="amtRDcorpTaxAt30" type="euros16" use="optional"/>
+						<xsd:attribute name="isPreFillingRevenue" type="boolean" use="optional"/>
+						<xsd:attribute name="rAndDtaxPrior" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxPriorFirst" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxPriorBalance" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriod" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriodFirst" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriodScnd" type="euros16" use="optional"/>
+						<xsd:attribute name="rAndDtaxTwoAcctPeriodBalance" type="euros16" use="optional"/>
+						<xsd:attribute name="thirdInstalmentAmount" type="euros16" use="optional"/>
+						<xsd:attribute name="isTreatedAsOverpay3rdInstal" type="boolean" use="optional"/>
+						<xsd:attribute name="treatedAsOverpay3rdInstal" type="euros16" use="optional"/>
+						<xsd:attribute name="isExcessFromOtherGroup3rdInstal" type="boolean" use="optional"/>
+						<xsd:attribute name="excessFromOtherGroup3rdInstal" type="euros16" use="optional"/>
+						<xsd:attribute name="employee1PPSN3rdInstalment" type="text20" use="optional"/>
+						<xsd:attribute name="employee1Amount3rdInstalment" type="euros16" use="optional"/>
+						<xsd:attribute name="isExcessFromOtherGroupSurr3rdInstal" type="boolean" use="optional"/>
+						<xsd:attribute name="excessFromOtherGroupSurr3rdInstal" type="euros16" use="optional"/>
+						<xsd:attribute name="employee2PPSN3rdInstalment" type="text20" use="optional"/>
+						<xsd:attribute name="employee2Amount3rdInstalment" type="euros16" use="optional"/>
+						<xsd:attribute name="isPaidByRevenue3rdInstalment" type="boolean" use="optional"/>
+						<xsd:attribute name="paidByRevenue3rdInstalment" type="euros16" use="optional"/>
+						<xsd:attribute name="sucessorClaimAmt" type="euros16" use="optional"/>
+						<xsd:attribute name="sucessorClaimCompany1" type="text20" use="optional"/>
+						<xsd:attribute name="sucessorClaimCompany2" type="text20" use="optional"/>
+						<xsd:attribute name="sucessorClaimCompany3" type="text20" use="optional"/>
+						<xsd:attribute name="sucessorClaimFirst" type="euros16" use="optional"/>
+						<xsd:attribute name="sucessorClaimScnd" type="euros16" use="optional"/>
+						<xsd:attribute name="sucessorClaimThird" type="euros16" use="optional"/>
+						<xsd:attribute name="isClaimOverpayment" type="boolean" use="optional"/>
+						<xsd:attribute name="isClaimOverpaymentAmt" type="euros16" use="optional"/>
+						<xsd:attribute name="isClaimPaidByRev" type="boolean" use="optional"/>
+						<xsd:attribute name="isClaimPaidByRevAmt" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="RnDCreditAllowances" minOccurs="0">
@@ -1771,6 +1803,12 @@ __________________________________________________________
 						<xsd:attribute name="interestPaidNoDeduction" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
+				<xsd:element name="countryWithoutDeduction" minOccurs="0" maxOccurs="10">
+					<xsd:complexType>
+						<xsd:attribute name="interestPaidCountryWithoutDeduction" type="integer12" use="optional"/>
+						<xsd:attribute name="interestPaidWithoutDeduction" type="euros16" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
 			</xsd:sequence>
 			<xsd:attribute name="dtaReliedOnCountryDeduction" type="integer12" use="optional"/>
 			<xsd:attribute name="interestPaid" type="euros16" use="optional"/>
@@ -1837,7 +1875,8 @@ __________________________________________________________
 			<xsd:attribute name="miscIncomeNonRepayDesc" type="text64" use="optional"/>
 			<xsd:attribute name="rateOfCharge125" type="boolean" use="optional" default="false"/>
 			<xsd:attribute name="canBeOffset" type="boolean" use="optional" default="false"/>
-			
+			<xsd:attribute name="suspicioussuspend" type="boolean" use="optional" default="false"/>
+
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="SummaryCalculation">
@@ -1893,6 +1932,8 @@ __________________________________________________________
 			<xsd:attribute name="surchargesSection441" type="euros16" use="optional"/>
 			<xsd:attribute name="totalSurcharges" type="euros13" use="optional"/>
 			<xsd:attribute name="grossWithholdingTax" type="euros16" use="optional"/>
+			<xsd:attribute name="nlwtCredit" type="euros13" use="optional"/>
+			<xsd:attribute name="deductionamountdiff" type="euros13" use="optional"/>
 			<xsd:attribute name="otherIncTaxBorneIncRec" type="euros16" use="optional"/>
 			<xsd:attribute name="rAndDCredit" type="euros16" use="optional"/>
 			<xsd:attribute name="totalFilmCredit" type="euros16" use="optional"/>
@@ -2054,6 +2095,7 @@ __________________________________________________________
 				<xsd:element ref="Prepopulated" minOccurs="0"/>
 				<xsd:element ref="RCTDetails" minOccurs="0"/>
 				<xsd:element ref="EPSWTDetails" minOccurs="0"/>
+				<xsd:element ref="NLWTDetails" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2083,6 +2125,12 @@ __________________________________________________________
 			<xsd:attribute name="totalGrossPay" type="xsd:decimal"/>
 			<xsd:attribute name="totalDeductionAmt" type="xsd:decimal"/>
 			<xsd:attribute name="totalRefundedAmt" type="xsd:decimal"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="NLWTDetails">
+		<xsd:complexType>
+			<xsd:attribute name="grossPay" type="xsd:decimal" use="optional"/>
+			<xsd:attribute name="deductionAmount" type="xsd:decimal" use="optional"/>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="Acknowledgement">
@@ -2184,6 +2232,12 @@ __________________________________________________________
 		<xsd:restriction base="xsd:integer">
 			<xsd:minInclusive value="0"/>
 			<xsd:maxInclusive value="9999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="positiveDec8">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="99999999.99"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="positive12">
