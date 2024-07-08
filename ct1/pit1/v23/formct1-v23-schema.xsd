@@ -1598,8 +1598,6 @@ __________________________________________________________
 						<xsd:attribute name="totalCreditDue" type="euros16" use="optional"/>
 						<xsd:attribute name="relevantMicroOrSmallCompany" type="boolean" use="optional"/>
 						<xsd:attribute name="creditClaimed766at30" type="euros16" use="optional"/>
-						<xsd:attribute name="amtCarriedFwrdUnder766" type="euros16" use="optional"/>
-						<xsd:attribute name="amtCarriedFwrdUnder766A" type="euros16" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="ExcessRnDCredit" minOccurs="0">
@@ -1668,6 +1666,8 @@ __________________________________________________________
 			<xsd:attribute name="isSec766A" type="boolean" use="optional"/>
 			<xsd:attribute name="isSec766C" type="boolean" use="optional"/>
 			<xsd:attribute name="isSec766D" type="boolean" use="optional"/>
+			<xsd:attribute name="amtCarriedFwrdUnder766" type="euros16" use="optional"/>
+			<xsd:attribute name="amtCarriedFwrdUnder766A" type="euros16" use="optional"/>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="FilmCorporationTaxCredit">
