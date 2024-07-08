@@ -1,44 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Revenue Computer Centre (Revenue Computer Centre) -->
 <!--
-Form1 v17 2023 Annualisation 
+Form1 v17 2023 24.3 
 
 Document History:
 __________________________________________________________
-
-Version 1.0:
-
-1. Form1/TrustDetails/Trust
-		[added the following attributes]
-		@subtrusttype
-		@othersubtrusttype
-		@foreignunittrust
 		
-2. Form1/CapitalGains/AcquisitionDetails
-		[Added the following attributes]
-		@currentyearcarried
-		@prioryearcarried
-		
-3. Form1/ForeignIncome/ForeignAccountDetails/
-		[removed]
-		@opaddintermediary
-		@opnameintermediary
-		@ofaddintermediary
-		@ofnameintermediary
-		@flnameintermediary
-		@fladdintermediary
-		@fbanameintermediary
-		@fbaaddintermediary
-
-4. Form1/ForeignIncome/ForeignAccountDetails
+1. Form1/InvestmentIncome/PatRightsCapSums/
 		[added]
-		@opnameaddressintermediary
-		@ofnameaddressintermediary
-		@flnameaddressintermediary
-		@fbanameaddressintermediary
-		@opampaymadeacqmat20
-		@ofampaymadeacqmat20
-		@lpAmPayMadeAcqMat20
+		@resCapSums
+		@nonResCapSums
+		@patRightsAcquired
+		@salesChargeThisYear
+		@salesChargePrevYear
+		@salesChargeTotal
 						
 -->
 <xsd:schema xmlns="http://www.ros.ie/schemas/form1/v17/"
@@ -276,6 +251,16 @@ Version 1.0:
 							use="optional" />
 						<xsd:attribute name="grossamofotherincome" type="euros10"
 							use="optional" />
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PatRightsCapSums" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="resCapSums" type="euros9" use="optional"/>
+						<xsd:attribute name="nonResCapSums" type="euros9" use="optional"/>
+						<xsd:attribute name="patRightsAcquired" type="euros9" use="optional"/>
+						<xsd:attribute name="salesChargeThisYear" type="euros9" use="optional"/>
+						<xsd:attribute name="salesChargePrevYear" type="euros9" use="optional"/>
+						<xsd:attribute name="salesChargeTotal" type="euros9" use="optional"/>
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="InvestmentUndertakings" minOccurs="0"
