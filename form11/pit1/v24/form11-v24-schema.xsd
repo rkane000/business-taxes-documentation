@@ -26,11 +26,10 @@ OtherIrish > PatRightsCapSums
 
 Trade > AccScrnLess250 > AccScrnLess250Info
 @included
-@excluded
 -->	
 
 <xsd:schema xmlns:ros="http://www.ros.ie/schemas/rostypes/" xmlns="http://www.ros.ie/schemas/form11/v24/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/form11/v24/" elementFormDefault="qualified" attributeFormDefault="unqualified">
-<!-- <xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="schema.xsd"/>-->
+<!--<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="schema.xsd"/>-->
 <xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="../../rostypes/schema.xsd"/>
 	<xsd:element name="Form11">
 		<xsd:complexType>
@@ -471,8 +470,7 @@ Trade > AccScrnLess250 > AccScrnLess250Info
 							<xsd:element name="AccScrnLess250Info"  minOccurs="0">
 								<xsd:complexType>
 									<xsd:attribute name="sales" type="ros:positive10" use="optional"/>
-									<xsd:attribute name="included" type="ros:boolean" default="false"/>
-									<xsd:attribute name="excluded" type="ros:boolean" default="false"/>
+									<xsd:attribute name="included" type="ros:boolean" use="optional" default="false"/>
 									<xsd:attribute name="govnreceipts" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="otherincome" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="purchases" type="ros:positive10" use="optional"/>
